@@ -5,7 +5,9 @@
   "description": "Local decision UI and registry generator for HNS",
   "scripts": {
     "start": "node server.js",
-    "generate": "node scripts/generate-registry.js"
+    "generate": "node scripts/generate-registry.js",
+    "verify-manifest": "node scripts/verify-manifest.js",
+    "test": "node scripts/verify-manifest.test.js"
   },
   "engines": {
     "node": ">=18"
