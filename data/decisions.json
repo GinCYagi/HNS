@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-12",
+  "decisions": [
+    {
+      "decisionId": "HNS-DEC-PENDING-001",
+      "priority": "P0",
+      "target": "行政区画マスター",
+      "question": "現行構造を親資産として固定するか",
+      "recommendedAction": "Rev査読後に裁定",
+      "status": "Pending",
+      "decisionDate": null,
+      "note": "Rev稼働制限中"
+    },
+    {
+      "decisionId": "HNS-DEC-PENDING-002",
+      "priority": "P1",
+      "target": "音声レビュー手順書",
+      "question": "v0.1を正式査読対象とするか",
+      "recommendedAction": "査読キューへ登録",
+      "status": "Pending",
+      "decisionDate": null,
+      "note": "正式ファイル名要確認"
+    },
+    {
+      "decisionId": "HNS-DEC-PENDING-003",
+      "priority": "P1",
+      "target": "実在衝突四軸",
+      "question": "CXとDPのどちらへ分類するか",
+      "recommendedAction": "原文確認後に裁定",
+      "status": "Pending",
+      "decisionDate": null,
+      "note": "独断採番禁止"
+    },
+    {
+      "decisionId": "HNS-DEC-PENDING-004",
+      "priority": "P1",
+      "target": "字義残滓審査",
+      "question": "CXとDPのどちらへ分類するか",
+      "recommendedAction": "原文確認後に裁定",
+      "status": "Pending",
+      "decisionDate": null,
+      "note": "独断採番禁止"
+    }
+  ]
+}

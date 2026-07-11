@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HNS Asset Registry Admin</title>
+  <link rel="stylesheet" href="/admin/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">HNS-Crd local tool</p>
+        <h1>Gin Decision Queue</h1>
+        <p>裁定対象を確認し、採用・不採用・保留を記録します。</p>
+      </div>
+      <div class="header-actions">
+        <button id="glossary-open">📖 用語一覧</button>
+        <button id="reload">再読込</button>
+      </div>
+    </header>
+
+    <aside>
+      この画面はGinの裁定結果を記録するためのものです。AI RoleはDecision／Approvalを発行しません。
+    </aside>
+
+    <div class="layout">
+      <section id="queue" aria-live="polite"></section>
+      <aside id="glossary-panel" class="glossary-panel" aria-label="用語一覧">
+        <div class="glossary-head">
+          <h2>用語一覧</h2>
+          <button id="glossary-close" aria-label="用語一覧を閉じる">×</button>
+        </div>
+        <div id="glossary-list"></div>
+      </aside>
+    </div>
+  </main>
+  <script src="/admin/app.js"></script>
+</body>
+</html>

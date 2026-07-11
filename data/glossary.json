@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-12",
+  "terms": [
+    {
+      "key": "DP",
+      "name": "Design Principle",
+      "ja": "設計原則",
+      "description": "設計全体へ影響する上位原則。複数の規則・判断・命名へ横断的に作用する。",
+      "example": "DP-001 依存階層先行原則"
+    },
+    {
+      "key": "JB",
+      "name": "Judgment Basis",
+      "ja": "判断基準",
+      "description": "個別判断を再現するための根拠・観点・判定条件をまとめた資産。",
+      "example": "採否判断や分類判断の根拠"
+    },
+    {
+      "key": "CX",
+      "name": "Conflict Examination",
+      "ja": "衝突検査",
+      "description": "実在名、音韻、字義、自治体名、企業名、一般名詞などとの衝突を検出する検査資産。",
+      "example": "実在衝突四軸、音声衝突検査"
+    },
+    {
+      "key": "FP",
+      "name": "Failure Pattern",
+      "ja": "失敗パターン",
+      "description": "過去に発生した失敗や見落としを、再発防止のために一般化した資産。",
+      "example": "FP-001 京浜ファミリー、FP-003 白銀線"
+    },
+    {
+      "key": "Master",
+      "name": "Master Data",
+      "ja": "マスター資産",
+      "description": "他の命名・導出・分類が参照する基準データ。上位の親資産として扱う。",
+      "example": "行政区画マスター"
+    },
+    {
+      "key": "Procedure",
+      "name": "Procedure",
+      "ja": "手順書",
+      "description": "作業や査読を同じ順序・基準で再現するための実施手順。",
+      "example": "音声レビュー手順書"
+    },
+    {
+      "key": "Established",
+      "name": "Established",
+      "ja": "確立済み",
+      "description": "Ginの裁定または正式採用が確認され、現行資産として扱われる状態。"
+    },
+    {
+      "key": "Candidate",
+      "name": "Candidate",
+      "ja": "候補",
+      "description": "採用候補だが、正式裁定または検証が完了していない状態。"
+    },
+    {
+      "key": "Hypothesis",
+      "name": "Hypothesis",
+      "ja": "仮説",
+      "description": "検証前の仮説段階。正式運用の根拠には使わない。"
+    },
+    {
+      "key": "Draft",
+      "name": "Draft",
+      "ja": "草案",
+      "description": "文書または資産を作成・編集中の状態。"
+    },
+    {
+      "key": "Reviewed",
+      "name": "Reviewed",
+      "ja": "査読済み",
+      "description": "Revによる査読が完了した状態。採用裁定とは別軸。"
+    },
+    {
+      "key": "Waiting",
+      "name": "Waiting",
+      "ja": "査読待ち",
+      "description": "査読対象として待機中の状態。"
+    },
+    {
+      "key": "Approved",
+      "name": "Approved",
+      "ja": "採用裁定",
+      "description": "Ginが採用を裁定した状態。AI Roleは独断で付与しない。"
+    },
+    {
+      "key": "Rejected",
+      "name": "Rejected",
+      "ja": "不採用裁定",
+      "description": "Ginが不採用を裁定した状態。"
+    },
+    {
+      "key": "Deferred",
+      "name": "Deferred",
+      "ja": "保留",
+      "description": "Ginが即時裁定を行わず、追加情報や査読を待つ状態。"
+    },
+    {
+      "key": "Pending",
+      "name": "Pending",
+      "ja": "裁定待ち",
+      "description": "Ginの裁定がまだ記録されていない状態。"
+    }
+  ]
+}

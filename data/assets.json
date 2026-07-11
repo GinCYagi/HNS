@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "project": "HNS",
+  "projectPrefix": "HNS",
+  "updatedAt": "2026-07-12",
+  "assets": [
+    {
+      "assetId": "DP-001",
+      "category": "DP",
+      "title": "依存階層先行原則",
+      "confidenceStatus": "Established",
+      "decisionStatus": "Approved",
+      "sourceDocument": "要確認",
+      "dependencies": [
+        "行政区画マスター"
+      ],
+      "reviewStatus": "Reviewed",
+      "notes": "原則本体は裁定済み。D系への適用範囲は再確認対象"
+    },
+    {
+      "assetId": "FP-001",
+      "category": "FP",
+      "title": "京浜ファミリー",
+      "confidenceStatus": "Established",
+      "decisionStatus": "Approved",
+      "sourceDocument": "要確認",
+      "dependencies": [
+        "親エントリ確定"
+      ],
+      "reviewStatus": "Reviewed",
+      "notes": "親未確定による派生名の連鎖ブロック事例"
+    },
+    {
+      "assetId": "FP-003",
+      "category": "FP",
+      "title": "白銀線",
+      "confidenceStatus": "Established",
+      "decisionStatus": "Approved",
+      "sourceDocument": "要確認",
+      "dependencies": [
+        "音声衝突検査"
+      ],
+      "reviewStatus": "Reviewed",
+      "notes": "表記検査のみで音声衝突を見落とした事例"
+    },
+    {
+      "assetId": null,
+      "category": "Master",
+      "title": "行政区画マスター",
+      "confidenceStatus": "Draft",
+      "decisionStatus": "Pending",
+      "sourceDocument": "要確認",
+      "dependencies": [],
+      "reviewStatus": "Waiting",
+      "notes": "派生命名の親資産"
+    },
+    {
+      "assetId": null,
+      "category": "Procedure",
+      "title": "音声レビュー手順書",
+      "confidenceStatus": "Draft",
+      "decisionStatus": "Pending",
+      "sourceDocument": "要確認",
+      "dependencies": [
+        "音声審査規則"
+      ],
+      "reviewStatus": "Waiting",
+      "notes": "v0.1ドラフト提出済み。正式ファイル名は要確認"
+    }
+  ],
+  "knownGaps": [
+    "各資産のSource Documentが未確定",
+    "JB資産の登録状況が未確認",
+    "CX資産の正式IDおよび採番状況が未確認",
+    "FP資産全体の採番状況が未確認",
+    "DP-002以降の採番状況が未確認",
+    "行政区画マスターの正式ファイル名および最新版が未確認",
+    "音声レビュー手順書の正式ファイル名が未確認"
+  ]
+}

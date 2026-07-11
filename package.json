@@ -1,0 +1,13 @@
+{
+  "name": "hns-asset-registry-admin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local decision UI and registry generator for HNS",
+  "scripts": {
+    "start": "node server.js",
+    "generate": "node scripts/generate-registry.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
