@@ -1,0 +1,22 @@
+# =============================================================
+# HNS Manifest — 正本ファイル一覧・SHA-256照合台帳
+# =============================================================
+document:
+  name: "HNS Manifest"
+  schema_version: "1.0"
+  generated_at: "2026-07-12"
+  generated_by: "HNS-Rev"
+  note: "正本4YAMLの同一性検証用。値はRev検収時とコミット8d515dc時点で一致確認済み"
+
+canonical_files:
+  - path: "data/hns_specification_v0.1.yaml"
+    sha256: "d4b6a441734a55d05aebaf678c357be397c69e2d2ad9cf045afb972b45eb3e31"
+  - path: "data/hns_admin_division_master.yaml"
+    sha256: "c8aa1fcc7e81fb557e833c67b32256d73e6d62e96315e2379495c05ffbf1c21b"
+  - path: "data/hns_review_dictionary.yaml"
+    sha256: "49b36249b60f1fc68b22e446af79cd9d37df5ae14c807b5ca3cdc440dac5331a"
+  - path: "data/hns_pending_items.yaml"
+    sha256: "c38bab1b0b6323aded00c61bad46c6e22022be1f033adc3474f05279c99518cf"
+
+derived_files_note: "data/*.json（assets/decisions/glossary）は派生データであり本Manifestの照合対象外"
+audit_chain: "Fable出力(2026-07-12) → Rev検収 → commit 8d515dc"
