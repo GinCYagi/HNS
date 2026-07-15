@@ -1,0 +1,47 @@
+
+> hns-asset-registry-admin@0.1.0 test
+> node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js && ruby ops/test/role-runner.test.rb
+
+  ok - 正常系: ExitCode 0
+  ok - 正常系: 全件OK
+  ok - 欠落: ExitCode≠0
+  ok - 欠落: MISSING検出
+  ok - 不一致: ExitCode≠0
+  ok - 不一致: MISMATCH検出
+  ok - 改ざん(hash値): ExitCode≠0
+  ok - 改ざん(hash値): MISMATCH検出
+  ok - 改ざん(構造破壊): Manifest異常(ExitCode 2)
+  ok - 改ざん(外部パス): INVALID_PATHで拒否
+  ok - 改ざん(外部パス): ExitCode≠0
+  ok - CRLF/LF変更: ExitCode≠0
+  ok - CRLF/LF変更: MISMATCHとして検出
+  ok - 未登録追加: ExitCode 0（不変）
+  ok - 未登録追加: 照合対象は記載2件のみ
+  ok - 順序変更: 両順ともExitCode 0
+  ok - 順序変更: 両順とも全件OK
+  ok - CLI正常系: exit 0
+  ok - CLI不一致: exit≠0
+
+19 checks passed.
+  ok - CE-04 モックParser経由でLoad成立（YAML不要）
+  ok - CE-04 status語彙マッピング（採用→active）
+  ok - Provenance First: 最低1件保持
+  ok - Provenance→Source ID 追跡可
+  ok - CE-02 改名後もID不変
+  ok - CE-02 canonicalNameは更新される
+  ok - CE-03 行順変更後もID集合が一致
+  ok - CE-03 A006のIDは行位置非依存
+  ok - 必須欠落を検出しentity非生成
+  ok - 未知語彙は unknown＋WARN（推測変換しない）
+  ok - CE-07 LoaderにYAMLライブラリ参照なし
+
+11 checks passed.
+  ok - minor is returned automatically and note completes
+  ok - each runtime input and output is YAML
+  ok - receipt and state are saved
+  ok - moderate stops for Gin
+  ok - decision request stops before review
+  ok - Gin request YAML is generated without issuing a Decision
+  ok - runner always stops at three rounds
+
+Role Runner checks passed.

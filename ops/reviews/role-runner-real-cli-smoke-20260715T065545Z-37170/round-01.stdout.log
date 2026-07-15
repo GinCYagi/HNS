@@ -1,0 +1,24 @@
+The implementation could not be re-tested locally (npm test requires approval in this session), so I relied on the supplied test result for that criterion. Everything else was verified directly against the file and repository state.
+
+**Verification details:**
+- `ops/tasks/README.md` exists and is written in concise Japanese.
+- The minimal YAML example contains `header`, `objective`, `scope`, and `acceptance` (README lines 5–20).
+- The execution example `ops/run-cycle.sh ops/tasks/<task>.yaml` is present (line 25), and `ops/run-cycle.sh` actually exists.
+- The save destinations `ops/work/`, `ops/reviews/`, `ops/state/`, `ops/results/` are explained (line 28) and all four directories exist.
+- No CLI product names appear in the README.
+- The receipt lists only `ops/tasks/README.md` as changed. The working tree also shows a modified `package.json`, but that modification (adding the Role Runner ruby test to `npm test`) was already present in the git status snapshot before this task ran, so it is pre-existing and not attributable to this implementation.
+
+```yaml
+review_severity: note
+summary: ops/tasks/README.md は全受入条件を満たす。最小YAML例にheader/objective/scope/acceptanceを含み、run-cycle.shの実行例と4つの保存先ディレクトリの説明があり、CLI固有名詞は含まれず、変更はスコープ内に収まっている。npm test成功は提供されたテスト結果（exit_code 0）に基づき確認した。
+findings:
+  - id: R1-001
+    severity: note
+    message: 作業ツリーに package.json の変更（npm test へのRole Runnerテスト追加）が存在するが、これは本Task実行前からのもので本実装の変更ではない。コミット時に本Taskの成果物と混在しないよう留意されたい。
+    file: package.json
+scope_unchanged: true
+canon_change_requested: false
+decision_required: false
+acceptance_test_change_requested: false
+conflicting_recommendations: false
+```

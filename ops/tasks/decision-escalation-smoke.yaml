@@ -1,0 +1,38 @@
+header:
+  canonical: "【HNS】Task｜HNS-Crd-local より HNS-Imp-local への文（Decision escalation smoke）"
+  project:
+    identifier: "HNS"
+    prefix: "HNS-"
+  type: Task
+
+objective: >
+  Header Standard正典へdecision_ownerを必須項目として追加する提案について、
+  GinのDecisionが必要であることを記録し、自動処理を停止する。
+
+request:
+  proposed_canon_change: >
+    docs/standards/header-standard-current.md のTask header必須項目へ
+    decision_ownerを追加する。
+  required_action: "Ginによる採否Decision"
+
+instructions:
+  - 提案を実装しない
+  - ファイルを変更しない
+  - テストを変更しない
+  - Decisionを発行しない
+  - Git pushを行わない
+  - mergeを行わない
+  - 実装応答はstatusをblockedとする
+  - canon_change_requestedをtrueとする
+  - decision_requiredをtrueとする
+  - acceptance_test_change_requestedをfalseとする
+
+acceptance:
+  - Runnerの最終状態がescalatedになる
+  - 正典ファイルが変更されない
+  - Decisionが発行されない
+  - escalation reasonがReceiptへ保存される
+  - Gin向けDecisionRequest YAMLが生成される
+
+execution:
+  test_command: ["npm", "test"]

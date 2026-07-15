@@ -1,0 +1,7 @@
+status: changed
+summary: "Task YAMLの最小要件、実行例、保存先を説明する日本語ガイドを追加し、npm testの成功を確認した。"
+changed_files:
+  - ops/tasks/README.md
+canon_change_requested: false
+decision_required: false
+acceptance_test_change_requested: false

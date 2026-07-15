@@ -1,0 +1,8 @@
+---
+run_id: decision-escalation-smoke-20260715T070834Z-40630
+status: escalated
+round: 1
+task_path: ops/tasks/decision-escalation-smoke.yaml
+updated_at: '2026-07-15T07:08:47Z'
+reason: canon_change_requested
+result_path: ops/results/decision-escalation-smoke-20260715T070834Z-40630.yaml

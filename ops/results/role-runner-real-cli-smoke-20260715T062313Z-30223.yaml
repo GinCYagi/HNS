@@ -1,0 +1,16 @@
+---
+run_id: role-runner-real-cli-smoke-20260715T062313Z-30223
+status: failed
+reason: runtime_error
+rounds: 1
+task_path: ops/tasks/role-runner-real-cli-smoke.yaml
+state_path: ops/state/role-runner-real-cli-smoke-20260715T062313Z-30223.yaml
+work_path: ops/work/role-runner-real-cli-smoke-20260715T062313Z-30223
+review_path: ops/reviews/role-runner-real-cli-smoke-20260715T062313Z-30223
+implementation: 
+review: 
+test: 
+finished_at: '2026-07-15T06:23:51Z'
+error:
+  class: RuntimeError
+  message: HNS-Rev-local exited 1

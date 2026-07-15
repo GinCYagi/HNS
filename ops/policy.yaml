@@ -1,0 +1,7 @@
+version: 1
+max_rounds: 3
+default_test_command: ["npm", "test"]
+auto_continue_severities: ["note", "minor"]
+escalate_severities: ["moderate", "major", "blocker"]
+repeated_failure_threshold: 2
+

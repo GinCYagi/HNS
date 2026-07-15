@@ -1,0 +1,504 @@
+warning: `--full-auto` is deprecated; use `--sandbox workspace-write` instead.
+OpenAI Codex v0.144.4
+--------
+workdir: /Users/gin/Projects/HNS
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019f6471-968d-7720-bb38-fe7ab8334e56
+--------
+user
+You are HNS-Imp-local. Implement the supplied YAML Task in the current repository.
+Do not push, merge, approve canonical changes, or issue decisions.
+Round: 1
+Task:
+---
+header:
+  canonical: "【HNS】Task｜HNS-Crd-local より HNS-Imp-local・HNS-Rev-local への文（Task作成ガイド追加）"
+  project:
+    identifier: HNS
+    prefix: HNS-
+  type: Task
+objective: 'Role Runner利用者がops/tasks/に置くTask YAMLの最小要件と実行方法を 迷わず確認できる短いガイドを追加する。
+
+'
+scope:
+  included:
+  - ops/tasks/README.md の新規作成
+  - 最小Task YAML例の掲載
+  - run-cycle.sh の実行例の掲載
+  - 実行結果の保存先の簡潔な説明
+  excluded:
+  - Role Runner実装の変更
+  - policyおよびruntime mapの変更
+  - 既存プロダクトコードの変更
+  - 正典変更
+  - Decision発行
+  - Git push
+  - merge
+constraints:
+- CLI固有名詞を記載しない
+- ops/tasks/README.md 以外を変更しない
+- 日本語で簡潔に記載する
+acceptance:
+- ops/tasks/README.md が存在する
+- Task YAMLの最小例にheader、objective、scope、acceptanceを含む
+- ops/run-cycle.sh ops/tasks/<task>.yaml の実行例を含む
+- ops/work、ops/reviews、ops/state、ops/resultsへの保存を説明する
+- npm test が成功する
+execution:
+  test_command:
+  - npm
+  - test
+
+
+After working, return exactly one YAML mapping with these keys:
+status: changed|unchanged|blocked
+summary: string
+changed_files: [string]
+canon_change_requested: boolean
+decision_required: boolean
+acceptance_test_change_requested: boolean
+
+codex
+指定どおり `ops/tasks/README.md` だけを追加し、既存の Role Runner 周辺を確認して表現を合わせたうえで `npm test` を実行します。正典変更や Decision 発行、Git 操作は行いません。
+exec
+/bin/zsh -lc "pwd && rg --files -g 'AGENTS.md' -g 'ops/**' -g 'package.json' | sed -n '1,160p'" in /Users/gin/Projects/HNS
+ succeeded in 0ms:
+/Users/gin/Projects/HNS
+ops/reviews/.gitkeep
+ops/run-cycle.sh
+ops/runtime-map.yaml
+ops/lib/role-runner.rb
+ops/work/role-runner-real-cli-smoke-20260715T061648Z-29190/round-01.request.yaml
+ops/work/role-runner-real-cli-smoke-20260715T061648Z-29190/round-01.stdout.log
+ops/work/role-runner-real-cli-smoke-20260715T061648Z-29190/task.yaml
+ops/work/role-runner-real-cli-smoke-20260715T061648Z-29190/runner.log
+ops/work/role-runner-real-cli-smoke-20260715T061648Z-29190/round-01.stderr.log
+ops/work/role-runner-real-cli-smoke-20260715T062313Z-30223/task.yaml
+ops/work/role-runner-real-cli-smoke-20260715T062313Z-30223/runner.log
+ops/work/.gitkeep
+ops/results/role-runner-real-cli-smoke-20260715T061648Z-29190.yaml
+ops/results/.gitkeep
+ops/README.md
+ops/decisions/.gitkeep
+ops/state/role-runner-real-cli-smoke-20260715T062313Z-30223.yaml
+ops/state/role-runner-real-cli-smoke-20260715T061648Z-29190.yaml
+ops/state/.gitkeep
+ops/test/role-runner.test.rb
+ops/policy.yaml
+ops/tasks/role-runner-real-cli-smoke.yaml
+ops/tasks/.gitkeep
+package.json
+
+exec
+/bin/zsh -lc "git status --short && sed -n '1,240p' ops/README.md && sed -n '1,180p' ops/tasks/role-runner-real-cli-smoke.yaml && sed -n '1,160p' ops/run-cycle.sh && sed -n '1,120p' package.json" in /Users/gin/Projects/HNS
+ succeeded in 0ms:
+ M package.json
+?? ops/
+# HNS Role Runner PoC
+
+`HNS-Crd-local` がYAML Taskを読み、実装、テスト、査読、minor差戻しを最大3往復まで実行するローカル用PoCです。正典変更、Decision、受入テスト変更、moderate以上の指摘、競合する推奨を検出すると停止し、Ginへ裁定を返します。pushとmergeは行いません。
+
+## 実行
+
+```sh
+ops/run-cycle.sh ops/tasks/<task>.yaml
+```
+
+第2引数には検証用のRuntime Mapを指定できます。
+
+```sh
+ops/run-cycle.sh ops/tasks/<task>.yaml /path/to/test-runtime-map.yaml
+```
+
+Runtimeごとの実行コマンドは `runtime-map.yaml` に集約しています。Task側でテストを指定するときは次の形にします。省略時は `policy.yaml` の既定値を使います。
+
+```yaml
+execution:
+  test_command: ["npm", "test"]
+```
+
+## 保存物
+
+- `work/<run-id>/task.yaml`: 入力Taskの不変コピー
+- `work/<run-id>/round-NN.request.yaml`: 実装Runtimeへの入力
+- `work/<run-id>/round-NN.yaml`: 実装RuntimeのYAML応答
+- `work/<run-id>/round-NN.test.yaml`: テスト結果
+- `work/<run-id>/*.log`: Runtime・テスト・Runnerの標準出力、標準エラー、進行ログ
+- `reviews/<run-id>/round-NN.request.yaml`: 査読Runtimeへの入力
+- `reviews/<run-id>/round-NN.yaml`: 査読RuntimeのYAML応答
+- `state/<run-id>.yaml`: 最後に確定保存された状態
+- `results/<run-id>.yaml`: 終了Receipt
+
+Runtime異常や不正YAMLを含む失敗でも、Taskコピー、取得済み出力、ログ、状態、Receiptを残します。終了コードは正常完了が `0`、裁定待ち・上限到達・失敗が `2`、引数不足が `64` です。
+header:
+  canonical: "【HNS】Task｜HNS-Crd-local より HNS-Imp-local・HNS-Rev-local への文（Task作成ガイド追加）"
+  project:
+    identifier: "HNS"
+    prefix: "HNS-"
+  type: Task
+
+objective: >
+  Role Runner利用者がops/tasks/に置くTask YAMLの最小要件と実行方法を
+  迷わず確認できる短いガイドを追加する。
+
+scope:
+  included:
+    - ops/tasks/README.md の新規作成
+    - 最小Task YAML例の掲載
+    - run-cycle.sh の実行例の掲載
+    - 実行結果の保存先の簡潔な説明
+  excluded:
+    - Role Runner実装の変更
+    - policyおよびruntime mapの変更
+    - 既存プロダクトコードの変更
+    - 正典変更
+    - Decision発行
+    - Git push
+    - merge
+
+constraints:
+  - CLI固有名詞を記載しない
+  - ops/tasks/README.md 以外を変更しない
+  - 日本語で簡潔に記載する
+
+acceptance:
+  - ops/tasks/README.md が存在する
+  - Task YAMLの最小例にheader、objective、scope、acceptanceを含む
+  - ops/run-cycle.sh ops/tasks/<task>.yaml の実行例を含む
+  - ops/work、ops/reviews、ops/state、ops/resultsへの保存を説明する
+  - npm test が成功する
+
+execution:
+  test_command: ["npm", "test"]
+#!/bin/sh
+set -eu
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec ruby "$SCRIPT_DIR/lib/role-runner.rb" "$@"
+
+{
+  "name": "hns-asset-registry-admin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local decision UI and registry generator for HNS",
+  "scripts": {
+    "start": "node server.js",
+    "generate": "node scripts/generate-registry.js",
+    "verify-manifest": "node scripts/verify-manifest.js",
+    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js && ruby ops/test/role-runner.test.rb"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
+
+codex
+既存の説明と Task 例を確認しました。作業ツリーには今回以前からの変更がありますが触れず、ガイドには必須4項目、指定の実行例、4つの保存先だけを簡潔にまとめます。CLI 製品名は記載しません。
+apply patch
+patch: completed
+/Users/gin/Projects/HNS/ops/tasks/README.md
+diff --git a/ops/tasks/README.md b/ops/tasks/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..9042178626ecd0c2f3f3d6a6b34693dc1bd5f5b6
+--- /dev/null
++++ b/ops/tasks/README.md
+@@ -0,0 +1,28 @@
++# Task YAML 作成ガイド
++
++`ops/tasks/` に Task YAML を置きます。最小例は次のとおりです。
++
++```yaml
++header:
++  canonical: "Task の表題"
++  project:
++    identifier: HNS
++    prefix: HNS-
++  type: Task
++objective: "達成すること"
++scope:
++  included:
++    - 実施すること
++  excluded:
++    - 実施しないこと
++acceptance:
++  - 完了と判断する条件
++```
++
++リポジトリのルートで実行します。
++
++```sh
++ops/run-cycle.sh ops/tasks/<task>.yaml
++```
++
++実行中の作業物とログは `ops/work/`、査読結果は `ops/reviews/`、進行状態は `ops/state/`、最終結果は `ops/results/` に保存されます。
+
+diff --git a/ops/tasks/README.md b/ops/tasks/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..9042178626ecd0c2f3f3d6a6b34693dc1bd5f5b6
+--- /dev/null
++++ b/ops/tasks/README.md
+@@ -0,0 +1,28 @@
++# Task YAML 作成ガイド
++
++`ops/tasks/` に Task YAML を置きます。最小例は次のとおりです。
++
++```yaml
++header:
++  canonical: "Task の表題"
++  project:
++    identifier: HNS
++    prefix: HNS-
++  type: Task
++objective: "達成すること"
++scope:
++  included:
++    - 実施すること
++  excluded:
++    - 実施しないこと
++acceptance:
++  - 完了と判断する条件
++```
++
++リポジトリのルートで実行します。
++
++```sh
++ops/run-cycle.sh ops/tasks/<task>.yaml
++```
++
++実行中の作業物とログは `ops/work/`、査読結果は `ops/reviews/`、進行状態は `ops/state/`、最終結果は `ops/results/` に保存されます。
+
+exec
+/bin/zsh -lc "sed -n '1,200p' ops/tasks/README.md && git diff -- ops/tasks/README.md && git status --short -- ops/tasks/README.md" in /Users/gin/Projects/HNS
+ succeeded in 0ms:
+# Task YAML 作成ガイド
+
+`ops/tasks/` に Task YAML を置きます。最小例は次のとおりです。
+
+```yaml
+header:
+  canonical: "Task の表題"
+  project:
+    identifier: HNS
+    prefix: HNS-
+  type: Task
+objective: "達成すること"
+scope:
+  included:
+    - 実施すること
+  excluded:
+    - 実施しないこと
+acceptance:
+  - 完了と判断する条件
+```
+
+リポジトリのルートで実行します。
+
+```sh
+ops/run-cycle.sh ops/tasks/<task>.yaml
+```
+
+実行中の作業物とログは `ops/work/`、査読結果は `ops/reviews/`、進行状態は `ops/state/`、最終結果は `ops/results/` に保存されます。
+?? ops/tasks/README.md
+
+diff --git a/ops/tasks/README.md b/ops/tasks/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..9042178626ecd0c2f3f3d6a6b34693dc1bd5f5b6
+--- /dev/null
++++ b/ops/tasks/README.md
+@@ -0,0 +1,28 @@
++# Task YAML 作成ガイド
++
++`ops/tasks/` に Task YAML を置きます。最小例は次のとおりです。
++
++```yaml
++header:
++  canonical: "Task の表題"
++  project:
++    identifier: HNS
++    prefix: HNS-
++  type: Task
++objective: "達成すること"
++scope:
++  included:
++    - 実施すること
++  excluded:
++    - 実施しないこと
++acceptance:
++  - 完了と判断する条件
++```
++
++リポジトリのルートで実行します。
++
++```sh
++ops/run-cycle.sh ops/tasks/<task>.yaml
++```
++
++実行中の作業物とログは `ops/work/`、査読結果は `ops/reviews/`、進行状態は `ops/state/`、最終結果は `ops/results/` に保存されます。
+
+codex
+ガイドの追加が完了し、受入条件の内容を満たしていることを確認しました。続けて指定の `npm test` で、既存機能を含む検証を行います。
+exec
+/bin/zsh -lc 'npm test' in /Users/gin/Projects/HNS
+diff --git a/ops/tasks/README.md b/ops/tasks/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..9042178626ecd0c2f3f3d6a6b34693dc1bd5f5b6
+--- /dev/null
++++ b/ops/tasks/README.md
+@@ -0,0 +1,28 @@
++# Task YAML 作成ガイド
++
++`ops/tasks/` に Task YAML を置きます。最小例は次のとおりです。
++
++```yaml
++header:
++  canonical: "Task の表題"
++  project:
++    identifier: HNS
++    prefix: HNS-
++  type: Task
++objective: "達成すること"
++scope:
++  included:
++    - 実施すること
++  excluded:
++    - 実施しないこと
++acceptance:
++  - 完了と判断する条件
++```
++
++リポジトリのルートで実行します。
++
++```sh
++ops/run-cycle.sh ops/tasks/<task>.yaml
++```
++
++実行中の作業物とログは `ops/work/`、査読結果は `ops/reviews/`、進行状態は `ops/state/`、最終結果は `ops/results/` に保存されます。
+
+ succeeded in 1257ms:
+  ok - 正常系: ExitCode 0
+  ok - 正常系: 全件OK
+  ok - 欠落: ExitCode≠0
+  ok - 欠落: MISSING検出
+  ok - 不一致: ExitCode≠0
+  ok - 不一致: MISMATCH検出
+  ok - 改ざん(hash値): ExitCode≠0
+  ok - 改ざん(hash値): MISMATCH検出
+  ok - 改ざん(構造破壊): Manifest異常(ExitCode 2)
+  ok - 改ざん(外部パス): INVALID_PATHで拒否
+  ok - 改ざん(外部パス): ExitCode≠0
+  ok - CRLF/LF変更: ExitCode≠0
+  ok - CRLF/LF変更: MISMATCHとして検出
+  ok - 未登録追加: ExitCode 0（不変）
+  ok - 未登録追加: 照合対象は記載2件のみ
+  ok - 順序変更: 両順ともExitCode 0
+  ok - 順序変更: 両順とも全件OK
+  ok - CLI正常系: exit 0
+  ok - CLI不一致: exit≠0
+
+19 checks passed.
+  ok - CE-04 モックParser経由でLoad成立（YAML不要）
+  ok - CE-04 status語彙マッピング（採用→active）
+  ok - Provenance First: 最低1件保持
+  ok - Provenance→Source ID 追跡可
+  ok - CE-02 改名後もID不変
+  ok - CE-02 canonicalNameは更新される
+  ok - CE-03 行順変更後もID集合が一致
+  ok - CE-03 A006のIDは行位置非依存
+  ok - 必須欠落を検出しentity非生成
+  ok - 未知語彙は unknown＋WARN（推測変換しない）
+  ok - CE-07 LoaderにYAMLライブラリ参照なし
+
+11 checks passed.
+  ok - minor is returned automatically and note completes
+  ok - each runtime input and output is YAML
+  ok - receipt and state are saved
+  ok - moderate stops for Gin
+  ok - runner always stops at three rounds
+
+Role Runner checks passed.
+
+diff --git a/ops/tasks/README.md b/ops/tasks/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..9042178626ecd0c2f3f3d6a6b34693dc1bd5f5b6
+--- /dev/null
++++ b/ops/tasks/README.md
+@@ -0,0 +1,28 @@
++# Task YAML 作成ガイド
++
++`ops/tasks/` に Task YAML を置きます。最小例は次のとおりです。
++
++```yaml
++header:
++  canonical: "Task の表題"
++  project:
++    identifier: HNS
++    prefix: HNS-
++  type: Task
++objective: "達成すること"
++scope:
++  included:
++    - 実施すること
++  excluded:
++    - 実施しないこと
++acceptance:
++  - 完了と判断する条件
++```
++
++リポジトリのルートで実行します。
++
++```sh
++ops/run-cycle.sh ops/tasks/<task>.yaml
++```
++
++実行中の作業物とログは `ops/work/`、査読結果は `ops/reviews/`、進行状態は `ops/state/`、最終結果は `ops/results/` に保存されます。
+
+codex
+status: changed
+summary: "Task YAMLの最小要件、実行例、保存先を説明する日本語ガイドを追加し、npm testの成功を確認した。"
+changed_files:
+  - ops/tasks/README.md
+canon_change_requested: false
+decision_required: false
+acceptance_test_change_requested: false
+diff --git a/ops/tasks/README.md b/ops/tasks/README.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..9042178626ecd0c2f3f3d6a6b34693dc1bd5f5b6
+--- /dev/null
++++ b/ops/tasks/README.md
+@@ -0,0 +1,28 @@
++# Task YAML 作成ガイド
++
++`ops/tasks/` に Task YAML を置きます。最小例は次のとおりです。
++
++```yaml
++header:
++  canonical: "Task の表題"
++  project:
++    identifier: HNS
++    prefix: HNS-
++  type: Task
++objective: "達成すること"
++scope:
++  included:
++    - 実施すること
++  excluded:
++    - 実施しないこと
++acceptance:
++  - 完了と判断する条件
++```
++
++リポジトリのルートで実行します。
++
++```sh
++ops/run-cycle.sh ops/tasks/<task>.yaml
++```
++
++実行中の作業物とログは `ops/work/`、査読結果は `ops/reviews/`、進行状態は `ops/state/`、最終結果は `ops/results/` に保存されます。
+
+tokens used
+17,858

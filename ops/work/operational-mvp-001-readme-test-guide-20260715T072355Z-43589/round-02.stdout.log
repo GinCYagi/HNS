@@ -1,0 +1,7 @@
+status: changed
+summary: "README.mdにローカル検証セクションが追加されており、npm testの実行例と対象領域を確認した。npm testは全テスト成功（終了コード0）。"
+changed_files:
+  - "README.md"
+canon_change_requested: false
+decision_required: false
+acceptance_test_change_requested: false

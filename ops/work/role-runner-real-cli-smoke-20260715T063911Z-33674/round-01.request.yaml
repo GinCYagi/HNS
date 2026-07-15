@@ -1,0 +1,56 @@
+---
+role: HNS-Imp-local
+round: 1
+kind: implementation
+prompt: |
+  You are HNS-Imp-local. Implement the supplied YAML Task in the current repository.
+  Do not push, merge, approve canonical changes, or issue decisions.
+  Round: 1
+  Task:
+  ---
+  header:
+    canonical: "【HNS】Task｜HNS-Crd-local より HNS-Imp-local・HNS-Rev-local への文（Task作成ガイド追加）"
+    project:
+      identifier: HNS
+      prefix: HNS-
+    type: Task
+  objective: 'Role Runner利用者がops/tasks/に置くTask YAMLの最小要件と実行方法を 迷わず確認できる短いガイドを追加する。
+
+  '
+  scope:
+    included:
+    - ops/tasks/README.md の新規作成
+    - 最小Task YAML例の掲載
+    - run-cycle.sh の実行例の掲載
+    - 実行結果の保存先の簡潔な説明
+    excluded:
+    - Role Runner実装の変更
+    - policyおよびruntime mapの変更
+    - 既存プロダクトコードの変更
+    - 正典変更
+    - Decision発行
+    - Git push
+    - merge
+  constraints:
+  - CLI固有名詞を記載しない
+  - ops/tasks/README.md 以外を変更しない
+  - 日本語で簡潔に記載する
+  acceptance:
+  - ops/tasks/README.md が存在する
+  - Task YAMLの最小例にheader、objective、scope、acceptanceを含む
+  - ops/run-cycle.sh ops/tasks/<task>.yaml の実行例を含む
+  - ops/work、ops/reviews、ops/state、ops/resultsへの保存を説明する
+  - npm test が成功する
+  execution:
+    test_command:
+    - npm
+    - test
+
+
+  After working, return exactly one YAML mapping with these keys:
+  status: changed|unchanged|blocked
+  summary: string
+  changed_files: [string]
+  canon_change_requested: boolean
+  decision_required: boolean
+  acceptance_test_change_requested: boolean

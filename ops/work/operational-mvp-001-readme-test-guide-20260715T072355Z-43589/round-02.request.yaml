@@ -1,0 +1,33 @@
+---
+role: HNS-Imp-local
+round: 2
+kind: implementation
+prompt: "You are HNS-Imp-local. Implement the supplied YAML Task in the current repository.\nDo
+  not push, merge, approve canonical changes, or issue decisions.\nRound: 2\nTask:\n---\nheader:\n
+  \ canonical: \"【HNS】Task｜HNS-Crd-local より HNS-Imp-local・HNS-Rev-local への文（READMEローカル検証案内）\"\n
+  \ project:\n    identifier: HNS\n    prefix: HNS-\n  type: Task\nobjective: 'HNSリポジトリの利用者が、既存のローカルテスト一式を実行する方法を
+  ルートREADMEから確認できるようにする。\n\n'\nselection:\n  reason: 'ルートREADMEには設計文書への導線はあるが、package.jsonに既存のtest
+  scriptが 定義されているにもかかわらず実行案内がない。README.mdへの短い追記だけで完了し、\n    正典・Decision・受入テストの変更を伴わず、既存テストで検証できるため選定した。\n\n'\n
+  \ criteria:\n    canon_change_requested: false\n    decision_required: false\n    acceptance_test_change_requested:
+  false\n    scope_small: true\n    tests_available: true\nscope:\n  included:\n  -
+  ルートREADME.mdへのローカル検証セクション追加\n  - npm test実行例の記載\n  - 実行される既存テスト領域の簡潔な説明\n  excluded:\n
+  \ - README.md以外の変更\n  - テストの追加または変更\n  - package.jsonの変更\n  - 正典変更\n  - Decision発行\n
+  \ - Git push\n  - merge\nconstraints:\n- README.md以外を変更しない\n- 既存記述を維持する\n- 日本語で簡潔に記載する\n-
+  実際のpackage.jsonのtest scriptと矛盾させない\nacceptance:\n- README.mdにローカル検証セクションが存在する\n-
+  npm testの実行例がコードブロックで記載される\n- manifest検証、Canonical Loader、Role Runnerのテストが実行対象であることを説明する\n-
+  npm testが成功する\nexecution:\n  test_command:\n  - npm\n  - test\n\nPrevious review:\n---\nreview_severity:
+  minor\nsummary: 'README.mdの差分は「## ローカル検証」セクションの追加のみで、npm testのコードブロック、 manifest検証・Canonical\n
+  \ Loader・Role Runnerが実行対象である旨の説明を含み、既存記述は 維持されている（末尾改行の追加のみで内容変更なし）。受入基準1〜3は差分で直接確認済み。\n
+  \ 受入基準4（npm test成功）はレビュー環境の実行許可が得られず再実行できなかったため、 提出されたテスト結果（passed: true, exit_code:\n
+  \ 0）に依拠する。唯一の懸念は、READMEが 説明するRole Runnerテストが未コミットのpackage.json変更と未追跡のops/配下テストに
+  依存している点（Taskの受入基準自体がこの状態を前提としているため、本実装の逸脱では\n  ないと判断）。'\nfindings:\n- id: REV1-001\n
+  \ severity: minor\n  message: READMEの「Role Runnerの既存テストが実行される」という記述は、未コミットの package.json変更（test
+  scriptへのruby\n    ops/test/role-runner.test.rb追加）と 未追跡のops/ディレクトリに依存する。README.mdのみが先行してコミット・マージ\n
+  \   されると、コミット済みpackage.jsonのtest scriptと矛盾し、制約 「実際のpackage.jsonのtest scriptと矛盾させない」を満たさなくなる。\n
+  \   同時コミットまたは先行コミットの調整を推奨。\n  file: README.md\n- id: REV1-002\n  severity: note\n
+  \ message: 'レビュー環境でnpm testの再実行が許可されなかったため、受入基準 「npm testが成功する」は提出されたテスト結果（passed:\n
+  \   true）への依拠となる。'\n  file: \nscope_unchanged: true\ncanon_change_requested: false\ndecision_required:
+  false\nacceptance_test_change_requested: false\nconflicting_recommendations: false\n\nAfter
+  working, return exactly one YAML mapping with these keys:\nstatus: changed|unchanged|blocked\nsummary:
+  string\nchanged_files: [string]\ncanon_change_requested: boolean\ndecision_required:
+  boolean\nacceptance_test_change_requested: boolean\n"

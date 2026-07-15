@@ -1,0 +1,6 @@
+status: blocked
+summary: "Header Standard正典へのdecision_owner追加はGinによる採否Decisionが必要なため、実装せず自動処理を停止した。"
+changed_files: []
+canon_change_requested: true
+decision_required: true
+acceptance_test_change_requested: false

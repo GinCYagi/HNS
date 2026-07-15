@@ -1,0 +1,8 @@
+---
+run_id: role-runner-real-cli-smoke-20260715T065545Z-37170
+status: completed
+round: 1
+task_path: ops/tasks/role-runner-real-cli-smoke.yaml
+updated_at: '2026-07-15T06:57:46Z'
+reason: 
+result_path: ops/results/role-runner-real-cli-smoke-20260715T065545Z-37170.yaml

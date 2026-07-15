@@ -1,0 +1,23 @@
+---
+review_severity: note
+summary: README.md末尾に「ローカル検証」セクションが追加され、npm testの実行例がコードブロックで 記載され、manifest検証・Canonical
+  Loader・Role Runnerの既存テストが実行対象であることが 簡潔に日本語で説明されている。記載内容はpackage.jsonの実際のtest script
+  （verify-manifest.test.js → canonical-loader.test.js → role-runner.test.rb）と一致し、
+  既存記述（共通文書規則・設計文書セクション）は維持されている。受入基準4項目すべて充足。 指摘は検証手段の制約に関する注記のみで、実装自体に欠陥は見られない。
+findings:
+- id: R2-N1
+  severity: note
+  message: 'レビュー環境でnpm testの再実行が承認されなかったため、テスト成功の確認は 提出されたテスト結果（passed: true, exit_code:
+    0）に依拠した。README記載と package.jsonのtest scriptの整合性は直接読解で確認済み。'
+  file: 
+- id: R2-N2
+  severity: note
+  message: 作業ツリーにはREADME.md以外の変更（package.jsonの変更、未追跡のops/）が存在するが、 これらは本Task以前の作業（Role
+    Runner関連）に由来するとみられ、receiptの changed_files（README.mdのみ）と矛盾する証拠はない。git diffによる帰属確認は
+    承認されず実施できなかった。
+  file: package.json
+scope_unchanged: true
+canon_change_requested: false
+decision_required: false
+acceptance_test_change_requested: false
+conflicting_recommendations: false

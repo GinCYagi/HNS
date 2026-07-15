@@ -1,0 +1,38 @@
+---
+run_id: role-runner-real-cli-smoke-20260715T065545Z-37170
+status: completed
+reason: 
+rounds: 1
+task_path: ops/tasks/role-runner-real-cli-smoke.yaml
+state_path: ops/state/role-runner-real-cli-smoke-20260715T065545Z-37170.yaml
+work_path: ops/work/role-runner-real-cli-smoke-20260715T065545Z-37170
+review_path: ops/reviews/role-runner-real-cli-smoke-20260715T065545Z-37170
+implementation:
+  status: changed
+  summary: Task YAMLの最小要件、実行例、結果の保存先を説明する日本語ガイドを追加し、npm testの成功を確認した。
+  changed_files:
+  - ops/tasks/README.md
+  canon_change_requested: false
+  decision_required: false
+  acceptance_test_change_requested: false
+review:
+  review_severity: note
+  summary: ops/tasks/README.md は全受入条件を満たす。最小YAML例にheader/objective/scope/acceptanceを含み、run-cycle.shの実行例と4つの保存先ディレクトリの説明があり、CLI固有名詞は含まれず、変更はスコープ内に収まっている。npm
+    test成功は提供されたテスト結果（exit_code 0）に基づき確認した。
+  findings:
+  - id: R1-001
+    severity: note
+    message: 作業ツリーに package.json の変更（npm test へのRole Runnerテスト追加）が存在するが、これは本Task実行前からのもので本実装の変更ではない。コミット時に本Taskの成果物と混在しないよう留意されたい。
+    file: package.json
+  scope_unchanged: true
+  canon_change_requested: false
+  decision_required: false
+  acceptance_test_change_requested: false
+  conflicting_recommendations: false
+test:
+  command:
+  - npm
+  - test
+  passed: true
+  exit_code: 0
+finished_at: '2026-07-15T06:57:46Z'

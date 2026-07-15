@@ -1,0 +1,8 @@
+---
+run_id: role-runner-real-cli-smoke-20260715T061648Z-29190
+status: failed
+round: 0
+task_path: ops/tasks/role-runner-real-cli-smoke.yaml
+updated_at: '2026-07-15T06:16:48Z'
+reason: runtime_error
+result_path: ops/results/role-runner-real-cli-smoke-20260715T061648Z-29190.yaml

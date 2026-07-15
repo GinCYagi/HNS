@@ -1,0 +1,25 @@
+---
+review_severity: minor
+summary: 'README.mdの差分は「## ローカル検証」セクションの追加のみで、npm testのコードブロック、 manifest検証・Canonical
+  Loader・Role Runnerが実行対象である旨の説明を含み、既存記述は 維持されている（末尾改行の追加のみで内容変更なし）。受入基準1〜3は差分で直接確認済み。
+  受入基準4（npm test成功）はレビュー環境の実行許可が得られず再実行できなかったため、 提出されたテスト結果（passed: true, exit_code:
+  0）に依拠する。唯一の懸念は、READMEが 説明するRole Runnerテストが未コミットのpackage.json変更と未追跡のops/配下テストに 依存している点（Taskの受入基準自体がこの状態を前提としているため、本実装の逸脱では
+  ないと判断）。'
+findings:
+- id: REV1-001
+  severity: minor
+  message: READMEの「Role Runnerの既存テストが実行される」という記述は、未コミットの package.json変更（test scriptへのruby
+    ops/test/role-runner.test.rb追加）と 未追跡のops/ディレクトリに依存する。README.mdのみが先行してコミット・マージ
+    されると、コミット済みpackage.jsonのtest scriptと矛盾し、制約 「実際のpackage.jsonのtest scriptと矛盾させない」を満たさなくなる。
+    同時コミットまたは先行コミットの調整を推奨。
+  file: README.md
+- id: REV1-002
+  severity: note
+  message: 'レビュー環境でnpm testの再実行が許可されなかったため、受入基準 「npm testが成功する」は提出されたテスト結果（passed:
+    true）への依拠となる。'
+  file: 
+scope_unchanged: true
+canon_change_requested: false
+decision_required: false
+acceptance_test_change_requested: false
+conflicting_recommendations: false

@@ -1,0 +1,25 @@
+Verification limits: `git diff` and `npm test` require approval in this non-interactive session, so I verified the README content directly and relied on the supplied test receipt (`passed: true`, exit 0) plus the git status snapshot taken at session start.
+
+Review results against the Task:
+
+- **Acceptance 1** — `ops/tasks/README.md` exists: confirmed.
+- **Acceptance 2** — the minimal YAML example includes `header` (with `canonical`, `project.identifier`, `project.prefix`, `type`), `objective`, `scope` (included/excluded), and `acceptance`: confirmed.
+- **Acceptance 3** — the execution example `ops/run-cycle.sh ops/tasks/<task>.yaml` is present: confirmed.
+- **Acceptance 4** — saving destinations `ops/work/`, `ops/reviews/`, `ops/state/`, `ops/results/` are each explained in one concise sentence: confirmed.
+- **Acceptance 5** — `npm test` success: accepted from the supplied test result; I could not re-run it independently.
+- **Constraints** — the README is in concise Japanese and contains no CLI-specific product names. The receipt claims only `ops/tasks/README.md` changed; the session-start git snapshot also shows `package.json` as modified, but that modification appears to predate this task (it was present alongside prior branch infrastructure work) and I could not diff it to attribute it — recorded as a note.
+
+```yaml
+review_severity: note
+summary: "ops/tasks/README.md は Task の受入条件（最小YAML例のheader/objective/scope/acceptance、run-cycle.sh 実行例、ops/work・reviews・state・results の保存先説明）をすべて満たし、日本語で簡潔、CLI固有名詞なし。npm test は提供された結果（passed, exit 0）を採用。指摘は作業ツリー上の package.json 変更がこのTask起因か確認できなかった点のみで、Task成果物には問題なし。"
+findings:
+  - id: REV1-001
+    severity: note
+    message: "セッション開始時のgitスナップショットで package.json が modified と表示されている。receipt の changed_files には含まれず、Task以前からのブランチ状態と推測されるが、非対話セッションのため diff で起因を確認できなかった。README.md 自体はスコープ内。"
+    file: package.json
+scope_unchanged: true
+canon_change_requested: false
+decision_required: false
+acceptance_test_change_requested: false
+conflicting_recommendations: false
+```

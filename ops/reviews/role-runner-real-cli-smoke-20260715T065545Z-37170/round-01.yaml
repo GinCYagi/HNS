@@ -1,0 +1,14 @@
+---
+review_severity: note
+summary: ops/tasks/README.md は全受入条件を満たす。最小YAML例にheader/objective/scope/acceptanceを含み、run-cycle.shの実行例と4つの保存先ディレクトリの説明があり、CLI固有名詞は含まれず、変更はスコープ内に収まっている。npm
+  test成功は提供されたテスト結果（exit_code 0）に基づき確認した。
+findings:
+- id: R1-001
+  severity: note
+  message: 作業ツリーに package.json の変更（npm test へのRole Runnerテスト追加）が存在するが、これは本Task実行前からのもので本実装の変更ではない。コミット時に本Taskの成果物と混在しないよう留意されたい。
+  file: package.json
+scope_unchanged: true
+canon_change_requested: false
+decision_required: false
+acceptance_test_change_requested: false
+conflicting_recommendations: false

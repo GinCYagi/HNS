@@ -1,0 +1,6 @@
+---
+command:
+- npm
+- test
+passed: true
+exit_code: 0

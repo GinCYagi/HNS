@@ -12,3 +12,13 @@
 
 - Canonical Entity Model v0.1（Layer 1中立表現の設計・査読用ドラフト）
   [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
+
+## ローカル検証
+
+リポジトリのルートで次のコマンドを実行します。
+
+```sh
+npm test
+```
+
+manifest検証、Canonical Loader、Role Runnerの既存テストが順に実行されます。

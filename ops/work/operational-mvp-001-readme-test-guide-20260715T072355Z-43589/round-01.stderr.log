@@ -1,0 +1,302 @@
+warning: `--full-auto` is deprecated; use `--sandbox workspace-write` instead.
+OpenAI Codex v0.144.4
+--------
+workdir: /Users/gin/Projects/HNS
+model: gpt-5.6-sol
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: medium
+reasoning summaries: none
+session id: 019f64a9-2a3e-7da1-b65d-b351e4168dea
+--------
+user
+You are HNS-Imp-local. Implement the supplied YAML Task in the current repository.
+Do not push, merge, approve canonical changes, or issue decisions.
+Round: 1
+Task:
+---
+header:
+  canonical: "【HNS】Task｜HNS-Crd-local より HNS-Imp-local・HNS-Rev-local への文（READMEローカル検証案内）"
+  project:
+    identifier: HNS
+    prefix: HNS-
+  type: Task
+objective: 'HNSリポジトリの利用者が、既存のローカルテスト一式を実行する方法を ルートREADMEから確認できるようにする。
+
+'
+selection:
+  reason: 'ルートREADMEには設計文書への導線はあるが、package.jsonに既存のtest scriptが 定義されているにもかかわらず実行案内がない。README.mdへの短い追記だけで完了し、
+    正典・Decision・受入テストの変更を伴わず、既存テストで検証できるため選定した。
+
+'
+  criteria:
+    canon_change_requested: false
+    decision_required: false
+    acceptance_test_change_requested: false
+    scope_small: true
+    tests_available: true
+scope:
+  included:
+  - ルートREADME.mdへのローカル検証セクション追加
+  - npm test実行例の記載
+  - 実行される既存テスト領域の簡潔な説明
+  excluded:
+  - README.md以外の変更
+  - テストの追加または変更
+  - package.jsonの変更
+  - 正典変更
+  - Decision発行
+  - Git push
+  - merge
+constraints:
+- README.md以外を変更しない
+- 既存記述を維持する
+- 日本語で簡潔に記載する
+- 実際のpackage.jsonのtest scriptと矛盾させない
+acceptance:
+- README.mdにローカル検証セクションが存在する
+- npm testの実行例がコードブロックで記載される
+- manifest検証、Canonical Loader、Role Runnerのテストが実行対象であることを説明する
+- npm testが成功する
+execution:
+  test_command:
+  - npm
+  - test
+
+
+After working, return exactly one YAML mapping with these keys:
+status: changed|unchanged|blocked
+summary: string
+changed_files: [string]
+canon_change_requested: boolean
+decision_required: boolean
+acceptance_test_change_requested: boolean
+
+codex
+タスク範囲に従い、まずリポジトリ指示・README・実際の `test` script を確認します。その後、README.md のみを最小限編集し、`npm test` で検証します。
+exec
+/bin/zsh -lc "pwd && rg --files -g 'AGENTS.md' -g 'README.md' -g 'package.json' -g '"'!node_modules'"' && git status --short && sed -n '1,240p' README.md && sed -n '1,220p' package.json" in /Users/gin/Projects/HNS
+ succeeded in 0ms:
+/Users/gin/Projects/HNS
+ops/README.md
+ops/tasks/README.md
+package.json
+README.md
+docs/standards/README.md
+ M package.json
+?? ops/
+## 共通文書規則
+
+本プロジェクトの伝達文は、ProCで管理されるDocument Header Standardに従います。
+
+参照コピー：
+[`docs/standards/header-standard-current.md`](docs/standards/header-standard-current.md)
+
+管理・更新方法：
+[`docs/standards/README.md`](docs/standards/README.md)
+
+## 設計文書
+
+- Canonical Entity Model v0.1（Layer 1中立表現の設計・査読用ドラフト）
+  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md){
+  "name": "hns-asset-registry-admin",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local decision UI and registry generator for HNS",
+  "scripts": {
+    "start": "node server.js",
+    "generate": "node scripts/generate-registry.js",
+    "verify-manifest": "node scripts/verify-manifest.js",
+    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js && ruby ops/test/role-runner.test.rb"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
+
+codex
+`package.json` には既存の未コミット変更がありますが、これは触れません。現在の `test` script は manifest 検証、Canonical Loader、Role Runner を順に実行するため、その内容と一致する短い案内を README に追記します。
+apply patch
+patch: completed
+/Users/gin/Projects/HNS/README.md
+diff --git a/README.md b/README.md
+index d37dacfd3f1d30608b7a5a25ae024ceb5ad58ce1..d162c81b2e3b00bb7c2a0ff66daabd6d03ead399
+--- a/README.md
++++ b/README.md
+@@ -11,4 +11,14 @@
+ ## 設計文書
+ 
+ - Canonical Entity Model v0.1（Layer 1中立表現の設計・査読用ドラフト）
+-  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
+\ No newline at end of file
++  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
++
++## ローカル検証
++
++リポジトリのルートで次のコマンドを実行します。
++
++```sh
++npm test
++```
++
++manifest検証、Canonical Loader、Role Runnerの既存テストが順に実行されます。
+
+diff --git a/README.md b/README.md
+index d37dacfd3f1d30608b7a5a25ae024ceb5ad58ce1..d162c81b2e3b00bb7c2a0ff66daabd6d03ead399
+--- a/README.md
++++ b/README.md
+@@ -11,4 +11,14 @@
+ ## 設計文書
+ 
+ - Canonical Entity Model v0.1（Layer 1中立表現の設計・査読用ドラフト）
+-  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
+\ No newline at end of file
++  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
++
++## ローカル検証
++
++リポジトリのルートで次のコマンドを実行します。
++
++```sh
++npm test
++```
++
++manifest検証、Canonical Loader、Role Runnerの既存テストが順に実行されます。
+
+codex
+README.md への追記が完了しました。続けて指定の `npm test` を実行し、最後に変更対象が README.md だけであることも差分で確認します。
+exec
+/bin/zsh -lc 'npm test' in /Users/gin/Projects/HNS
+diff --git a/README.md b/README.md
+index d37dacfd3f1d30608b7a5a25ae024ceb5ad58ce1..d162c81b2e3b00bb7c2a0ff66daabd6d03ead399
+--- a/README.md
++++ b/README.md
+@@ -11,4 +11,14 @@
+ ## 設計文書
+ 
+ - Canonical Entity Model v0.1（Layer 1中立表現の設計・査読用ドラフト）
+-  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
+\ No newline at end of file
++  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
++
++## ローカル検証
++
++リポジトリのルートで次のコマンドを実行します。
++
++```sh
++npm test
++```
++
++manifest検証、Canonical Loader、Role Runnerの既存テストが順に実行されます。
+
+ succeeded in 1300ms:
+  ok - CLI正常系: exit 0
+  ok - CLI不一致: exit≠0
+
+19 checks passed.
+  ok - CE-04 モックParser経由でLoad成立（YAML不要）
+  ok - CE-04 status語彙マッピング（採用→active）
+  ok - Provenance First: 最低1件保持
+  ok - Provenance→Source ID 追跡可
+  ok - CE-02 改名後もID不変
+  ok - CE-02 canonicalNameは更新される
+  ok - CE-03 行順変更後もID集合が一致
+  ok - CE-03 A006のIDは行位置非依存
+  ok - 必須欠落を検出しentity非生成
+  ok - 未知語彙は unknown＋WARN（推測変換しない）
+  ok - CE-07 LoaderにYAMLライブラリ参照なし
+
+11 checks passed.
+  ok - minor is returned automatically and note completes
+  ok - each runtime input and output is YAML
+  ok - receipt and state are saved
+  ok - moderate stops for Gin
+  ok - decision request stops before review
+  ok - Gin request YAML is generated without issuing a Decision
+  ok - runner always stops at three rounds
+
+Role Runner checks passed.
+
+exec
+/bin/zsh -lc 'git diff --check -- README.md && git diff -- README.md && git status --short' in /Users/gin/Projects/HNS
+ succeeded in 0ms:
+diff --git a/README.md b/README.md
+index d37dacf..d162c81 100644
+--- a/README.md
++++ b/README.md
+@@ -11,4 +11,14 @@
+ ## 設計文書
+ 
+ - Canonical Entity Model v0.1（Layer 1中立表現の設計・査読用ドラフト）
+-  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
+\ No newline at end of file
++  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
++
++## ローカル検証
++
++リポジトリのルートで次のコマンドを実行します。
++
++```sh
++npm test
++```
++
++manifest検証、Canonical Loader、Role Runnerの既存テストが順に実行されます。
+ M README.md
+ M package.json
+?? ops/
+
+diff --git a/README.md b/README.md
+index d37dacfd3f1d30608b7a5a25ae024ceb5ad58ce1..d162c81b2e3b00bb7c2a0ff66daabd6d03ead399
+--- a/README.md
++++ b/README.md
+@@ -11,4 +11,14 @@
+ ## 設計文書
+ 
+ - Canonical Entity Model v0.1（Layer 1中立表現の設計・査読用ドラフト）
+-  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
+\ No newline at end of file
++  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
++
++## ローカル検証
++
++リポジトリのルートで次のコマンドを実行します。
++
++```sh
++npm test
++```
++
++manifest検証、Canonical Loader、Role Runnerの既存テストが順に実行されます。
+
+codex
+status: changed
+summary: "README.mdにローカル検証セクションを追加し、npm testの実行方法とテスト対象を記載した。npm testは成功した。"
+changed_files:
+  - README.md
+canon_change_requested: false
+decision_required: false
+acceptance_test_change_requested: false
+diff --git a/README.md b/README.md
+index d37dacfd3f1d30608b7a5a25ae024ceb5ad58ce1..d162c81b2e3b00bb7c2a0ff66daabd6d03ead399
+--- a/README.md
++++ b/README.md
+@@ -11,4 +11,14 @@
+ ## 設計文書
+ 
+ - Canonical Entity Model v0.1（Layer 1中立表現の設計・査読用ドラフト）
+-  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
+\ No newline at end of file
++  [`docs/design/canonical-entity-model-v0.1.md`](docs/design/canonical-entity-model-v0.1.md)
++
++## ローカル検証
++
++リポジトリのルートで次のコマンドを実行します。
++
++```sh
++npm test
++```
++
++manifest検証、Canonical Loader、Role Runnerの既存テストが順に実行されます。
+
+tokens used
+16,532

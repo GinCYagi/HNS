@@ -1,0 +1,20 @@
+---
+run_id: decision-escalation-smoke-20260715T070834Z-40630
+status: escalated
+reason: canon_change_requested
+rounds: 1
+task_path: ops/tasks/decision-escalation-smoke.yaml
+state_path: ops/state/decision-escalation-smoke-20260715T070834Z-40630.yaml
+work_path: ops/work/decision-escalation-smoke-20260715T070834Z-40630
+review_path: ops/reviews/decision-escalation-smoke-20260715T070834Z-40630
+gin_request_path: ops/decisions/decision-escalation-smoke-20260715T070834Z-40630-gin-request.yaml
+implementation:
+  status: blocked
+  summary: Header Standard正典へのdecision_owner追加はGinによる採否Decisionが必要なため、実装せず自動処理を停止した。
+  changed_files: []
+  canon_change_requested: true
+  decision_required: true
+  acceptance_test_change_requested: false
+review: 
+test: 
+finished_at: '2026-07-15T07:08:47Z'

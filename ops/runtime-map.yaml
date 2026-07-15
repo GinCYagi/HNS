@@ -1,0 +1,9 @@
+version: 1
+roles:
+  HNS-Imp-local:
+    command: ["codex", "exec", "--full-auto", "-"]
+    prompt_via: stdin
+  HNS-Rev-local:
+    command: ["claude", "--print"]
+    prompt_via: stdin
+
