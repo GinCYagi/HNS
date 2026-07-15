@@ -14,7 +14,7 @@ base:
 source:
   tag: role-runner-mvp-v1.0
   commit: c30545daa83aba8f5122e8e942397f73c9809156
-  review: ops/reviews/operational-mvp-integration-independent-review-20260715.yaml
+  review: ops/integration/operational-mvp-integration-independent-review-20260715.yaml
 
 migrated_files:
   from_operational_mvp:
@@ -114,6 +114,37 @@ consistency_fixes:
   - README、ops/README、policy、runtime-map、package.json test scriptを整合
   - Runtime生成5ディレクトリを.gitignoreへ追加
 
+review_tracking_fix:
+  task_id: operational-mvp-clean-integration-review-tracking-fix
+  finding:
+    id: CLEAN-REV-001
+    severity: moderate
+    title: Receiptが参照する前回正式Reviewがignoreされtarget commitに存在しない
+    status: addressed_pending_confirmation
+  policy:
+    runtime_reviews:
+      path: ops/reviews/
+      tracked: false
+    formal_integration_reviews:
+      path: ops/integration/
+      tracked: true
+  moved_review:
+    path: ops/integration/operational-mvp-integration-independent-review-20260715.yaml
+    before_sha256: 369ae17c9cf4ee624bfa754679f62e0002dedc075cbe36793e4177b6626c3e21
+    after_sha256: 369ae17c9cf4ee624bfa754679f62e0002dedc075cbe36793e4177b6626c3e21
+    content_unchanged: true
+    contains_local_absolute_path_as_historical_finding_evidence: true
+    runtime_logs_embedded: false
+    secrets_detected: false
+  tracked_reviews:
+    - ops/integration/operational-mvp-integration-independent-review-20260715.yaml
+    - ops/integration/operational-mvp-clean-integration-independent-review.yaml
+  actions:
+    - 前回正式Reviewを内容不変で追跡対象pathへ移動
+    - 今回のrequest_changes Reviewを追跡対象へ追加
+    - Receiptの前回Review参照を存在する追跡対象pathへ更新
+    - Runtime Reviewと正式統合Reviewの保存方針をops/README.mdへ明記
+
 verification:
   npm_test:
     command: npm test
@@ -138,14 +169,25 @@ verification:
       - ops/state
       - ops/results
       - ops/decisions
+  formal_review_tracking:
+    passed: true
+    runtime_review_path_ignored: true
+    formal_review_path_ignored: false
+    referenced_reviews_exist: true
+    moved_review_sha256_matches: true
   credential_scan:
     passed: true
+    scope: clean_integration_migrated_files_before_review_tracking_fix
     credentials_found: false
     local_absolute_paths_in_migrated_files: false
 
 unresolved_items: []
+finding_status:
+  previous_findings: resolved
+  review_tracking_finding: addressed_pending_confirmation
 pr:
-  may_create: true
+  readiness: pending_final_independent_review
+  may_create: false
   created: false
-  condition: Receipt提示後にGinの指示を受けること
-  current_action: do_not_create
+  condition: 最終独立再査読でreview tracking fixの解消確認を得ること
+  current_action: await_final_independent_review

@@ -26,11 +26,13 @@ execution:
 ## 保存物とGit追跡
 
 - `work/<run-id>/`: Taskコピー、実装Runtime入出力、テスト結果、生ログ
-- `reviews/<run-id>/`: 査読Runtime入出力
+- `reviews/<run-id>/`: 査読Runtime入出力（実行単位の一時成果物）
 - `state/<run-id>.yaml`: 最後に確定保存された状態
 - `results/<run-id>.yaml`: 終了Receipt
 - `decisions/<run-id>-gin-request.yaml`: 裁定停止時のGin向けDecisionRequest（Decisionそのものではない）
 
 これらは実行生成物であり、環境情報やRuntime出力を含み得るため、すべてGit追跡対象外です。回帰試験に固定データが必要な場合だけ、ローカル絶対パスとRuntime生出力を除去した最小データを `ops/test/fixtures/` に置きます。
+
+統合判断の根拠となる正式ReviewはRuntime生成Reviewと分離し、`integration/` に保存してGit追跡します。正式Reviewからは、同じく追跡対象で実在する正式ReviewまたはReceiptだけを参照します。
 
 Runtime異常や不正YAMLを含む失敗でも、取得済み出力、ログ、状態、Receiptを可能な限り残します。終了コードは正常完了が `0`、裁定待ち・上限到達・失敗が `2`、引数不足が `64` です。
