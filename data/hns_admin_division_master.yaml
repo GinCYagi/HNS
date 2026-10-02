@@ -268,12 +268,12 @@ additions_2026_10:
     - {real: "阿賀野川", fictional: "閼伽野川", yomi: "あかのかわ", rule: "G-07", verdict: "採用", ruling: "同上", origin_memo: "恵みも災禍も。新潟水俣病の起きた川。災いの歴史も含めて名付けた", record: "docs/proposals/2026-10-01_shinano_river.md §4"}
   mountains:
     - {real: "弥彦山", fictional: "伊夜日子山", yomi: "いやひこやま", rule: "G-01", verdict: "採用(伊夜日子線と同じ)", origin_memo: "神体山。電波塔の山", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.5"}
-    - {real: null, fictional: "思兼山", yomi: "おもいかねやま", position: "伊夜日子山の山すそから張り出した、標高約50mの小高い山", position_note: "Ginの10-01の原文は「中腹」(「a」)。10-02の「50にしましょう」「設定に即して判断してもらえると助かります」「１，50ｍが「在る」数字だそうです」で山すそ・標高約50mに。位置(山頂の南東140°・1.6km)はGin確認待ち", verdict: "採用", ruling: "Gin「小高い山の名称とします」「a」「１，50ｍが「在る」数字だそうです」", origin_memo: "神々の集う山。山は神の依り代", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
+    - {real: null, fictional: "思兼山", yomi: "おもいかねやま", position: "伊夜日子山の山裾から張り出した、標高約50mの小高い山。山頂から方位140°(南東)・1.6km(37.6937, 138.8207)", position_note: "Ginの10-01の原文は「中腹」(「a」)。10-02の「50にしましょう」「設定に即して判断してもらえると助かります」「１，50ｍが「在る」数字だそうです」で山裾・標高約50mに。「山裾」は漢字(Gin、ALM c79b79c)。位置はGin「物語としてふさわしく、合理的なほうを」→ALM総監督が決定(2026-10-02、ALM docs/ryuto_art_standard.md 4章)、Gin「山の位置は決まって多様な」(2026-10-02)", verdict: "採用", ruling: "Gin「小高い山の名称とします」「a」「１，50ｍが「在る」数字だそうです」", origin_memo: "神々の集う山。山は神の依り代", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
   seas_plains:
     - {real: "日本海", fictional: "日ノ本海", verdict: "採用(ドラマ側で決定)", ruling: "Gin「…原発の発電により日ノ本海から揚水していた…」(ALM city_plan)"}
     - {real: "越後平野", fictional: "柳都平野", verdict: "採用", ruling: "Gin「なら柳都平野に伝搬すればOK」「平野とスカイツリーはGin決済で」(ALM経由)"}
   facilities:
-    - {real: null, fictional: "おもいかねデータセンター", former_name: "思兼山産業振興継承技術研究所", rule: "G-07(神話)", location: "思兼山(津波被害対策のため高台、標高約50m)", location_note: "Ginの10-01の物語の原文は「津波被害対策のため中腹に建てられ」(ALM city_plan)。10-02の「50m」「設定に即して」で山すそ・標高約50mに", verdict: "採用", ruling: "Gin「データセンターの名前は「おもいかね」はどうでしょうか」「もとは「思兼山産業振興継承技術研究所」現在は「おもいかねデータセンター」」", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
+    - {real: null, fictional: "おもいかねデータセンター", former_name: "思兼山産業振興継承技術研究所", rule: "G-07(神話)", location: "思兼山(津波被害対策のため高台、標高約50m)", location_note: "Ginの10-01の物語の原文は「津波被害対策のため中腹に建てられ」(ALM city_plan)。10-02の「50m」「設定に即して」で山裾・標高約50mに", verdict: "採用", ruling: "Gin「データセンターの名前は「おもいかね」はどうでしょうか」「もとは「思兼山産業振興継承技術研究所」現在は「おもいかねデータセンター」」", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
     - {real: "東京スカイツリー", fictional: "東都第二タワー", verdict: "採用", ruling: "Gin「平野とスカイツリーはGin決済で」(ALM経由)"}
     - {real: null, fictional: "スパランドりゅうと", former_name: "柳都産業振興協会温水プール", verdict: "採用(ドラマ側で決定)", ruling: "Gin「二代目で柳都産業振興協会温水プール（現在のスパランドりゅうと）誘致をしたのは２台目のEarthです。」(ALM経由)"}
     - {real: null, fictional: "データセンター冷却水導水堰事業", verdict: "採用(ドラマ側で決定)", note: "Ginの原文は「冷却水道水堰事業」。表記はGinの訂正で「導水」(2026-10-02)"}
