@@ -17,7 +17,7 @@ canonical_files:
   - path: "data/hns_review_dictionary.yaml"
     sha256: "597b17625e2112031b02794c551b5ae2f9e24a6d5c8b2fed796236dac7b2860f"
   - path: "data/hns_pending_items.yaml"
-    sha256: "d6a0d8ca5350113a66c84869c3a874816bc426a8bfcff590719bf64d61041192"
+    sha256: "077253e955d90649c5e2ff436b067110c89ba1ba5e51b3d946d666ea9cb04a64"
 
 derived_files_note: "data/*.json（assets/decisions/glossary）は派生データであり本Manifestの照合対象外"
 audit_chain: "Fable出力(2026-07-12) → Rev検収 → commit 8d515dc → 2026-10反映(差分案 docs/proposals/2026-10-02_canon_update.md、NG査読反映、Gin裁定「お願いします」「OK」2026-10-02、HNS-Rev更新。specificationは変更なし) → 9bbf226(読み：Gin「柳都県　埼玉県さいたま市を参考」「とうりゅうしんかんせん」) → 7b1681b(柳都漁連：Gin「a」) → NG受け入れ判定「受け入れ可」(条件2つ：東柳の読みの引用、港湾労働組合の棄却履歴。2026-10-02、本更新で対応) → 差分案その2・その3(思兼山・七国府・HF/HA・りゅうと学園。Gin「１，50ｍが「在る」数字だそうです」「４．OK」「１，２，OK」、NG受け入れ可 2026-10-02) → 78bb842(思兼山の位置) → 差分案その4(A000 五国府、Gin「ごこうにしましょう」、NG受け入れ可 2026-10-02)"
