@@ -7,7 +7,8 @@
     "start": "node server.js",
     "generate": "node scripts/generate-registry.js",
     "verify-manifest": "node scripts/verify-manifest.js",
-    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js"
+    "check-tsunagari": "node scripts/check-tsunagari.js",
+    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js && node scripts/check-tsunagari.test.js"
   },
   "engines": {
     "node": ">=18"

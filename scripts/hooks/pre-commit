@@ -1,0 +1,6 @@
+#!/bin/sh
+# HNS の pre-commit：つながりの地図の抜けと、正本の Manifest を点検する。
+# 入れ方：cp scripts/hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+# Gin「繋がりの地図はコミットの地点で抜けがないか確認するようにしましょう」(2026-10-03)
+node scripts/check-tsunagari.js || { echo "つながりの地図（docs/tsunagari.md）に抜けがあります。足してからコミットしてください。"; exit 1; }
+node scripts/verify-manifest.js >/dev/null || { echo "正本の Manifest が一致しません（npm run verify-manifest）。"; exit 1; }
