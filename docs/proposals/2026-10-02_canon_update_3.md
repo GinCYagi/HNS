@@ -23,3 +23,18 @@
 | 同 | 権現道（東山道）の典拠 | 一次チェックに比叡山（近江） | 比叡山（日吉山王）を外す。C1 で絞った典拠（出羽三山・日光・飯縄・御嶽）は変わらない |
 
 競合の確認：正本に近江・淡海・丹波・丹後などは使われていない（HNS-Rev-local の grep、元の記録 §1.2）。NG に再確認をお願いしたい。
+
+---
+
+## B. 団体の愛称と学校（同じ判定でお願いしたい）
+
+Gin の言葉：「１，２，OK」（2026-10-02、HNS-Rev の問い「1. 柳都漁連の愛称は『HF りゅうと』でいいですか」「2. HA の綴りは『Hinomoto Agri(cultural)』でいいですか」への答え）。
+
+| ファイル | 所 | 変えたあと |
+|---|---|---|
+| admin_division_master | 柳都漁連 | nickname: **HF りゅうと**（HF＝Hinomoto Fisheries。現実の JF＝Japan Fisheries cooperative に倣う）。2001年ごろから |
+| 同 | 追加 | **柳都農協**、nickname: **HA りゅうと**（HA＝Hinomoto Agricultural。現実の JA に倣う）。Gin「柳都農協（現 HA りゅうと）」、ALM city_plan 6b |
+| 同 | 追加 | **りゅうと学園**（中高大一貫、工科大学まで。橋のそば）。Gin（2026-09-30・10-01）、ALM city_plan 66行・SETTINGS 24行 |
+| pending_items | 柳都漁連の愛称 | 解消の印 |
+
+C 系の照合（NG にお願いしたい）：「HF」「HA」の実在の略称・団体名・商標との近さ（C-01〜C-04）。
