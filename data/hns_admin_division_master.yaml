@@ -240,11 +240,11 @@ additions_2026_10:
   regional:
     - {real: "会津", fictional: "相津", yomi: "あいづ", rule: "G-01(古事記の表記)", verdict: "採用", ruling: "Gin「b」(相津を置く)", origin_memo: "四道将軍の大毘古命と建沼河別命の親子がこの地で合流した", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.4"}
   prefectures:
-    - {real: "新潟県", fictional: "柳都県", yomi: "りゅうとけん(読み確認中)", rule: "G-01(雅称)・子から親の特例(RUL-014)", parent: "北陸道(越路:確認中)", verdict: "採用(登録は越路が決まるまで親待ち)", ruling: "Gin「柳都県、子から親の特例（Gin裁定」", origin_memo: "柳都=新潟の雅称(堀に沿った柳)。明治期に人口全国最多、明治元年に新潟府", record: "docs/proposals/2026-09-30_niigata_city_candidates.md §9"}
+    - {real: "新潟県", fictional: "柳都県", yomi: "りゅうとけん", yomi_ruling: "Gin「柳都県　埼玉県さいたま市を参考」(2026-10-02。県は漢字・市はひらがなで同じ音)", rule: "G-01(雅称)・子から親の特例(RUL-014)", parent: "北陸道(越路:確認中)", verdict: "採用(登録は越路が決まるまで親待ち)", ruling: "Gin「柳都県、子から親の特例（Gin裁定」", origin_memo: "柳都=新潟の雅称(堀に沿った柳)。明治期に人口全国最多、明治元年に新潟府", record: "docs/proposals/2026-09-30_niigata_city_candidates.md §9"}
   cities:
     - {real: "新潟市", fictional: "りゅうと市", yomi: "りゅうとし", rule: "G-01", parent: "柳都県", verdict: "採用(仮名の地名:Gin裁定による先行)", ruling: "Gin「りゅうと市は大変気に入ったので独断で採用します。」", record: "docs/proposals/2026-09-30_niigata_city_candidates.md §8"}
   lines:
-    - {real: "上越新幹線", fictional: "東柳新幹線", yomi: "とうりゅうしんかんせん(読み確認中)", rule: "D-01", parent: ["東都", "柳都県"], verdict: "採用", ruling: "Gin「東柳新幹線だわ」", note: "路線名の「都」は東都を指すので柳都は「柳」と略す(RUL-015)", record: "docs/proposals/2026-10-01_toetsu_line.md §1.1"}
+    - {real: "上越新幹線", fictional: "東柳新幹線", yomi: "とうりゅうしんかんせん", yomi_ruling: "Gin(2026-10-02)", rule: "D-01", parent: ["東都", "柳都県"], verdict: "採用", ruling: "Gin「東柳新幹線だわ」", note: "路線名の「都」は東都を指すので柳都は「柳」と略す(RUL-015)", record: "docs/proposals/2026-10-01_toetsu_line.md §1.1"}
     - {real: "弥彦線", fictional: "伊夜日子線", yomi: "いやひこせん", rule: "G-01", verdict: "採用(Ginに一言確認中)", ruling: "Gin「伊夜日子山のデータセンターもまとまってきて良いですね。ランドマークは消えてはいけないから」", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.5"}
   stations:
     - {real: "新潟駅", fictional: "りゅうと駅", yomi: "りゅうとえき", verdict: "採用", ruling: "Gin「りゅうと駅は採用です」", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §5"}

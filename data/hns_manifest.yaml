@@ -13,11 +13,11 @@ canonical_files:
   - path: "data/hns_specification_v0.1.yaml"
     sha256: "d4b6a441734a55d05aebaf678c357be397c69e2d2ad9cf045afb972b45eb3e31"
   - path: "data/hns_admin_division_master.yaml"
-    sha256: "ddbca2ea691c41d9f176467a50fda3209ac079c921eeb7b58effb7c5659e627a"
+    sha256: "d121694919e56b7ad8b74bc269ebdf785b2fdc1ccc1a07bb137912dc4e7972be"
   - path: "data/hns_review_dictionary.yaml"
     sha256: "75489f87582c3d5777ae15a97d9edf0d4f9faaba6034478091c5547206eab088"
   - path: "data/hns_pending_items.yaml"
-    sha256: "22339dd2fde67a154e833536038f87da61ce159e5fcfc8825b7256070e65a9c3"
+    sha256: "bf879b2769f894b7b39d3a6c0a907d3d28baaa2355b190e2171434e20018b265"
 
 derived_files_note: "data/*.json（assets/decisions/glossary）は派生データであり本Manifestの照合対象外"
 audit_chain: "Fable出力(2026-07-12) → Rev検収 → commit 8d515dc → 2026-10反映(差分案 docs/proposals/2026-10-02_canon_update.md、NG査読反映、Gin裁定「お願いします」「OK」2026-10-02、HNS-Rev更新。specificationは変更なし)"
