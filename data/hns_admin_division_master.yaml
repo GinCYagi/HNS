@@ -9,6 +9,8 @@ document:
   reviewer: "Fable"
   design_check: "チャッピー"
   exported_at: "2026-07-12"
+  updated_at: "2026-10-02"
+  update_note: "2026-10の名前をadditions_2026_10に追加(Gin裁定「お願いします」2026-10-02。差分案 docs/proposals/2026-10-02_canon_update.md、NG査読反映済み)"
 
 # -------------------------------------------------------------
 # 行政区分エントリ
@@ -228,3 +230,52 @@ unreviewed_concepts:
   - "『そうだ、七国府、いこう。』(キャンペーン標語)"
   - "Destination Campaign構想/七国府ブランド構想"
 unreviewed_concepts_note: "いずれも進捗共有(2026-07-07)に登場。正式提出まで査読対象外"
+
+# -------------------------------------------------------------
+# 2026-10 追加(柳都県・相津まわり)
+# 記録の正本は各提案書。Ginの言葉は原文のまま(P-04)。
+# 柳都県りゅうと市の中の名前はGinの裁量(2026-10-02)。HNSは記録と照合のみ
+# -------------------------------------------------------------
+additions_2026_10:
+  regional:
+    - {real: "会津", fictional: "相津", yomi: "あいづ", rule: "G-01(古事記の表記)", verdict: "採用", ruling: "Gin「b」(相津を置く)", origin_memo: "四道将軍の大毘古命と建沼河別命の親子がこの地で合流した", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.4"}
+  prefectures:
+    - {real: "新潟県", fictional: "柳都県", yomi: "りゅうとけん(読み確認中)", rule: "G-01(雅称)・子から親の特例(RUL-014)", parent: "北陸道(越路:確認中)", verdict: "採用(登録は越路が決まるまで親待ち)", ruling: "Gin「柳都県、子から親の特例（Gin裁定」", origin_memo: "柳都=新潟の雅称(堀に沿った柳)。明治期に人口全国最多、明治元年に新潟府", record: "docs/proposals/2026-09-30_niigata_city_candidates.md §9"}
+  cities:
+    - {real: "新潟市", fictional: "りゅうと市", yomi: "りゅうとし", rule: "G-01", parent: "柳都県", verdict: "採用(仮名の地名:Gin裁定による先行)", ruling: "Gin「りゅうと市は大変気に入ったので独断で採用します。」", record: "docs/proposals/2026-09-30_niigata_city_candidates.md §8"}
+  lines:
+    - {real: "上越新幹線", fictional: "東柳新幹線", yomi: "とうりゅうしんかんせん(読み確認中)", rule: "D-01", parent: ["東都", "柳都県"], verdict: "採用", ruling: "Gin「東柳新幹線だわ」", note: "路線名の「都」は東都を指すので柳都は「柳」と略す(RUL-015)", record: "docs/proposals/2026-10-01_toetsu_line.md §1.1"}
+    - {real: "弥彦線", fictional: "伊夜日子線", yomi: "いやひこせん", rule: "G-01", verdict: "採用(Ginに一言確認中)", ruling: "Gin「伊夜日子山のデータセンターもまとまってきて良いですね。ランドマークは消えてはいけないから」", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.5"}
+  stations:
+    - {real: "新潟駅", fictional: "りゅうと駅", yomi: "りゅうとえき", verdict: "採用", ruling: "Gin「りゅうと駅は採用です」", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §5"}
+    - {real: "弥彦駅", fictional: "伊夜日子駅", yomi: "いやひこえき", rule: "G-01", verdict: "採用(伊夜日子線と同じ)", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.5"}
+  rivers:
+    - {real: "信濃川", fictional: "柳都大川", yomi: "りゅうとおおかわ", rule: "G-01(古称「大川」)+親", verdict: "採用", ruling: "Gin「柳都大川か。採用」(ALM経由)", record: "docs/proposals/2026-10-01_shinano_river.md §5"}
+    - {real: "阿賀川", fictional: "閼伽川", yomi: "あかかわ", common_name: "大川(通称。Ginに確認中)", rule: "G-07(語源の諸説の一つ)", verdict: "採用", ruling: "Gin「名は体を表すから　なまえを、つけてあげたいんだ。」", conditions: ["C-07:難読。台本・看板はルビ必須"], record: "docs/proposals/2026-10-01_shinano_river.md §4"}
+    - {real: "阿賀野川", fictional: "閼伽野川", yomi: "あかのかわ", rule: "G-07", verdict: "採用", ruling: "同上", origin_memo: "恵みも災禍も。新潟水俣病の起きた川。災いの歴史も含めて名付けた", record: "docs/proposals/2026-10-01_shinano_river.md §4"}
+  mountains:
+    - {real: "弥彦山", fictional: "伊夜日子山", yomi: "いやひこやま", rule: "G-01", verdict: "採用(伊夜日子線と同じ)", origin_memo: "神体山。電波塔の山", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.5"}
+    - {real: null, fictional: "思兼山", yomi: "おもいかねやま", position: "伊夜日子山の中腹の小高い峰", verdict: "採用", ruling: "Gin「小高い山の名称とします」「a」", origin_memo: "神々の集う山。山は神の依り代", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
+  seas_plains:
+    - {real: "日本海", fictional: "日ノ本海", verdict: "採用(ドラマ側で決定)", ruling: "Gin「…原発の発電により日ノ本海から揚水していた…」(ALM city_plan)"}
+    - {real: "越後平野", fictional: "柳都平野", verdict: "採用", ruling: "Gin「なら柳都平野に伝搬すればOK」「平野とスカイツリーはGin決済で」(ALM経由)"}
+  facilities:
+    - {real: null, fictional: "おもいかねデータセンター", former_name: "思兼山産業振興継承技術研究所", rule: "G-07(神話)", location: "思兼山(津波被害対策のため中腹)", verdict: "採用", ruling: "Gin「データセンターの名前は「おもいかね」はどうでしょうか」「もとは「思兼山産業振興継承技術研究所」現在は「おもいかねデータセンター」」", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
+    - {real: "東京スカイツリー", fictional: "東都第二タワー", verdict: "採用", ruling: "Gin「平野とスカイツリーはGin決済で」(ALM経由)"}
+    - {real: null, fictional: "スパランドりゅうと", former_name: "柳都産業振興協会温水プール", verdict: "採用(ドラマ側で決定)", ruling: "Gin「二代目で柳都産業振興協会温水プール（現在のスパランドりゅうと）誘致をしたのは２台目のEarthです。」(ALM経由)"}
+    - {real: null, fictional: "データセンター冷却水導水堰事業", verdict: "採用(ドラマ側で決定)", note: "Ginの原文は「冷却水道水堰事業」。表記はGinの訂正で「導水」(2026-10-02)"}
+  organizations:
+    - {real: null, fictional: "柳都産業振興協会", verdict: "採用(ドラマ側で決定)"}
+    - {real: null, fictional: "りゅうと港湾労働組合", former_name: "柳都漁連", verdict: "採用(ドラマ側で決定)", ruling: "Gin「…柳都漁連（現在の「りゅうと港湾労働組合」）関係者たちは…」", note: "柳都漁連が改名した同じ団体。現実の漁連(漁業協同組合連合会)と労働組合の語義のずれは記録のみ"}
+  bridges_streets_ryuto:
+    note: "柳都県りゅうと市の中の名前。Ginの裁量(2026-10-02)"
+    entries:
+      - {real: "萬代橋", fictional: "よろずよ橋", yomi: "よろずよばし", other_forms: ["よろずよばし(Gin「よろずよばし　も可」)"], former_notation: "夜来津代橋(よろづよばし)。音韻(よろづよ)から取った当て字(Gin「当て字でいいです。音韻から取ったときろくしておいてください」2026-10-02)", rule: "G-01(1886年の架橋当初の訓読み「よろづよばし」)", verdict: "採用", ruling: "Gin「承認」「げんざいのひょうきは　よろずよ橋」"}
+      - {real: "東大通", fictional: "柳都大通", yomi: "りゅうとおおどおり", verdict: "採用", ruling: "Gin「zん採用」(ALM経由)"}
+      - {real: "萬代橋通り", fictional: "よろづよ通り(表記はよろずよ橋に合わせるか確認中)", verdict: "採用", ruling: "同上"}
+      - {real: "万代口", fictional: "よろづよ口(表記はよろずよ橋に合わせるか確認中)", verdict: "採用", ruling: "同上"}
+      - {real: "古町", fictional: "古湊", yomi: "ふるみなと", verdict: "採用", ruling: "同上"}
+      - {real: null, fictional: "柳堀", yomi: "やなぎぼり", note: "ジムのある町", verdict: "採用", ruling: "同上"}
+      - {real: "新潟漁港", fictional: "りゅうと漁港", verdict: "採用", ruling: "Gin「りゅうと漁港です。」"}
+  settings_side_note: "人物・会社・船(黒薬樹、AIやぎギン、Earth、Gnome、曙商会、太陽丸ほか)はドラマの正本SETTINGSに置く。HNSは実在企業名との照合のみ(M4と合意)"
+
