@@ -7,7 +7,7 @@
     "start": "node server.js",
     "generate": "node scripts/generate-registry.js",
     "verify-manifest": "node scripts/verify-manifest.js",
-    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js"
+    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js && ruby ops/test/role-runner.test.rb"
   },
   "engines": {
     "node": ">=18"

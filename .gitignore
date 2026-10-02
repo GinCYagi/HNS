@@ -1,1 +1,8 @@
 ﻿*.bak
+
+# Role Runner runtime output (local, may contain environment-specific data)
+ops/work/
+ops/reviews/
+ops/state/
+ops/results/
+ops/decisions/
