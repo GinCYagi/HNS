@@ -272,8 +272,8 @@ additions_2026_10:
     entries:
       - {real: "萬代橋", fictional: "よろずよ橋", yomi: "よろずよばし", other_forms: ["よろずよばし(Gin「よろずよばし　も可」)"], former_notation: "夜来津代橋(よろづよばし)。音韻(よろづよ)から取った当て字(Gin「当て字でいいです。音韻から取ったときろくしておいてください」2026-10-02)", rule: "G-01(1886年の架橋当初の訓読み「よろづよばし」)", verdict: "採用", ruling: "Gin「承認」「げんざいのひょうきは　よろずよ橋」"}
       - {real: "東大通", fictional: "柳都大通", yomi: "りゅうとおおどおり", verdict: "採用", ruling: "Gin「zん採用」(ALM経由)"}
-      - {real: "萬代橋通り", fictional: "よろづよ通り(表記はよろずよ橋に合わせるか確認中)", verdict: "採用", ruling: "同上"}
-      - {real: "万代口", fictional: "よろづよ口(表記はよろずよ橋に合わせるか確認中)", verdict: "採用", ruling: "同上"}
+      - {real: "萬代橋通り", fictional: "よろずよ通り", verdict: "採用", ruling: "Gin「zん採用」(ALM経由)。表記は親の橋に合わせる(RUL-021)"}
+      - {real: "万代口", fictional: "よろずよ口", verdict: "採用", ruling: "同上(RUL-021)"}
       - {real: "古町", fictional: "古湊", yomi: "ふるみなと", verdict: "採用", ruling: "同上"}
       - {real: null, fictional: "柳堀", yomi: "やなぎぼり", note: "ジムのある町", verdict: "採用", ruling: "同上"}
       - {real: "新潟漁港", fictional: "りゅうと漁港", verdict: "採用", ruling: "Gin「りゅうと漁港です。」"}
