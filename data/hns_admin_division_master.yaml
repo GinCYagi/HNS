@@ -18,7 +18,19 @@ document:
 admin_divisions:
   - id: A000
     real: "畿内"
-    fictional: "国府内"
+    fictional: "七国府"
+    yomi: "なこう"
+    scope: "本世界の畿内は七か国:大和・山城・摂津・河内・和泉＋近江・丹波(七つの国の国府を抱えるので七国府)"
+    ruling: "Gin「「そうだ、なこう、行こう」を使いたいから採用、というのはわがまま?」「１か」「１、旧名称で競合しないか確認の上問題なければ推奨を採用」「４．OK」(2026-10-02)"
+    origin_memo: "案。標語「そうだ、なこう、行こう」が先にあり、七つの国の国府を抱えるので七国府、と後から整えた(PRE-007)。平安京から山一つ越えただけの近江・丹波を、遷都のとき畿内に組み入れた(着想)"
+    conditions_2026_10:
+      - "C-07:「なこう」は字面から読みにくい。台本はルビ必須"
+      - "C-03(記録):千葉の那古・那古船形駅と音が近い。方面が離れているので記録。町田市の七国山(ななくにやま)は字の一部が同じで読みが違う(記録)"
+      - "標語は現実の「そうだ 京都、行こう。」のもじり。字幕・看板では元の文字の並びを写さない"
+    review: "NG受け入れ可(2026-10-02、docs/reviews/2026-10-02_review_canon_update_2_NG.md)。正本に近江・淡海・丹波・丹後・比叡なし"
+    record: "docs/proposals/2026-10-02_kinai_nanakou_omoikaneyama.md §1、docs/proposals/2026-10-02_canon_update_3.md"
+    former_name: "国府内"
+    former_name_note: "旧称。下の読み候補(くにうち/こうのうち)は旧称の読みとして記録。決めなくてよい"
     yomi_candidates:
       - yomi: "くにうち"
         verdict: "条件付き採用"
@@ -40,8 +52,9 @@ admin_divisions:
       - "『国府』:不可(国府駅・国府津駅がC-01衝突)"
       - "『府内』:不可(大分市旧称・府内城がC-02/C-03衝突、火守道域内地名と正面衝突)"
       - "派生は常に三字フル形『国府内○○』で行う"
-    status: "Gin裁定待ち(くにうち/こうのうちの二択)"
-    open_question: "進捗報告中の『七国府』がA000の改名か別エントリかは未確認(構想段階・未査読)"
+      - "七国府でも「国府」単独への短縮は不可(同じ理由)"
+    status: "採用:七国府(なこう)(Gin「４．OK」2026-10-02)"
+    open_question: "~~進捗報告中の『七国府』がA000の改名か別エントリかは未確認~~ → 改名(2026-10-02解消)"
     parent: null
     note_parent_column: "親エントリ欄は架空世界内の依存専用。現実の近畿地方は書かない(現実対応は実名欄)"
 
@@ -223,7 +236,7 @@ lines:
 # 構想段階(未査読・査読辞書未登録)
 # -------------------------------------------------------------
 unreviewed_concepts:
-  - "七国府(A000改名か別エントリか未確認)"
+  - "~~七国府(A000改名か別エントリか未確認)~~ → A000の改名として採用(2026-10-02)。七鐵・標語は構想名のまま"
   - "山陽道→極楽道"
   - "七国府日ノ本鐵道/七鐵"
   - "HR中日ノ本DC"
@@ -255,18 +268,20 @@ additions_2026_10:
     - {real: "阿賀野川", fictional: "閼伽野川", yomi: "あかのかわ", rule: "G-07", verdict: "採用", ruling: "同上", origin_memo: "恵みも災禍も。新潟水俣病の起きた川。災いの歴史も含めて名付けた", record: "docs/proposals/2026-10-01_shinano_river.md §4"}
   mountains:
     - {real: "弥彦山", fictional: "伊夜日子山", yomi: "いやひこやま", rule: "G-01", verdict: "採用(伊夜日子線と同じ)", origin_memo: "神体山。電波塔の山", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.5"}
-    - {real: null, fictional: "思兼山", yomi: "おもいかねやま", position: "伊夜日子山の中腹の小高い峰", verdict: "採用", ruling: "Gin「小高い山の名称とします」「a」", origin_memo: "神々の集う山。山は神の依り代", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
+    - {real: null, fictional: "思兼山", yomi: "おもいかねやま", position: "伊夜日子山の山すそから張り出した、標高約50mの小高い山", position_note: "Ginの10-01の原文は「中腹」(「a」)。10-02の「50にしましょう」「設定に即して判断してもらえると助かります」「１，50ｍが「在る」数字だそうです」で山すそ・標高約50mに。位置(山頂の南東140°・1.6km)はGin確認待ち", verdict: "採用", ruling: "Gin「小高い山の名称とします」「a」「１，50ｍが「在る」数字だそうです」", origin_memo: "神々の集う山。山は神の依り代", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
   seas_plains:
     - {real: "日本海", fictional: "日ノ本海", verdict: "採用(ドラマ側で決定)", ruling: "Gin「…原発の発電により日ノ本海から揚水していた…」(ALM city_plan)"}
     - {real: "越後平野", fictional: "柳都平野", verdict: "採用", ruling: "Gin「なら柳都平野に伝搬すればOK」「平野とスカイツリーはGin決済で」(ALM経由)"}
   facilities:
-    - {real: null, fictional: "おもいかねデータセンター", former_name: "思兼山産業振興継承技術研究所", rule: "G-07(神話)", location: "思兼山(津波被害対策のため中腹)", verdict: "採用", ruling: "Gin「データセンターの名前は「おもいかね」はどうでしょうか」「もとは「思兼山産業振興継承技術研究所」現在は「おもいかねデータセンター」」", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
+    - {real: null, fictional: "おもいかねデータセンター", former_name: "思兼山産業振興継承技術研究所", rule: "G-07(神話)", location: "思兼山(津波被害対策のため高台、標高約50m)", location_note: "Ginの10-01の物語の原文は「津波被害対策のため中腹に建てられ」(ALM city_plan)。10-02の「50m」「設定に即して」で山すそ・標高約50mに", verdict: "採用", ruling: "Gin「データセンターの名前は「おもいかね」はどうでしょうか」「もとは「思兼山産業振興継承技術研究所」現在は「おもいかねデータセンター」」", record: "docs/proposals/2026-10-01_ryuto_town_names.md §3"}
     - {real: "東京スカイツリー", fictional: "東都第二タワー", verdict: "採用", ruling: "Gin「平野とスカイツリーはGin決済で」(ALM経由)"}
     - {real: null, fictional: "スパランドりゅうと", former_name: "柳都産業振興協会温水プール", verdict: "採用(ドラマ側で決定)", ruling: "Gin「二代目で柳都産業振興協会温水プール（現在のスパランドりゅうと）誘致をしたのは２台目のEarthです。」(ALM経由)"}
     - {real: null, fictional: "データセンター冷却水導水堰事業", verdict: "採用(ドラマ側で決定)", note: "Ginの原文は「冷却水道水堰事業」。表記はGinの訂正で「導水」(2026-10-02)"}
   organizations:
     - {real: null, fictional: "柳都産業振興協会", verdict: "採用(ドラマ側で決定)"}
-    - {real: "（漁業協同組合連合会）", fictional: "柳都漁連", verdict: "採用", ruling: "Gin「a」(2026-10-02。現実に倣う)", note: "正式名は今も柳都漁連。2001年ごろから愛称で呼ばれる(現実は2001年に漁協系統共通のJFマーク制定。出典：ja.wikipedia「全国漁業協同組合連合会」沿革。JF＝Japan Fisheries cooperative)。愛称は未定(実在のJFは使わない)。旧記録の「りゅうと港湾労働組合」は使わない(Ginの2026-10-01の原文には残る)"}
+    - {real: "（漁業協同組合連合会）", fictional: "柳都漁連", verdict: "採用", ruling: "Gin「a」(2026-10-02。現実に倣う)", note: "正式名は今も柳都漁連。2001年ごろから愛称で呼ばれる(現実は2001年に漁協系統共通のJFマーク制定。出典：ja.wikipedia「全国漁業協同組合連合会」沿革。JF＝Japan Fisheries cooperative)。愛称は「HF りゅうと」(HF＝Hinomoto Fisheries。実在のJFは使わない。Gin「１，２，OK」2026-10-02。正本の前例 JR→HR と同じ組み方。記録：HFは短波・フッ化水素と同じ字)。旧記録の「りゅうと港湾労働組合」は使わない(Ginの2026-10-01の原文には残る)"}
+    - {real: "（農業協同組合）", fictional: "柳都農協", nickname: "HA りゅうと", nickname_note: "HA＝Hinomoto Agri(cultural)。現実のJAに倣う。記録：HAはITの高可用性(High Availability)と同じ字", verdict: "採用", ruling: "Gin「柳都農協（現 HA りゅうと）」(2026-10-02、ALM city_plan 6b)、綴りはGin「１，２，OK」(2026-10-02)"}
+    - {real: null, fictional: "りゅうと学園", kind: "中高大一貫校(工科大学まで)。よろずよ橋のそば", verdict: "採用", ruling: "りゅうと市の中＝Ginの裁量(RUL-019)。ALMの記録による(city_plan 66行・SETTINGS 24行。2026-09-30・10-01 Gin)", note: "記録：同じ新潟島(中央区栄町)に実在の新潟市立新潟柳都中学校(NG、ウェブで確認)"}
   bridges_streets_ryuto:
     note: "柳都県りゅうと市の中の名前。Ginの裁量(2026-10-02)"
     entries:
