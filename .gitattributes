@@ -1,2 +1,3 @@
 ﻿* text=auto
 data/hns_*.yaml text eol=lf
+scripts/hooks/* text eol=lf
