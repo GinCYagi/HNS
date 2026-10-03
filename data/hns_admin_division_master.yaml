@@ -125,6 +125,7 @@ admin_divisions:
     rule: "G-07"
     verdict: "条件付き採用"
     conditions:
+      - "C-07:初出ルビ必須(こうぶのみち。読みテストでしんぷどうと読まれた、docs/reviews/2026-10-03_reader_test_dots.md。Gin「はい」2026-10-03)"
       - "短縮派生は再査読必須(HR神府=甲府こうふと衝突)。実質、常に『道』を含むフル形で派生"
       - "対名称:山陽道の候補と同時確定(片側確定は不可)"
     world_note: "短縮棄却→『常に正式名称で呼ばれる文化』として世界設定へ還元可能(P-05)"
@@ -169,7 +170,7 @@ adopted_companies:
   - {real: "JR東海", fictional: "HR中日ノ本", open: "読み(なかひのもと/ちゅうひのもと)未確定※2回指摘済"}
   - {real: "JR四国", fictional: "HR二名島"}
   - {real: "JR九州", fictional: "HR火守", note: "旧HR西海道。連鎖修正・D-03短縮可判例"}
-  - {real: "JR北海道", fictional: "HR北加伊(蝦夷から更新推定)", open: "蝦夷→北加伊採用に伴う正式更新の明示確認が未了"}
+  - {real: "JR北海道", fictional: "HR海北", ruling: "Gin「はい」(2026-10-03、HNS-Revの案「HR北加伊→HR海北」への答え)", note: "旧 HR北加伊(蝦夷から更新推定)。海北道に合わせて組み直した"}
   - {real: "NEXCO東日本", fictional: "HHS東日ノ本", expansion: "Hinomoto Highway Service Higashihinomoto"}
   - real: "東京メトロ(丸ノ内線運行主体)"
     fictional: "TTK"
@@ -213,7 +214,7 @@ lines:
     - {real: "京葉線", fictional: "都葉線", rule: "D-01", parent: "東都"}
     - {real: "山手線", fictional: "東都環状線", rule: "G-06", note: "将来の他都市環状線との区別運用を設計に織込む"}
     - {real: "東北新幹線", fictional: "陸奥新幹線", yomi: "みちのくしんかんせん"}
-    - {real: "北海道新幹線", fictional: "北加伊新幹線"}
+    - {real: "北海道新幹線", fictional: "海北新幹線", yomi: "かいほくしんかんせん", ruling: "Gin「はい」(2026-10-03、HNS-Revの案「北加伊新幹線→海北新幹線」への答え)", note: "旧 北加伊新幹線。海北道に合わせて組み直した"}
   conditional_or_pending:
     - {real: "地下鉄丸ノ内線", fictional: "TTK曲輪内線", verdict: "要査読2点:①『くるわ』の遊廓連想(C-05第3層)②ローマ字体系不統一"}
     - {real: "横須賀線", fictional: "須賀山線(すがやま)", verdict: "採用可", note: "須賀川と近接記録のみ"}
