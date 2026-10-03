@@ -1,0 +1,137 @@
+<title>日ノ本命名マップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+/* Layout: 測量図のような地図を主役に、右（狭い画面では下）に名前の台帳。色は「決まった度合い」だけを表す */
+:root{
+  --bg:#eef1ef; --sea:#dfe7ea; --land:#f8f9f6; --line:#b9c2c0; --ink:#1d2a2c; --muted:#5a6766;
+  --done:#2f7a5a; --done-soft:#9fcbb5; --cond:#b0832a; --cond-soft:#e3cf9f; --cand:#7b8a8c;
+  --panel:#ffffff; --hl:#c2412f;
+  --display:'Shippori Mincho B1',"Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:'BIZ UDPGothic',"Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141b1d; --sea:#18242a; --land:#222c2e; --line:#3c4a4c; --ink:#e6ecea; --muted:#9aa8a6;
+  --done:#6cc39a; --done-soft:#2f5e4a; --cond:#e0b25a; --cond-soft:#5e4b23; --cand:#8d9a9c;
+  --panel:#1b2325; --hl:#ff7a63; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141b1d; --sea:#18242a; --land:#222c2e; --line:#3c4a4c; --ink:#e6ecea; --muted:#9aa8a6;
+  --done:#6cc39a; --done-soft:#2f5e4a; --cond:#e0b25a; --cond-soft:#5e4b23; --cand:#8d9a9c;
+  --panel:#1b2325; --hl:#ff7a63; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.7;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:20px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,4.4vw,40px);line-height:1.2;margin:0;letter-spacing:.04em;text-wrap:balance}
+.sub{margin:0;color:var(--muted);max-width:60ch}
+.tally{display:flex;gap:16px;font-variant-numeric:tabular-nums;font-size:14px}
+.tally b{font-family:var(--display);font-size:26px;display:block;line-height:1}
+.main{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.main{grid-template-columns:minmax(0,1fr)}}
+.mapbox{background:var(--sea);border:1px solid var(--line);border-radius:4px;position:relative;min-width:0}
+svg{display:block;width:100%;height:auto}
+.land{fill:var(--land);stroke:var(--line);stroke-width:.4}
+.pref-line{fill:none;stroke:var(--line);stroke-width:.6}
+.f-region.done{fill:var(--done-soft)} .f-region.cond{fill:var(--cond-soft)}
+.f-pref.done{fill:var(--done);fill-opacity:.55} .f-pref.cond{fill:var(--cond);fill-opacity:.55}
+.f-city.done{fill:var(--done)} .f-city.cond{fill:var(--cond)}
+.f-region,.f-pref,.f-city{stroke:none;cursor:pointer}
+.f-on{stroke:var(--hl)!important;stroke-width:1.4!important}
+.lbl{font-family:var(--display);font-weight:800;fill:var(--ink);paint-order:stroke;stroke:var(--land);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.lbl.city{font-size:9px} .lbl.pref{font-size:13px} .lbl.region{font-size:15px;fill:var(--muted)}
+.legend{position:absolute;left:12px;bottom:10px;display:flex;flex-direction:column;gap:4px;font-size:12px;background:var(--panel);border:1px solid var(--line);padding:8px 10px;border-radius:4px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:14px;height:10px;display:inline-block;border-radius:2px}
+.sw.r{background:var(--done-soft)} .sw.p{background:var(--done);opacity:.55} .sw.c{background:var(--done)} .sw.k{background:var(--cond)}
+.ledger{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.ledger h2{font-family:var(--display);font-size:17px;margin:0;letter-spacing:.06em}
+.grp{display:flex;flex-direction:column;gap:2px}
+.grp h3{font-size:12px;letter-spacing:.12em;color:var(--muted);margin:0 0 4px;font-weight:700}
+button.row{all:unset;display:grid;grid-template-columns:12px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:5px 6px;border-radius:3px;cursor:pointer}
+button.row:hover,button.row[aria-pressed="true"]{background:var(--bg)}
+button.row:focus-visible{outline:2px solid var(--hl);outline-offset:1px}
+.dot{width:10px;height:10px;border-radius:50%;align-self:center}
+.dot.done{background:var(--done)} .dot.cond{background:var(--cond)} .dot.cand{border:1.5px solid var(--cand)}
+.nm{font-family:var(--display);font-weight:800;font-size:17px}
+.nm small{font-family:var(--body);font-weight:400;font-size:12px;color:var(--muted);margin-left:6px}
+.rl{font-size:12px;color:var(--muted);white-space:nowrap}
+.note{font-size:12px;color:var(--muted);margin:0}
+footer{font-size:12px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>日ノ本命名マップ</h1>
+      <p class="sub">日ノ本（HNS）で名前が決まった所から、地図に色が付いていきます。名前を押すと、地図の上で光ります。</p>
+    </div>
+    <div class="tally" id="tally"></div>
+  </header>
+  <div class="main">
+    <div class="mapbox">
+      <svg id="map" viewBox="0 0 860 780" role="img" aria-label="日本地図。名前の決まった地方・県・市に色が付いている"></svg>
+      <div class="legend" aria-hidden="true">
+        <span><i class="sw r"></i>地方・七道の名前</span>
+        <span><i class="sw p"></i>県の名前</span>
+        <span><i class="sw c"></i>市の名前</span>
+        <span><i class="sw k"></i>条件付き</span>
+      </div>
+    </div>
+    <aside class="ledger" id="ledger"><h2>名前の台帳</h2></aside>
+  </div>
+  <footer>正本（HNS data/hns_admin_division_master.yaml）から __STAMP__ に作成。地方・七道の範囲は府県の単位で近似しています。地図：jpn-atlas（BSD-3）、元データは国土地理院「地球地図日本」。</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+const NAMES = /*__NAMES__*/[];
+const TOPO = /*__TOPO__*/null;
+const LEVEL = {region:'地方・七道', pref:'県', city:'市'};
+const svg = d3.select('#map'), path = d3.geoPath();
+const prefs = topojson.feature(TOPO, TOPO.objects.prefectures).features;
+const munis = topojson.feature(TOPO, TOPO.objects.municipalities).features;
+const byPref = new Map(prefs.map(f => [f.id, f]));
+const byMuni = new Map(munis.map(f => [f.id, f]));
+svg.append('path').attr('class','land').attr('d', path(topojson.feature(TOPO, TOPO.objects.country)));
+const gFill = svg.append('g'), gLines = svg.append('g'), gLbl = svg.append('g');
+gLines.append('path').attr('class','pref-line').attr('d', path(topojson.mesh(TOPO, TOPO.objects.prefectures, (a,b)=>a!==b)));
+const order = {region:0, pref:1, city:2};
+const items = NAMES.slice().sort((a,b)=>order[a.level]-order[b.level]);
+const shapes = new Map();
+for (const n of items) {
+  const feats = (n.prefs||[]).map(c=>byPref.get(c)).concat((n.cities||[]).map(c=>byMuni.get(c))).filter(Boolean);
+  const merged = {type:'FeatureCollection', features: feats};
+  const el = gFill.append('path').attr('class', `f-${n.level} ${n.status}`).attr('d', path(merged));
+  el.append('title').text(`${n.fictional}（${n.real}）`);
+  el.on('click', () => pick(n.real));
+  shapes.set(n.real, el);
+  const [x,y] = path.centroid(merged);
+  if (isFinite(x)) gLbl.append('text').attr('class', `lbl ${n.level}`).attr('x', x).attr('y', y).attr('text-anchor','middle').attr('dy', n.level==='city' ? '-6' : '0.35em').text(n.level==='region' && n.real==='会津' ? '' : n.fictional);
+}
+const ledger = document.getElementById('ledger');
+for (const lv of ['region','pref','city']) {
+  const list = items.filter(n=>n.level===lv); if (!list.length) continue;
+  const g = document.createElement('div'); g.className='grp';
+  g.innerHTML = `<h3>${LEVEL[lv]}</h3>`;
+  for (const n of list) {
+    const b = document.createElement('button'); b.className='row'; b.type='button'; b.dataset.real=n.real; b.setAttribute('aria-pressed','false');
+    b.innerHTML = `<i class="dot ${n.status}"></i><span class="nm">${n.fictional}${n.yomi?`<small>${n.yomi}</small>`:''}</span><span class="rl">${n.real.replace('(本世界の旧称)','')}</span>`;
+    b.onclick = () => pick(n.real);
+    g.appendChild(b);
+  }
+  ledger.appendChild(g);
+}
+const note = document.createElement('p'); note.className='note';
+note.textContent = 'まだ名前のない所は、地図では色が付かないままです（カッコのまま）。';
+ledger.appendChild(note);
+const done = items.filter(n=>n.status==='done').length, cond = items.filter(n=>n.status==='cond').length;
+document.getElementById('tally').innerHTML = `<div><b>${done}</b>決まった</div><div><b>${cond}</b>条件付き</div>`;
+let on = null;
+function pick(real){
+  if (on) shapes.get(on)?.classed('f-on', false);
+  document.querySelectorAll('button.row').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.real===real && on!==real)));
+  if (on === real) { on = null; return; }
+  on = real; const el = shapes.get(real); if (el) { el.classed('f-on', true); el.raise(); }
+}
+</script>
