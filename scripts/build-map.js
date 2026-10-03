@@ -22,6 +22,7 @@ const templatePath = path.join(base, "docs", "map", "map_template.html");
 // 現実の名前 → 地図の上の場所。level: region（地方・七道）/ pref（都道府県）/ city（市区町村）
 const PLACES = {
   "畿内": { level: "region", prefs: ["26", "27", "29"], note: "五か国（大和・山城・摂津・河内・和泉）を府県の単位で近似" },
+  "山陽道": { level: "region", prefs: ["33", "34", "35"], note: "岡山・広島・山口で近似（播磨＝兵庫南西部も山陽道）" },
   "山陰道": { level: "region", prefs: ["31", "32"], note: "鳥取・島根で近似（現実の山陰道は丹波・丹後・但馬も含む）" },
   "西海道(本世界の旧称)": { level: "region", prefs: ["40", "41", "42", "43", "44", "45", "46"] },
   "東山道": { level: "region", prefs: ["09", "10", "20", "21", "25"], note: "下野・上野・信濃・美濃飛騨・近江を府県の単位で近似（陸奥・出羽は東北＝陸奥の色）" },
