@@ -100,6 +100,17 @@ for q in queries:
         print("   ", t)
 ```
 
+## 5.1 施設名・店名の照合（OpenPOI API、C-02）
+
+Gin「使えれば使いましょう」（2026-10-03）で取り入れた。国土地理院の住所検索では拾えない**施設名・店名・会社名**を照合できる。
+
+- 問い合わせ先：`https://api.openpoiapi.com/v1/search?q=検索語&limit=50`（API キー不要。公式ドキュメント https://docs.openpoiapi.com/）
+- 返ってくる項目：`name`（施設名）、`prefecture`、`city`、`address`、`category`、`licenses`、`attributions` など。
+- 数え方：住所検索と同じく、`name` に検索語を「そのまま含む」件数を数える。字がたまたま並んだだけのもの（例：「内**科坂**口医院」）は除いて読む。
+- 上限：API 全体で毎秒200件。1語ごとに少し間をあける。
+- **出典の示し方（必ず）**：結果を記録に書くときは「**出典：OpenPOI API（https://openpoiapi.com/attribution.html）**」と書く。データは Overture Maps（CDLA-Permissive-2.0）と、自治体の食品営業データ（CC BY 系＋公共データ利用規約）の混在（公式ドキュメント本文）。
+- スクリプトの例は §5 の住所検索と同じ形で、URL と項目名を替えればよい。
+
 ## 6. 返し方
 
 - 文書：`docs/reviews/YYYY-MM-DD_review_<対象>_<査読者>.md`
@@ -119,6 +130,7 @@ for q in queries:
   4. §3.3 の層に「国（旧国名）」を足した。
   5. §6 の push の時期を、Gin の判断待ちと書いた。
 - 2026-10-03 第3版：§6 の push の時期を、Gin「1 採決後で」で決めた（NG 経由）。
+- 2026-10-03 第4版：§5.1 に OpenPOI API による施設名の照合を足した（Gin「使えれば使いましょう」）。
 
 ## 【Gin判断待ち — 隔離】
 
