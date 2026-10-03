@@ -48,6 +48,7 @@ const PLACES = {
   "上越市": { level: "city", cities: ["15222"] },
   "佐渡市": { level: "city", cities: ["15224"] },
   "いわき市": { level: "city", cities: ["07204"] },
+  "会津若松市": { level: "city", cities: ["07202"] },
   "米沢市": { level: "city", cities: ["06202"] },
 };
 
