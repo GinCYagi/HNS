@@ -282,10 +282,12 @@ additions_2026_10:
   stations:
     - {real: "新潟駅", fictional: "りゅうと駅", yomi: "りゅうとえき", verdict: "採用", ruling: "Gin「りゅうと駅は採用です」", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §5"}
     - {real: "弥彦駅", fictional: "伊夜日子駅", yomi: "いやひこえき", rule: "G-01", verdict: "採用(伊夜日子線と同じ)", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.5"}
+    - {real: "関屋駅", fictional: "門家駅", yomi: "かどやえき", rule: "DIFF-016(関→門、屋→家)。地名・分水路にそろえる(RUL-013)", verdict: "採用", ruling: "Gin「門家分水」「かどや」「字が違えば許容したい」「1 揃えたい」(2026-10-03。HNS-Revの問い「関屋の地名と駅も門家にそろえますか」「かどや製油と同じ音になることは承知のうえですか」への答え)", notes: "C-07:初出ルビ(もんかと読まれうる)。駅名の第1稿の堰戸(せきど)は候補に下げた", review: "NG受け入れ可(2026-10-03、条件:初出ルビ)", record: "docs/proposals/2026-10-03_sekiya_bunsui.md"}
   rivers:
     - {real: "信濃川", fictional: "柳都大川", yomi: "りゅうとおおかわ", rule: "G-01(古称「大川」)+親", verdict: "採用", ruling: "Gin「柳都大川か。採用」(ALM経由)", record: "docs/proposals/2026-10-01_shinano_river.md §5"}
     - {real: "阿賀川", fictional: "閼伽川", yomi: "あかかわ", common_name: "大川(通称。Ginに確認中)", rule: "G-07(語源の諸説の一つ)", verdict: "採用", ruling: "Gin「名は体を表すから　なまえを、つけてあげたいんだ。」", conditions: ["C-07:難読。台本・看板はルビ必須"], record: "docs/proposals/2026-10-01_shinano_river.md §4"}
     - {real: "阿賀野川", fictional: "閼伽野川", yomi: "あかのかわ", rule: "G-07", verdict: "採用", ruling: "同上", origin_memo: "恵みも災禍も。新潟水俣病の起きた川。災いの歴史も含めて名付けた", record: "docs/proposals/2026-10-01_shinano_river.md §4"}
+    - {real: "関屋分水路(関屋分水)", fictional: "門家分水", yomi: "かどやぶんすい", rule: "DIFF-016(関→門〈どちらも通り口〉、屋→家)。りゅうと市の中(RUL-019)", parent: "柳都大川", verdict: "採用", ruling: "Gin「門家分水」「かどや」「字が違えば許容したい」「1 揃えたい」(2026-10-03。HNS-Revの問い「関屋の地名と駅も門家にそろえますか」「かどや製油と同じ音になることは承知のうえですか」への答え)", origin_memo: "島(古湊の側)を生んだ二本目の放水路。関所も門も通り口", notes: "C-07:初出ルビ(もんか)。記録:かどや製油・角屋・門屋と同音(字が違うので許容、Gin)。住所検索で門家0件(NG)", review: "NG受け入れ可(2026-10-03、条件:初出ルビ)", record: "docs/proposals/2026-10-03_sekiya_bunsui.md"}
     - {real: "大河津分水路(大河津分水)", fictional: "新柳都大川", yomi: "しんりゅうとおおかわ", common_name: "広川辺分水(ひろかべぶんすい)、短く「分水」", rule: "G-01(史実の旧称「新信濃川」の型)+親。呼び名はDIFF-016(大河津→広川辺:大⇔広・河⇔川・津⇔辺)", parent: "柳都大川", verdict: "採用", ruling: "Gin「新柳都大川がいいような」「大⇔広　河⇔川　津⇔辺　ひろかべ」「それでOKですい」(2026-10-02)", origin_memo: "温水はここへ戻し、河口から海へ(ALM絵の基準表)。現実は河口付近2kmを山地を掘って通した", notes: "C-07:広川辺は「ひろかわべ」と読まれやすくルビ必須。記録:ひろかべ＝広壁と同音(害なし)。「分水」は旧分水町の名でもあり呼び名として自然(NG)。広川町(和歌山・福岡・名古屋)と字の一部が同じ。入口の地名「広川辺」の親は雀市", review: "NG受け入れ可(2026-10-02)", record: "docs/proposals/2026-10-02_canon_update_6.md"}
   mountains:
     - {real: "弥彦山", fictional: "伊夜日子山", yomi: "いやひこやま", rule: "G-01", verdict: "採用(伊夜日子線と同じ)", origin_memo: "神体山。電波塔の山", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.5"}
@@ -314,6 +316,7 @@ additions_2026_10:
       - {real: "東大通", fictional: "柳都大通", yomi: "りゅうとおおどおり", verdict: "採用", ruling: "Gin「zん採用」(ALM経由)"}
       - {real: "萬代橋通り", fictional: "よろずよ通り", verdict: "採用", ruling: "Gin「zん採用」(ALM経由)。表記は親の橋に合わせる(RUL-021)"}
       - {real: "万代口", fictional: "よろずよ口", verdict: "採用", ruling: "同上(RUL-021)"}
+      - {real: "関屋", fictional: "門家", yomi: "かどや", verdict: "採用", ruling: "Gin「門家分水」「かどや」「字が違えば許容したい」「1 揃えたい」(2026-10-03。HNS-Revの問い「関屋の地名と駅も門家にそろえますか」「かどや製油と同じ音になることは承知のうえですか」への答え)", notes: "地名・駅・分水路を門家にそろえる(現実の関屋と同じ形)。初出ルビ", review: "NG受け入れ可(2026-10-03)"}
       - {real: "古町", fictional: "古湊", yomi: "ふるみなと", verdict: "採用", ruling: "同上"}
       - {real: null, fictional: "柳堀", yomi: "やなぎぼり", note: "ジムのある町", verdict: "採用", ruling: "同上"}
       - {real: "新潟漁港", fictional: "りゅうと漁港", verdict: "採用", ruling: "Gin「りゅうと漁港です。」"}
