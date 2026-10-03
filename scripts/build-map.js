@@ -47,6 +47,7 @@ const PLACES = {
   "上越市": { level: "city", cities: ["15222"] },
   "佐渡市": { level: "city", cities: ["15224"] },
   "いわき市": { level: "city", cities: ["07204"] },
+  "米沢市": { level: "city", cities: ["06202"] },
 };
 
 function field(s, key) {
