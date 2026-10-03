@@ -1,0 +1,143 @@
+<title>HNS-Rev の作業机</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+/* Layout: 机の上に「いまの作業」の札と、作業の綴り（新しい順）。左に道具箱と仕分けの数 */
+:root{
+  --bg:#eef0ec; --desk:#f9faf7; --ink:#1f2a29; --muted:#5c6866; --line:#cdd4d0;
+  --done:#2f7a5a; --wait:#b0832a; --doing:#3f6fa8;
+  --g1:#3f6b4f; --g2:#2f5f86; --g3:#8a5a2b; --g4:#6b4f8a; --g5:#4f6b6b;
+  --display:'Shippori Mincho B1',"Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:'BIZ UDPGothic',"Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a1b; --desk:#1c2324; --ink:#e5ebe9; --muted:#9aa7a5; --line:#34403f;
+  --done:#6cc39a; --wait:#e0b25a; --doing:#8bb4e6;
+  --g1:#8fc2a0; --g2:#8bb8de; --g3:#e0a874; --g4:#c0a6e6; --g5:#9fc4c4; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a1b; --desk:#1c2324; --ink:#e5ebe9; --muted:#9aa7a5; --line:#34403f;
+  --done:#6cc39a; --wait:#e0b25a; --doing:#8bb4e6;
+  --g1:#8fc2a0; --g2:#8bb8de; --g3:#e0a874; --g4:#c0a6e6; --g5:#9fc4c4; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.7;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px;padding-block:24px 56px;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(26px,4.4vw,38px);margin:0;letter-spacing:.04em;line-height:1.2}
+.sub{margin:4px 0 0;color:var(--muted);max-width:60ch}
+.clock{font-family:var(--display);font-size:clamp(34px,6vw,48px);font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.clock small{display:block;font-family:var(--body);font-size:13px;font-weight:400;color:var(--muted);text-align:right;margin-top:6px}
+.now{background:var(--desk);border:1px solid var(--line);border-left:5px solid var(--doing);border-radius:4px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.now.done{border-left-color:var(--done)} .now.wait{border-left-color:var(--wait)}
+.label{font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:700}
+.now .t{font-family:var(--display);font-size:22px;font-weight:800;line-height:1.35}
+.main{display:grid;grid-template-columns:240px minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:760px){.main{grid-template-columns:minmax(0,1fr)}}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.box{background:var(--desk);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.box h2{font-family:var(--display);font-size:16px;margin:0;letter-spacing:.06em}
+.tools a{color:var(--ink);text-decoration:none;display:block;padding:4px 0;border-bottom:1px dashed var(--line)}
+.tools a:last-child{border-bottom:0}
+.tools a:hover{color:var(--doing)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:4px 10px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;min-height:32px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--desk);border-color:var(--ink)}
+.chip:focus-visible{outline:2px solid var(--doing);outline-offset:2px}
+.chip b{font-variant-numeric:tabular-nums;font-weight:700}
+.log{display:flex;flex-direction:column;gap:0;background:var(--desk);border:1px solid var(--line);border-radius:4px;min-width:0}
+.row{display:grid;grid-template-columns:56px 74px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:10px 14px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+@media (max-width:520px){.row{grid-template-columns:48px minmax(0,1fr) auto}.row .g{grid-column:2;grid-row:1}.row .tt{grid-column:1 / -1;grid-row:2}}
+.time{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px}
+.g{font-size:12px;font-weight:700;letter-spacing:.06em}
+.tt{min-width:0;overflow-wrap:anywhere}
+.pill{font-size:12px;border-radius:999px;padding:1px 9px;border:1px solid currentColor;white-space:nowrap}
+.pill.done{color:var(--done)} .pill.wait{color:var(--wait)} .pill.doing{color:var(--doing)}
+.empty{padding:22px 16px;color:var(--muted)}
+footer{font-size:12px;color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>HNS-Rev の作業机</h1>
+      <p class="sub">日ノ本の名前を決める手伝いをしている Claude（HNS-Rev）の机です。作業の区切りごとに、ここへ一行ずつ書き足していきます。</p>
+    </div>
+    <div class="clock" id="clock">--:--<small id="date"></small></div>
+  </header>
+
+  <section class="now" id="now" aria-live="polite">
+    <span class="label">いまの作業</span>
+    <span class="t" id="nowT">記録帳を読み込んでいます</span>
+    <span id="nowM" class="sub"></span>
+  </section>
+
+  <div class="main">
+    <aside class="side">
+      <div class="box">
+        <h2>仕分け</h2>
+        <div class="chips" id="chips" role="group" aria-label="ジャンルで絞る"></div>
+      </div>
+      <div class="box tools">
+        <h2>道具箱</h2>
+        <a href="https://claude.ai/artifact/EQxPoey2q3XF4cKSx3Tvbf" target="_blank" rel="noopener">日ノ本命名マップ</a>
+        <a href="https://claude.ai/artifact/PfBZZAxdZFixaxu2e9pX7Z" target="_blank" rel="noopener">日ノ本 つながりの地図</a>
+      </div>
+    </aside>
+    <section class="log" id="log" aria-label="作業の綴り（新しい順）">
+      <div class="empty">作業の綴りはまだありません。HNS-Rev が作業の区切りごとに、ここへ書き足します。</div>
+    </section>
+  </div>
+
+  <footer>ここに出るのは、HNS-Rev が書き込んだ作業の記録です（生中継ではありません）。ジャンル・進み具合・ひとことだけを書きます。</footer>
+</div>
+
+<script>
+const GENRES = {"命名":"--g1","照合":"--g2","地図":"--g3","記録":"--g4","連絡":"--g5"};
+const PROG = {"済":"done","待ち":"wait","作業中":"doing"};
+let rows = [], filter = null;
+const $ = id => document.getElementById(id);
+function tick(){
+  const d = new Date();
+  $('clock').firstChild.nodeValue = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+  $('date').textContent = d.toLocaleDateString('ja-JP', {month:'long', day:'numeric', weekday:'short'});
+}
+tick(); setInterval(tick, 15000);
+function fmt(at){ const d = new Date(at); return isNaN(d) ? '' : String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0'); }
+function render(){
+  const counts = {};
+  rows.forEach(r => counts[r.genre] = (counts[r.genre]||0) + 1);
+  const chips = $('chips'); chips.textContent = '';
+  const mk = (name, n) => { const b = document.createElement('button'); b.type='button'; b.className='chip'; b.setAttribute('aria-pressed', String(filter===name || (!filter && name===null)));
+    b.innerHTML = ''; const s = document.createElement('span'); s.textContent = name || 'すべて'; const c = document.createElement('b'); c.textContent = n; b.append(s, c);
+    b.onclick = () => { filter = name; render(); }; chips.appendChild(b); };
+  mk(null, rows.length);
+  Object.keys(GENRES).forEach(g => { if (counts[g]) mk(g, counts[g]); });
+  const log = $('log'); log.textContent = '';
+  const list = rows.filter(r => !filter || r.genre === filter);
+  if (!list.length) { const e = document.createElement('div'); e.className='empty'; e.textContent = rows.length ? 'このジャンルの作業はまだありません。' : '作業の綴りはまだありません。HNS-Rev が作業の区切りごとに、ここへ書き足します。'; log.appendChild(e); }
+  list.forEach(r => {
+    const row = document.createElement('div'); row.className = 'row';
+    const t = document.createElement('span'); t.className='time'; t.textContent = fmt(r.at);
+    const g = document.createElement('span'); g.className='g'; g.textContent = r.genre || ''; g.style.color = 'var(' + (GENRES[r.genre] || '--muted') + ')';
+    const tt = document.createElement('span'); tt.className='tt'; tt.textContent = r.title || '';
+    const p = document.createElement('span'); p.className = 'pill ' + (PROG[r.progress] || 'doing'); p.textContent = r.progress || '';
+    row.append(t, g, tt, p); log.appendChild(row);
+  });
+}
+function renderNow(d){
+  const now = $('now');
+  if (!d) { $('nowT').textContent = 'いまの作業は書かれていません'; $('nowM').textContent = ''; now.className='now'; return; }
+  $('nowT').textContent = d.title || '';
+  $('nowM').textContent = [d.genre, d.progress, d.at ? fmt(d.at) + ' 更新' : ''].filter(Boolean).join('・');
+  now.className = 'now ' + (PROG[d.progress] || 'doing');
+}
+(async () => {
+  const db = await claude.use("db");
+  if (!db) { $('nowT').textContent = 'この表示では記録帳を読めません'; $('nowM').textContent = 'claude.ai にサインインして開くと、作業の綴りが出ます。'; return; }
+  db.doc("status/now").onSnapshot(s => renderNow(s.data()), () => {});
+  db.collection("log").orderBy("at", "desc").limit(200).onSnapshot(snap => {
+    rows = snap.docs.map(d => d.data()).filter(Boolean);
+    render();
+  }, () => { $('nowM').textContent = '記録帳の読み込みに失敗しました。開き直すと直ることがあります。'; });
+})();
+</script>
