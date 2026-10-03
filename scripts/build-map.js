@@ -36,6 +36,7 @@ const PLACES = {
   "新潟県": { level: "pref", prefs: ["15"] },
   "福島県": { level: "pref", prefs: ["07"] },
   "長野県": { level: "pref", prefs: ["20"] },
+  "山形県": { level: "pref", prefs: ["06"] },
   "東京": { level: "pref", prefs: ["13"] },
   "名古屋": { level: "city", cities: ["23100"] },
   "新潟市": { level: "city", cities: ["15100"] },
