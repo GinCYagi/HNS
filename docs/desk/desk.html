@@ -1,4 +1,4 @@
-<title>HNS-Rev の作業机</title>
+<title>HNS-Orc の作業机</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=BIZ+UDPGothic:wght@400;700&display=swap">
 <style>
@@ -59,8 +59,8 @@ footer{font-size:12px;color:var(--muted)}
 <div class="wrap">
   <header>
     <div>
-      <h1>HNS-Rev の作業机</h1>
-      <p class="sub">日ノ本の名前を決める手伝いをしている Claude（HNS-Rev）の机です。作業の区切りごとに、ここへ一行ずつ書き足していきます。</p>
+      <h1>HNS-Orc の作業机</h1>
+      <p class="sub">日ノ本の名前を決める手伝いをしている Claude（HNS-Orc、まとめ役）の机です。作業の区切りごとに、ここへ一行ずつ書き足していきます。</p>
     </div>
     <div class="clock" id="clock">--:--<small id="date"></small></div>
   </header>
@@ -84,11 +84,11 @@ footer{font-size:12px;color:var(--muted)}
       </div>
     </aside>
     <section class="log" id="log" aria-label="作業の綴り（新しい順）">
-      <div class="empty">作業の綴りはまだありません。HNS-Rev が作業の区切りごとに、ここへ書き足します。</div>
+      <div class="empty">作業の綴りはまだありません。HNS-Orc が作業の区切りごとに、ここへ書き足します。</div>
     </section>
   </div>
 
-  <footer>ここに出るのは、HNS-Rev が書き込んだ作業の記録です（生中継ではありません）。ジャンル・進み具合・ひとことだけを書きます。</footer>
+  <footer>ここに出るのは、HNS-Orc が書き込んだ作業の記録です（生中継ではありません）。ジャンル・進み具合・ひとことだけを書きます。</footer>
 </div>
 
 <script>
@@ -114,7 +114,7 @@ function render(){
   Object.keys(GENRES).forEach(g => { if (counts[g]) mk(g, counts[g]); });
   const log = $('log'); log.textContent = '';
   const list = rows.filter(r => !filter || r.genre === filter);
-  if (!list.length) { const e = document.createElement('div'); e.className='empty'; e.textContent = rows.length ? 'このジャンルの作業はまだありません。' : '作業の綴りはまだありません。HNS-Rev が作業の区切りごとに、ここへ書き足します。'; log.appendChild(e); }
+  if (!list.length) { const e = document.createElement('div'); e.className='empty'; e.textContent = rows.length ? 'このジャンルの作業はまだありません。' : '作業の綴りはまだありません。HNS-Orc が作業の区切りごとに、ここへ書き足します。'; log.appendChild(e); }
   list.forEach(r => {
     const row = document.createElement('div'); row.className = 'row';
     const t = document.createElement('span'); t.className='time'; t.textContent = fmt(r.at);
