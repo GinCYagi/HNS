@@ -36,9 +36,9 @@ svg{display:block;width:100%;height:auto}
 .f-pref.done{fill:var(--done);fill-opacity:.55} .f-pref.cond{fill:var(--cond);fill-opacity:.55}
 .f-city.done{fill:var(--done)} .f-city.cond{fill:var(--cond)}
 .f-region,.f-pref,.f-city{stroke:none;cursor:pointer}
-.f-on{stroke:var(--hl)!important;stroke-width:1.4!important}
+.f-on{stroke:var(--hl)!important;stroke-width:2.5px!important;vector-effect:non-scaling-stroke}
 .lbl{font-family:var(--display);font-weight:800;fill:var(--ink);paint-order:stroke;stroke:var(--land);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
-.lbl.city{font-size:9px} .lbl.pref{font-size:13px} .lbl.region{font-size:15px;fill:var(--muted)}
+.lbl.region{fill:var(--muted)}
 .zoombar{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:6px}
 .zoombar button{font:inherit;font-size:16px;min-width:40px;min-height:36px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;cursor:pointer}
 .zoombar button:focus-visible{outline:2px solid var(--hl);outline-offset:1px}
@@ -129,21 +129,23 @@ for (const n of items) {
 }
 const lp = {pref:0, city:1, region:2};
 // 表示のきまり：
-//  ・文字の大きさは、拡大しても画面の上で同じ（地図だけが大きくなる）
+//  ・文字の大きさは、画面の上で地方19px・県17px・市14px。拡大しても同じ（地図だけが大きくなる）
 //  ・倍率 1〜2 倍未満：地方・七道と県の名前。市は出さない
 //  ・倍率 2〜4 倍未満：地方・七道は薄く、県と市の名前
 //  ・倍率 4 倍以上：県と市の名前（地方・七道は出さない）
 //  ・文字どうしが重なるときは、県 → 市 → 地方 の順に残し、後のものを省く
 const RULES = [{max:2, show:{region:1, pref:1, city:0}}, {max:4, show:{region:0.5, pref:1, city:1}}, {max:Infinity, show:{region:0, pref:1, city:1}}];
 let K = 1, TX = 0, TY = 0;
+const PX = {region:19, pref:17, city:14};  // 画面の上での文字の大きさ（px）
 function drawLabels(){
   gLbl.selectAll('*').remove();
+  const scr = (svg.node().getBoundingClientRect().width || 860) / 860;
   const placedB = [], rule = RULES.find(r => K < r.max).show;
   pending.slice().sort((a,b)=>lp[a[0].level]-lp[b[0].level]).forEach(([n,x,y]) => {
     const op = rule[n.level]; if (!op) return;
     const sx = x*K+TX, sy = y*K+TY;
     if (sx < -20 || sy < -20 || sx > 880 || sy > 800) return;
-    const el = gLbl.append('text').attr('class', `lbl ${n.level}`).attr('x', sx).attr('y', sy).attr('text-anchor','middle').attr('dy', n.level==='city' ? '-6' : '0.35em').attr('opacity', op).text(n.fictional);
+    const el = gLbl.append('text').attr('class', `lbl ${n.level}`).attr('x', sx).attr('y', sy).attr('text-anchor','middle').attr('dy', n.level==='city' ? '-6' : '0.35em').attr('opacity', op).attr('font-size', PX[n.level] / scr).attr('stroke-width', 3.5 / scr).attr('dy', n.level==='city' ? (-6 / scr) : '0.35em').text(n.fictional);
     const b = el.node().getBBox();
     if (placedB.some(p => !(b.x+b.width < p.x || p.x+p.width < b.x || b.y+b.height < p.y || p.y+p.height < b.y))) { el.remove(); return; }
     placedB.push(b);
@@ -159,6 +161,7 @@ svg.call(zoom);
 document.getElementById('zin').onclick = () => svg.transition().duration(250).call(zoom.scaleBy, 1.8);
 document.getElementById('zout').onclick = () => svg.transition().duration(250).call(zoom.scaleBy, 1/1.8);
 document.getElementById('zreset').onclick = () => svg.transition().duration(250).call(zoom.transform, d3.zoomIdentity);
+window.addEventListener('resize', () => drawLabels());
 drawLabels();
 const ledger = document.getElementById('ledger');
 for (const lv of ['region','pref','city']) {
