@@ -65,7 +65,8 @@ function collect(master) {
     if (!real || !fictional || !PLACES[real]) continue;
     let verdict = field(line, "verdict");
     if (!verdict && /rule: "G-0/.test(line)) verdict = /条件付き/.test(line) ? "条件付き" : "採用";
-    out.push({ real, fictional, yomi: field(line, "yomi") || "", status: statusOf(verdict), alias: field(line, "alias") || "" });
+    out.push({ real, fictional, yomi: field(line, "yomi") || "", status: statusOf(verdict), alias: field(line, "alias") || "",
+      rule: field(line, "rule") || "", origin: field(line, "origin_memo") || "", memo: field(line, "note") || field(line, "notes") || "", ruling: field(line, "ruling") || "", record: field(line, "record") || "" });
   }
   // admin_divisions のブロック（A000〜）
   const divStart = master.indexOf("admin_divisions:");
@@ -75,7 +76,8 @@ function collect(master) {
     const fictional = (e.match(/\n    fictional: "([^"]+)"/) || [])[1];
     const yomi = (e.match(/\n    yomi: "([^"]+)"/) || [])[1] || "";
     const st = (e.match(/\n    status: "([^"]+)"/) || [])[1] || (e.match(/\n    verdict: "([^"]+)"/) || [])[1];
-    if (real && fictional && PLACES[real]) out.push({ real, fictional, yomi, status: statusOf(st) });
+    const g = k => (e.match(new RegExp("\\n    " + k + ': "([^"]+)"')) || [])[1] || "";
+    if (real && fictional && PLACES[real]) out.push({ real, fictional, yomi, status: statusOf(st), rule: g("rule"), origin: g("origin_memo"), ruling: g("ruling"), record: g("record") });
   }
   // 複数行の「  - real: ...」ブロック（cities の名古屋＝尾張府蓬左市など）
   for (const e of master.split(/\n  - real: /).slice(1)) {
@@ -83,7 +85,8 @@ function collect(master) {
     const fictional = (e.match(/\n    fictional: "([^"]+)"/) || [])[1];
     const yomi = (e.match(/\n    yomi: "([^"]+)"/) || [])[1] || "";
     const verdict = (e.match(/\n    verdict: "([^"]+)"/) || [])[1];
-    if (real && fictional && PLACES[real]) out.push({ real, fictional, yomi, status: statusOf(verdict) });
+    const g = k => (e.match(new RegExp("\\n    " + k + ': "([^"]+)"')) || [])[1] || "";
+    if (real && fictional && PLACES[real]) out.push({ real, fictional, yomi, status: statusOf(verdict), rule: g("rule"), origin: g("origin_memo"), ruling: g("ruling"), record: g("record") });
   }
   // 名古屋は「尾張府蓬左市」で入っている
   const seen = new Set();

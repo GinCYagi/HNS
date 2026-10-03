@@ -43,6 +43,14 @@ svg{display:block;width:100%;height:auto}
 .legend span{display:inline-flex;align-items:center;gap:8px}
 .sw{width:14px;height:10px;display:inline-block;border-radius:2px}
 .sw.r{background:var(--done-soft)} .sw.p{background:var(--done);opacity:.55} .sw.c{background:var(--done)} .sw.k{background:var(--cond)}
+.side{display:flex;flex-direction:column;gap:14px;min-width:0}
+.detail{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--done);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.detail.cond{border-left-color:var(--cond)}
+.detail .big{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.2;margin:0}
+.detail .big small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);margin-left:8px}
+.detail dl{margin:0;display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:4px 10px;font-size:14px}
+.detail dt{color:var(--muted);font-size:12px;letter-spacing:.08em;padding-top:2px}
+.detail dd{margin:0;overflow-wrap:anywhere}
 .ledger{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:14px;min-width:0}
 .ledger h2{font-family:var(--display);font-size:17px;margin:0;letter-spacing:.06em}
 .grp{display:flex;flex-direction:column;gap:2px}
@@ -77,12 +85,16 @@ footer{font-size:12px;color:var(--muted)}
         <span><i class="sw k"></i>条件付き</span>
       </div>
     </div>
-    <aside class="ledger" id="ledger"><h2>名前の台帳</h2></aside>
+    <aside class="side">
+      <section class="detail" id="detail" aria-live="polite"></section>
+      <div class="ledger" id="ledger"><h2>名前の台帳</h2></div>
+    </aside>
   </div>
   <footer>正本（HNS data/hns_admin_division_master.yaml）から __STAMP__ に作成。地方・七道の範囲は府県の単位で近似しています。地図：jpn-atlas（BSD-3）、元データは国土地理院「地球地図日本」。</footer>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js">pick('新潟県');
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script>
 const NAMES = /*__NAMES__*/[];
@@ -127,8 +139,16 @@ note.textContent = 'まだ名前のない所は、地図では色が付かない
 ledger.appendChild(note);
 const done = items.filter(n=>n.status==='done').length, cond = items.filter(n=>n.status==='cond').length;
 document.getElementById('tally').innerHTML = `<div><b>${done}</b>決まった</div><div><b>${cond}</b>条件付き</div>`;
+const detail = document.getElementById('detail');
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function show(n){
+  detail.className = 'detail' + (n.status==='cond' ? ' cond' : '');
+  const rows = [['現実', n.real.replace('(本世界の旧称)','')], ['決まり方', n.rule], ['由来', n.origin], ['Gin の言葉', n.ruling], ['メモ', n.memo], ['くわしく', n.record]].filter(r => r[1]);
+  detail.innerHTML = `<p class="big">${esc(n.fictional)}${n.yomi?`<small>${esc(n.yomi)}</small>`:''}</p><dl>${rows.map(r=>`<dt>${r[0]}</dt><dd>${esc(r[1])}</dd>`).join('')}</dl>`;
+}
 let on = null;
 function pick(real){
+  const n = items.find(x => x.real === real); if (n) show(n);
   if (on) shapes.get(on)?.classed('f-on', false);
   document.querySelectorAll('button.row').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.real===real && on!==real)));
   if (on === real) { on = null; return; }
