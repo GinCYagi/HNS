@@ -39,6 +39,9 @@ svg{display:block;width:100%;height:auto}
 .f-on{stroke:var(--hl)!important;stroke-width:1.4!important}
 .lbl{font-family:var(--display);font-weight:800;fill:var(--ink);paint-order:stroke;stroke:var(--land);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
 .lbl.city{font-size:9px} .lbl.pref{font-size:13px} .lbl.region{font-size:15px;fill:var(--muted)}
+.zoombar{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:6px}
+.zoombar button{font:inherit;font-size:16px;min-width:40px;min-height:36px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px;cursor:pointer}
+.zoombar button:focus-visible{outline:2px solid var(--hl);outline-offset:1px}
 .legend{position:absolute;left:12px;bottom:10px;display:flex;flex-direction:column;gap:4px;font-size:12px;background:var(--panel);border:1px solid var(--line);padding:8px 10px;border-radius:4px}
 .legend span{display:inline-flex;align-items:center;gap:8px}
 .sw{width:14px;height:10px;display:inline-block;border-radius:2px}
@@ -71,13 +74,14 @@ footer{font-size:12px;color:var(--muted)}
   <header>
     <div>
       <h1>日ノ本命名マップ</h1>
-      <p class="sub">日ノ本（HNS）で名前が決まった所から、地図に色が付いていきます。名前を押すと、地図の上で光ります。</p>
+      <p class="sub">日ノ本（HNS）で名前が決まった所から、地図に色が付いていきます。名前を押すと、地図の上で光ります。＋－で拡大すると、県や市の名前が出てきます（指でつまんでも動きます）。</p>
     </div>
     <div class="tally" id="tally"></div>
   </header>
   <div class="main">
     <div class="mapbox">
       <svg id="map" viewBox="0 0 860 780" role="img" aria-label="日本地図。名前の決まった地方・県・市に色が付いている"></svg>
+      <div class="zoombar" role="group" aria-label="地図の拡大縮小"><button type="button" id="zin" aria-label="拡大">＋</button><button type="button" id="zout" aria-label="縮小">－</button><button type="button" id="zreset">全国</button></div>
       <div class="legend" aria-hidden="true">
         <span><i class="sw r"></i>地方・七道の名前</span>
         <span><i class="sw p"></i>県の名前</span>
@@ -105,17 +109,12 @@ const prefs = topojson.feature(TOPO, TOPO.objects.prefectures).features;
 const munis = topojson.feature(TOPO, TOPO.objects.municipalities).features;
 const byPref = new Map(prefs.map(f => [f.id, f]));
 const byMuni = new Map(munis.map(f => [f.id, f]));
-svg.append('path').attr('class','land').attr('d', path(topojson.feature(TOPO, TOPO.objects.country)));
-const gFill = svg.append('g'), gLines = svg.append('g'), gLbl = svg.append('g');
+const gMap = svg.append('g');
+gMap.append('path').attr('class','land').attr('d', path(topojson.feature(TOPO, TOPO.objects.country)));
+const gFill = gMap.append('g'), gLines = gMap.append('g'), gLbl = svg.append('g');
 gLines.append('path').attr('class','pref-line').attr('d', path(topojson.mesh(TOPO, TOPO.objects.prefectures, (a,b)=>a!==b)));
 const order = {region:0, pref:1, city:2};
 const placed = [], pending = [];
-function placeLabel(n, x, y){
-  const el = gLbl.append('text').attr('class', `lbl ${n.level}`).attr('x', x).attr('y', y).attr('text-anchor','middle').attr('dy', n.level==='city' ? '-6' : '0.35em').text(n.fictional);
-  const b = el.node().getBBox();
-  if (placed.some(p => !(b.x+b.width < p.x || p.x+p.width < b.x || b.y+b.height < p.y || p.y+p.height < b.y))) { el.remove(); return; }
-  placed.push(b);
-}
 const items = NAMES.slice().sort((a,b)=>order[a.level]-order[b.level]);
 const shapes = new Map();
 for (const n of items) {
@@ -127,10 +126,40 @@ for (const n of items) {
   shapes.set(n.real, el);
   const [x,y] = path.centroid(merged);
   if (isFinite(x) && !(n.level==='region' && n.real==='会津')) pending.push([n, x, y]);
-  if (false) gLbl.append('text').attr('class', `lbl ${n.level}`).attr('x', x).attr('y', y).attr('text-anchor','middle').attr('dy', n.level==='city' ? '-6' : '0.35em').text(n.level==='region' && n.real==='会津' ? '' : n.fictional);
 }
-const lp = {pref:0, region:1, city:2};
-pending.sort((a,b)=>lp[a[0].level]-lp[b[0].level]).forEach(([n,x,y])=>placeLabel(n,x,y));
+const lp = {pref:0, city:1, region:2};
+// 表示のきまり：
+//  ・文字の大きさは、拡大しても画面の上で同じ（地図だけが大きくなる）
+//  ・倍率 1〜2 倍未満：地方・七道と県の名前。市は出さない
+//  ・倍率 2〜4 倍未満：地方・七道は薄く、県と市の名前
+//  ・倍率 4 倍以上：県と市の名前（地方・七道は出さない）
+//  ・文字どうしが重なるときは、県 → 市 → 地方 の順に残し、後のものを省く
+const RULES = [{max:2, show:{region:1, pref:1, city:0}}, {max:4, show:{region:0.5, pref:1, city:1}}, {max:Infinity, show:{region:0, pref:1, city:1}}];
+let K = 1, TX = 0, TY = 0;
+function drawLabels(){
+  gLbl.selectAll('*').remove();
+  const placedB = [], rule = RULES.find(r => K < r.max).show;
+  pending.slice().sort((a,b)=>lp[a[0].level]-lp[b[0].level]).forEach(([n,x,y]) => {
+    const op = rule[n.level]; if (!op) return;
+    const sx = x*K+TX, sy = y*K+TY;
+    if (sx < -20 || sy < -20 || sx > 880 || sy > 800) return;
+    const el = gLbl.append('text').attr('class', `lbl ${n.level}`).attr('x', sx).attr('y', sy).attr('text-anchor','middle').attr('dy', n.level==='city' ? '-6' : '0.35em').attr('opacity', op).text(n.fictional);
+    const b = el.node().getBBox();
+    if (placedB.some(p => !(b.x+b.width < p.x || p.x+p.width < b.x || b.y+b.height < p.y || p.y+p.height < b.y))) { el.remove(); return; }
+    placedB.push(b);
+  });
+}
+const zoom = d3.zoom().scaleExtent([1, 12]).translateExtent([[0,0],[860,780]]).on('zoom', ev => {
+  const tr = ev.transform; K = tr.k; TX = tr.x; TY = tr.y;
+  gMap.attr('transform', tr);
+  gMap.selectAll('.land,.pref-line').attr('stroke-width', 0.6 / K);
+  drawLabels();
+});
+svg.call(zoom);
+document.getElementById('zin').onclick = () => svg.transition().duration(250).call(zoom.scaleBy, 1.8);
+document.getElementById('zout').onclick = () => svg.transition().duration(250).call(zoom.scaleBy, 1/1.8);
+document.getElementById('zreset').onclick = () => svg.transition().duration(250).call(zoom.transform, d3.zoomIdentity);
+drawLabels();
 const ledger = document.getElementById('ledger');
 for (const lv of ['region','pref','city']) {
   const list = items.filter(n=>n.level===lv); if (!list.length) continue;
