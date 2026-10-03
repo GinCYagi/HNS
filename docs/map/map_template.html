@@ -109,6 +109,13 @@ svg.append('path').attr('class','land').attr('d', path(topojson.feature(TOPO, TO
 const gFill = svg.append('g'), gLines = svg.append('g'), gLbl = svg.append('g');
 gLines.append('path').attr('class','pref-line').attr('d', path(topojson.mesh(TOPO, TOPO.objects.prefectures, (a,b)=>a!==b)));
 const order = {region:0, pref:1, city:2};
+const placed = [], pending = [];
+function placeLabel(n, x, y){
+  const el = gLbl.append('text').attr('class', `lbl ${n.level}`).attr('x', x).attr('y', y).attr('text-anchor','middle').attr('dy', n.level==='city' ? '-6' : '0.35em').text(n.fictional);
+  const b = el.node().getBBox();
+  if (placed.some(p => !(b.x+b.width < p.x || p.x+p.width < b.x || b.y+b.height < p.y || p.y+p.height < b.y))) { el.remove(); return; }
+  placed.push(b);
+}
 const items = NAMES.slice().sort((a,b)=>order[a.level]-order[b.level]);
 const shapes = new Map();
 for (const n of items) {
@@ -119,8 +126,11 @@ for (const n of items) {
   el.on('click', () => pick(n.real));
   shapes.set(n.real, el);
   const [x,y] = path.centroid(merged);
-  if (isFinite(x)) gLbl.append('text').attr('class', `lbl ${n.level}`).attr('x', x).attr('y', y).attr('text-anchor','middle').attr('dy', n.level==='city' ? '-6' : '0.35em').text(n.level==='region' && n.real==='会津' ? '' : n.fictional);
+  if (isFinite(x) && !(n.level==='region' && n.real==='会津')) pending.push([n, x, y]);
+  if (false) gLbl.append('text').attr('class', `lbl ${n.level}`).attr('x', x).attr('y', y).attr('text-anchor','middle').attr('dy', n.level==='city' ? '-6' : '0.35em').text(n.level==='region' && n.real==='会津' ? '' : n.fictional);
 }
+const lp = {pref:0, region:1, city:2};
+pending.sort((a,b)=>lp[a[0].level]-lp[b[0].level]).forEach(([n,x,y])=>placeLabel(n,x,y));
 const ledger = document.getElementById('ledger');
 for (const lv of ['region','pref','city']) {
   const list = items.filter(n=>n.level===lv); if (!list.length) continue;
