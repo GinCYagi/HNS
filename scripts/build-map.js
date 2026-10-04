@@ -39,6 +39,7 @@ const PLACES = {
   "山形県": { level: "pref", prefs: ["06"] },
   "青森県": { level: "pref", prefs: ["02"] },
   "神奈川県": { level: "pref", prefs: ["14"] },
+  "埼玉県": { level: "pref", prefs: ["11"] },
   "横浜市": { level: "city", cities: ["14100"] },
   "岩手県": { level: "pref", prefs: ["03"] },
   "宮城県": { level: "pref", prefs: ["04"] },
