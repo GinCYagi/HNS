@@ -13,9 +13,9 @@ canonical_files:
   - path: "data/hns_specification_v0.1.yaml"
     sha256: "d4b6a441734a55d05aebaf678c357be397c69e2d2ad9cf045afb972b45eb3e31"
   - path: "data/hns_admin_division_master.yaml"
-    sha256: "1291d9671b91ee5e9631ce9486009484d15bee104c79a128be2e01f010aac5f9"
+    sha256: "120cf0b9ebf4de42fc6eef7a80f5676d5f3a8870716598bc6b0709162e3f2340"
   - path: "data/hns_review_dictionary.yaml"
-    sha256: "80635a19cc15a363ca83c06124031db997f194b7f4dbdd4da0236aefe653b6f6"
+    sha256: "24dd87bc1661a3c6f909f9f85960e8ba1153d0b0f1932758e363b4499614445a"
   - path: "data/hns_pending_items.yaml"
     sha256: "c52938c303fa3d218bf4adb4d4d46a022abd000f587fc956f77958bf84ad0a9d"
 
