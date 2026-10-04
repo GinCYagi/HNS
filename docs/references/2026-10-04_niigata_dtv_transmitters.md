@@ -75,7 +75,7 @@ BSN（新潟放送）の分は公式のサービスエリアで決着（https://
 - **柳都テレビ21**（現実の UX 新潟テレビ21 にあたる）は **RT21-DTHN**（サフィックスに数字も使う。2026-10-04 Gin）
 - **柳都総合テレビ（RST）**（現実の NST 新潟総合テレビにあたる）は **RSTV-DTHN**（2026-10-04 Gin）
 - **テレビ柳都（TeRY）**（現実の TeNY テレビ新潟にあたる）は **TERY-DTHN**（呼出符号は大文字。2026-10-04 Gin）
-- **HHK（Hinomoto Housou Kyoukai、日ノ本放送協会）**（現実の NHK にあたる）。呼出符号（2026-10-04 Gin）：**HHKG-DTHN**（総合テレビ）・**HHKE-DTHN**（教育テレビ）・**HHKA-AMHN**（AM ラジオ）・**HHKF-FMHN**（FM）。サフィックスの4字目が波の種類（G・E・A・F）。衛星（区分 DB＝デジタル BS）：**HHKB-DBHN**（HHK BS）・**HHKP-DBHN**（HHK BS Premium）・**HHKU-DBHN**（HHK BS Ultradencity。綴りは Gin の書いたまま。Ultra Density の意味かは Gin に確認）。りゅうとの局の呼び方は未定
+- **HHK（Hinomoto Housou Kyoukai、日ノ本放送協会）**（現実の NHK にあたる）。呼出符号（2026-10-04 Gin）：**HHKG-DTHN**（総合テレビ）・**HHKE-DTHN**（教育テレビ）・**HHKA-AMHN**（AM ラジオ）・**HHKF-FMHN**（FM）。サフィックスの4字目が波の種類（G・E・A・F）。衛星（区分 DB＝デジタル BS）：**HHKB-DBHN**（HHK BS）・**HHKP-DBHN**（HHK BS Premium）・**HHKU-DBHN**（HHK BS Ultradencity。綴りは Gin の書いたまま。Ultra Density の意味かは Gin に確認）。りゅうとの局の呼び方は **HHKりゅうと**（2026-10-04 Gin）
 - サフィックスは **4字で局名を短縮**する（Gin「4字ラテン語で局名を短縮する方式とした」）。例 **BSRT＝Broadcasting System RyuTo**（柳都放送。英語の局名の頭文字をアルファベット4字に。RyuTo の R と T を両方取る）
 
 ## 出どころ
