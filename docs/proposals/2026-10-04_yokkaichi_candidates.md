@@ -51,6 +51,18 @@
 - [四日市市 - Wikipedia](https://ja.wikipedia.org/wiki/四日市市)
 - 国土地理院 住所検索、OpenPOI API（出典：OpenPOI API〈https://openpoiapi.com/attribution.html〉）、Wikipedia 全文検索
 
+## 5. NG の査読（2026-10-04）
+
+`docs/reviews/2026-10-04_review_pref_batch2_kanto_yokkaichi_NG.md`（push は Gin の採決のあと）。
+- 泗浜市：**受け入れ可**。「至便」と同じ音（低頻度）。泗はルビ推奨。
+- 肆旭市：**否寄り**。「四苦」と同じ音（C-05）。
+
+---
+
+## 【Gin判断待ち — 隔離】（第2版・最新）
+
+1. 四日市市＝**泗浜市（しひんし）**で採るか（NG 受け入れ可。肆旭市は否寄り）。
+
 ---
 
 ## 【Gin判断待ち — 隔離】（第1版）
