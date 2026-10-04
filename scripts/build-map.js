@@ -41,6 +41,7 @@ const PLACES = {
   "神奈川県": { level: "pref", prefs: ["14"] },
   "埼玉県": { level: "pref", prefs: ["11"] },
   "千葉県": { level: "pref", prefs: ["12"] },
+  "茨城県": { level: "pref", prefs: ["08"] },
   "群馬県": { level: "pref", prefs: ["10"] },
   "富山県": { level: "pref", prefs: ["16"] },
   "石川県": { level: "pref", prefs: ["17"] },
