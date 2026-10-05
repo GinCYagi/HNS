@@ -43,6 +43,7 @@ const PLACES = {
   "千葉県": { level: "pref", prefs: ["12"] },
   "奈良県": { level: "pref", prefs: ["29"] },
   "滋賀県": { level: "pref", prefs: ["25"] },
+  "島根県": { level: "pref", prefs: ["32"] },
   "三重県": { level: "pref", prefs: ["24"] },
   "京都府": { level: "pref", prefs: ["26"] },
   "和歌山県": { level: "pref", prefs: ["30"] },
