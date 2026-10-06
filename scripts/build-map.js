@@ -169,7 +169,7 @@ function progress(master) {
   for (const line of master.split("\n")) {
     if (/^  [a-z_]+:/.test(line)) inStreets = /^  bridges_streets_ryuto:/.test(line);
     const real = field(line, "real"), v = field(line, "verdict");
-    if (real && v && v.startsWith("採用") && field(line, "fictional")) (inStreets ? townLike : adopted).add(real);
+    if (real && v && v.startsWith("採用") && field(line, "fictional")) (inStreets || /, town: "/.test(line) ? townLike : adopted).add(real);
   }
   for (const e of master.split(/\n  - real: /).slice(1)) {
     const real = (e.match(/^"([^"]+)"/) || [])[1], v = (e.match(/\n    verdict: "([^"]+)"/) || [])[1];
