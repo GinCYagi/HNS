@@ -106,6 +106,7 @@ const PLACES = {
   "いわき市": { level: "city", cities: ["07204"] },
   "会津若松市": { level: "city", cities: ["07202"] },
   "米沢市": { level: "city", cities: ["06202"] },
+  "富田林市": { level: "city", cities: ["27214"] },
 };
 
 function field(s, key) {
