@@ -159,6 +159,33 @@ function collect(master) {
             .map(x => Object.assign(x, PLACES[x.real]));
 }
 
+// 進み具合（バーグラフ）。分母は現実の数、分子は正本で「採用」になった数
+const CAPITALS = ["札幌市","青森市","盛岡市","仙台市","秋田市","山形市","福島市","水戸市","宇都宮市","前橋市","さいたま市","千葉市","新宿区","横浜市","新潟市","富山市","金沢市","福井市","甲府市","長野市","岐阜市","静岡市","名古屋市","津市","大津市","京都市","大阪市","神戸市","奈良市","和歌山市","鳥取市","松江市","岡山市","広島市","山口市","徳島市","高松市","松山市","高知市","福岡市","佐賀市","長崎市","熊本市","大分市","宮崎市","鹿児島市","那覇市"];
+const MUNICIPALITIES = 1741; // 市792・町743・村183・東京の特別区23（2026年時点）
+const POSTAL_TOWNS = 122654; // 日本郵便 郵便番号データ（2026-09-24 更新分）の町域（「以下に掲載がない場合」を除く、府県・市区町村・町域の組で数えた）
+function progress(master) {
+  const adopted = new Set(), townLike = new Set();
+  let inStreets = false; // りゅうと市の中の通り・町（古町など）は市町村に数えない
+  for (const line of master.split("\n")) {
+    if (/^  [a-z_]+:/.test(line)) inStreets = /^  bridges_streets_ryuto:/.test(line);
+    const real = field(line, "real"), v = field(line, "verdict");
+    if (real && v && v.startsWith("採用") && field(line, "fictional")) (inStreets ? townLike : adopted).add(real);
+  }
+  for (const e of master.split(/\n  - real: /).slice(1)) {
+    const real = (e.match(/^"([^"]+)"/) || [])[1], v = (e.match(/\n    verdict: "([^"]+)"/) || [])[1];
+    if (real && v && v.startsWith("採用")) adopted.add(real);
+  }
+  const prefs = (master.match(/\{real: "[^"]+", hns: "[^"]+"/g) || []).filter(l => !/hns: "未定/.test(l)).length;
+  const muni = [...adopted].filter(r => /^[^（(、 ]+[市町村区]$/.test(r)).length;
+  const towns = (master.match(/\n\s*- \{real: "[^"]+", town: /g) || []).length;
+  return [
+    { label: "都道府県", done: prefs, total: 47 },
+    { label: "県庁のある市", done: CAPITALS.filter(c => adopted.has(c)).length, total: 47, note: "東都の都庁は新宿区で数える" },
+    { label: "市区町村", done: muni, total: MUNICIPALITIES, note: "正本で採用になった市町村の名前の数" },
+    { label: "町名（郵便番号の町域）", done: towns, total: POSTAL_TOWNS, note: "りゅうと市中央区から始めたところ" },
+  ];
+}
+
 function build() {
   const master = fs.readFileSync(masterPath, "utf8");
   const names = collect(master);
@@ -167,16 +194,18 @@ function build() {
   const stamp = new Date().toISOString().slice(0, 10);
   const html = tpl
     .replace("/*__NAMES__*/[]", JSON.stringify(names))
+    .replace("/*__PROGRESS__*/[]", JSON.stringify(progress(master)))
     .replace("/*__TOPO__*/null", topo.trim())
     .replace("__STAMP__", stamp);
   fs.writeFileSync(outPath, html);
   return names;
 }
 
-module.exports = { collect, PLACES };
+module.exports = { collect, progress, PLACES };
 
 if (require.main === module) {
   const names = build();
   console.log(`  OK: 日ノ本命名マップ ${names.length} 件 → docs/map/hinomoto_map.html`);
   for (const n of names) console.log(`    ${n.status.padEnd(4)} ${n.real} → ${n.fictional}`);
+  for (const p of progress(fs.readFileSync(masterPath, "utf8"))) console.log(`  進み具合 ${p.label} ${p.done} / ${p.total}`);
 }

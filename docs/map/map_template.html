@@ -68,6 +68,15 @@ button.row:focus-visible{outline:2px solid var(--hl);outline-offset:1px}
 .rl{font-size:12px;color:var(--muted);white-space:nowrap}
 .note{font-size:12px;color:var(--muted);margin:0}
 footer{font-size:12px;color:var(--muted)}
+.progress{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 24px}
+.progress h2{grid-column:1/-1;font-family:var(--display);font-size:17px;margin:0;letter-spacing:.06em}
+.pg{display:flex;flex-direction:column;gap:4px;min-width:0}
+.pg .hd{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px}
+.pg .hd span{font-variant-numeric:tabular-nums;white-space:nowrap}
+.pg .hd b{font-family:var(--display);font-size:18px}
+.bar{height:12px;background:var(--bg);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--done)}
+.pg .nt{font-size:11px;color:var(--muted);margin:0}
 </style>
 
 <div class="wrap">
@@ -78,6 +87,7 @@ footer{font-size:12px;color:var(--muted)}
     </div>
     <div class="tally" id="tally"></div>
   </header>
+  <section class="progress" id="progress" aria-label="進み具合"><h2>進み具合</h2></section>
   <div class="main">
     <div class="mapbox">
       <svg id="map" viewBox="0 0 860 780" role="img" aria-label="日本地図。名前の決まった地方・県・市に色が付いている"></svg>
@@ -102,6 +112,19 @@ footer{font-size:12px;color:var(--muted)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
 <script>
 const NAMES = /*__NAMES__*/[];
+const PROGRESS = /*__PROGRESS__*/[];
+(function(){
+  const box = document.getElementById('progress');
+  for (const p of PROGRESS) {
+    const pct = p.total ? p.done / p.total * 100 : 0;
+    const shown = pct > 0 && pct < 0.1 ? '0.1未満' : (pct >= 10 ? pct.toFixed(0) : pct.toFixed(1));
+    const d = document.createElement('div'); d.className = 'pg';
+    d.innerHTML = `<div class="hd"><span>${p.label}</span><span><b>${p.done.toLocaleString()}</b> / ${p.total.toLocaleString()}（${shown}%）</span></div>`
+      + `<div class="bar" role="progressbar" aria-label="${p.label}" aria-valuemin="0" aria-valuemax="${p.total}" aria-valuenow="${p.done}"><i style="width:${Math.max(pct, p.done ? 0.6 : 0)}%"></i></div>`
+      + (p.note ? `<p class="nt">${p.note}</p>` : '');
+    box.appendChild(d);
+  }
+})();
 const TOPO = /*__TOPO__*/null;
 const LEVEL = {region:'地方・七道', pref:'県', city:'市'};
 const svg = d3.select('#map'), path = d3.geoPath();
