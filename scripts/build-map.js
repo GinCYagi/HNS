@@ -45,6 +45,8 @@ const PLACES = {
   "滋賀県": { level: "pref", prefs: ["25"] },
   "島根県": { level: "pref", prefs: ["32"] },
   "山口県": { level: "pref", prefs: ["35"] },
+  "鳥取県": { level: "pref", prefs: ["31"] },
+  "広島県": { level: "pref", prefs: ["34"] },
   "三重県": { level: "pref", prefs: ["24"] },
   "京都府": { level: "pref", prefs: ["26"] },
   "和歌山県": { level: "pref", prefs: ["30"] },
