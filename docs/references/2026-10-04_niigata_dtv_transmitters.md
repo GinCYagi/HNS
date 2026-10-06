@@ -77,6 +77,7 @@ BSN（新潟放送）の分は公式のサービスエリアで決着（https://
 - **テレビ柳都（TeRY）**（現実の TeNY テレビ新潟にあたる）は **TERY-DTHN**（呼出符号は大文字。2026-10-04 Gin）
 - **HHK（Hinomoto Housou Kyoukai、日ノ本放送協会）**（現実の NHK にあたる）。呼出符号（2026-10-04 Gin）：**HHKE-DTHN**（教育テレビ。全国で一つ）。総合テレビ・AM ラジオ・FM は**県域局なので県ごとに呼出符号が変わる**（Gin「HHKG・HHKA・HHKF は県域局だから県単位でコールサイン変わります」）＝HHKG-DTHN・HHKA-AMHN・HHKF-FMHN は形の例で、**HHKりゅうと**は **HKRT-DTHN**（総合テレビ）・**HKRT-AMHN**（AM ラジオ）・**HKRT-FMHN**（FM）。HKRT＝**H**inomoto housou **K**youkai **R**yu**T**o（Gin）。県域局はこの4字を共通にし、区分で波を分ける（2026-10-04 Gin）。サフィックスの4字目が波の種類（G・E・A・F）。衛星（区分 DB＝デジタル BS）：**HHKB-DBHN**（HHK BS）・**HHKP-DBHN**（HHK BS Premium）・**HHKU-DBHN**（HHK BS Ultra Density）。りゅうとの局の呼び方は **HHKりゅうと**（2026-10-04 Gin）
 - **ラジオHIKKEI**（日ノ本経済新聞。現実のラジオNIKKEI にあたる）：第一・第二の**短波放送**（2026-10-04 Gin）。呼出符号は第一 **RAH1-SWHN**・第二 **RAH2-SWHN**（区分 SW＝短波。4字目の数字で第一・第二を分ける。2026-10-04 Gin）
+- **テレビユー禄嶋**（現実の TUF テレビユー福島にあたる。県名・局名は正本どおり）は **TURS-DTHN**（2026-10-06 Gin「TURS-DTHN」、ALM 総監督経由）。TURS＝**T**V-**U** **R**oku**S**hima（ALM 総監督の読み）。アナログ時代は決まりどおりなら区分 TV の **TURS-TVHN**（HNS-Orc の当てはめ、Gin に未確認）
 - サフィックスは **4字で局名を短縮**する（Gin「4字ラテン語で局名を短縮する方式とした」）。例 **BSRT＝Broadcasting System RyuTo**（柳都放送。英語の局名の頭文字をアルファベット4字に。RyuTo の R と T を両方取る）
 
 ## 出どころ
