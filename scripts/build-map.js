@@ -50,6 +50,7 @@ const PLACES = {
   "岡山県": { level: "pref", prefs: ["33"] },
   "鹿児島県": { level: "pref", prefs: ["46"] },
   "福岡県": { level: "pref", prefs: ["40"] },
+  "徳島県": { level: "pref", prefs: ["36"] },
   "三重県": { level: "pref", prefs: ["24"] },
   "京都府": { level: "pref", prefs: ["26"] },
   "和歌山県": { level: "pref", prefs: ["30"] },
