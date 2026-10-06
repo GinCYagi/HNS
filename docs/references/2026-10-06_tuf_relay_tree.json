@@ -861,12 +861,12 @@
    "lon": 139.5674,
    "latlon_source": "GSI 住所検索・所在地の点（福島県金山町大栗山）。山頂の点が取れず、送信所の位置ではない",
    "mountain_address": "忽山／大沼郡金山町大栗山字七面窪",
-   "parent": "会津若松",
+   "parent": "柳津三島",
    "parent_no": 36,
-   "parent_basis": "推定",
-   "parent_reason": "会津若松から37km、見通しあり（余裕37m）。社史では金山・西金山の中継基地。",
-   "link_km": 36.6,
-   "stage": 2,
+   "parent_basis": "Gin の記憶",
+   "parent_reason": "Gin「会津若松からの一段目は柳津三島だと思います」(2026-10-07)。東只見を東金山経由とした推定も Gin「それで合っているはずです」",
+   "link_km": 12.9,
+   "stage": 3,
    "los_check": {
     "min_clearance_m": 37,
     "at_km": 21.8,
@@ -888,7 +888,7 @@
    "parent_basis": "『福島テレビ20年史』から類推",
    "parent_reason": "『福島テレビ20年史』：東金山は金山・西金山の中継基地。",
    "link_km": 5.0,
-   "stage": 3,
+   "stage": 4,
    "los_check": {
     "min_clearance_m": -111,
     "at_km": 0.4,
@@ -910,7 +910,7 @@
    "parent_basis": "『福島テレビ20年史』から類推",
    "parent_reason": "『福島テレビ20年史』：東金山は金山・西金山の中継基地。",
    "link_km": 16.7,
-   "stage": 3,
+   "stage": 4,
    "los_check": {
     "min_clearance_m": 79,
     "at_km": 6.7,
@@ -932,7 +932,7 @@
    "parent_basis": "『福島テレビ20年史』から類推",
    "parent_reason": "『福島テレビ20年史』：東只見は只見・南郷・伊南の中継基地。",
    "link_km": 11.4,
-   "stage": 4,
+   "stage": 5,
    "los_check": {
     "min_clearance_m": -14,
     "at_km": 5.5,
@@ -951,10 +951,10 @@
    "mountain_address": "俎倉山（只見町）／南会津郡只見町亀岡字後山",
    "parent": "東金山",
    "parent_no": 43,
-   "parent_basis": "推定",
+   "parent_basis": "推定（Gin が確認）",
    "parent_reason": "社史に受信元なし。会津若松から直接は 51km で粗い確かめ -64m（ぎりぎりさえぎられる）。東金山から19km は見通しあり（+57m）なので東金山経由とした。ただし FTV では東只見（昭和42年）が東金山（昭和43年）より先にできているので、会津若松から直接の見込みも残る。",
    "link_km": 20.4,
-   "stage": 3,
+   "stage": 4,
    "los_check": {
     "min_clearance_m": 57,
     "at_km": 7.8,
@@ -1020,7 +1020,7 @@
    "parent_basis": "『福島テレビ20年史』から類推",
    "parent_reason": "『福島テレビ20年史』：東只見は只見・南郷・伊南の中継基地。",
    "link_km": 12.5,
-   "stage": 4,
+   "stage": 5,
    "los_check": {
     "min_clearance_m": 233,
     "at_km": 5.9,
@@ -1042,7 +1042,7 @@
    "parent_basis": "『福島テレビ20年史』から類推",
    "parent_reason": "『福島テレビ20年史』：東只見は只見・南郷・伊南の中継基地。粗い見通しもあり（18km）。",
    "link_km": 15.3,
-   "stage": 4,
+   "stage": 5,
    "los_check": {
     "min_clearance_m": 167,
     "at_km": 16.6,
@@ -1064,7 +1064,7 @@
    "parent_basis": "推定",
    "parent_reason": "伊南から5km、見通しあり。",
    "link_km": 6.8,
-   "stage": 5,
+   "stage": 6,
    "los_check": {
     "min_clearance_m": 105,
     "at_km": 0.4,
@@ -1130,7 +1130,7 @@
    "parent_basis": "推定",
    "parent_reason": "伊南から12km、見通しあり（荒海からは -280m）。",
    "link_km": 11.6,
-   "stage": 5,
+   "stage": 6,
    "los_check": {
     "min_clearance_m": 264,
     "at_km": 6.1,
