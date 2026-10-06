@@ -17,7 +17,7 @@ canonical_files:
   - path: "data/hns_review_dictionary.yaml"
     sha256: "b873c1d92b50feb9feb8467227680ce3a99c3c9a1fac587ca069c952db0f2a7d"
   - path: "data/hns_pending_items.yaml"
-    sha256: "5459e5869aa71bb7891110c71370add934263e67323fc0a955b3aa62dee19006"
+    sha256: "031734bded0a8ee50ad8e86c4d5358b2634afd7b825ca91bb1d6cf37772b00ed"
 
 derived_files_note: "data/*.json（assets/decisions/glossary）は派生データであり本Manifestの照合対象外"
 audit_chain: "Fable出力(2026-07-12) → Rev検収 → commit 8d515dc → 2026-10反映(差分案 docs/proposals/2026-10-02_canon_update.md、NG査読反映、Gin裁定「お願いします」「OK」2026-10-02、HNS-Rev更新。specificationは変更なし) → 9bbf226(読み：Gin「柳都県　埼玉県さいたま市を参考」「とうりゅうしんかんせん」) → 7b1681b(柳都漁連：Gin「a」) → NG受け入れ判定「受け入れ可」(条件2つ：東柳の読みの引用、港湾労働組合の棄却履歴。2026-10-02、本更新で対応) → 差分案その2・その3(思兼山・七国府・HF/HA・りゅうと学園。Gin「１，50ｍが「在る」数字だそうです」「４．OK」「１，２，OK」、NG受け入れ可 2026-10-02) → 78bb842(思兼山の位置) → 差分案その4(A000 五国府、Gin「ごこうにしましょう」、NG受け入れ可 2026-10-02) → 差分案その5・その6・雀市(相津黒川城/青鷺城、新柳都大川/広川辺分水、雀市。Gin「１でいきましょう」「新柳都大川がいいような」「それでOKですい」「すずめしでOK」、NG受け入れ可 2026-10-02) → 短山・社帰原重(Gin「お願いします」M4経由)、城の例外の取り消し(Gin訂正「実在名を許容ではないです」) → 相津墨河城(Gin「相津墨河城」、NG受け入れ可 2026-10-02) → 差分案その7(長岡＝遠岡、Gin「遠岡で、十日町は什陽（じゅうよう）査読」、NG受け入れ可 2026-10-03) → 什旭町市(Gin「あってます」、NG受け入れ可 2026-10-03) → 参坊・標先(Gin「全承認です」、NG条件付き 2026-10-03) → RUL-022"
