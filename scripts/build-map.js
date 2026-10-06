@@ -53,6 +53,7 @@ const PLACES = {
   "徳島県": { level: "pref", prefs: ["36"] },
   "香川県": { level: "pref", prefs: ["37"] },
   "高知県": { level: "pref", prefs: ["39"] },
+  "愛媛県": { level: "pref", prefs: ["38"] },
   "熊本県": { level: "pref", prefs: ["43"] },
   "佐賀県": { level: "pref", prefs: ["41"] },
   "長崎県": { level: "pref", prefs: ["42"] },
