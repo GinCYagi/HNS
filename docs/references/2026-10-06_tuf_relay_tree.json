@@ -17,7 +17,11 @@
    "parent_basis": "親局（資料に明記）",
    "parent_reason": "TUF の親局（30kW）。前の表で確認済み。",
    "link_km": 0.0,
-   "stage": 0
+   "stage": 0,
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 2,
@@ -34,7 +38,11 @@
    "parent_basis": "地デジ期の資料（491mhz）から類推",
    "parent_reason": "491mhz「福島信夫」：受信空中線は全局共用・笹森山を放送波受信（地デジ期）。https://491mhz.net/soushinjo/fukushima/fukushima_shinobu_DTV.html",
    "link_km": 14.6,
-   "stage": 1
+   "stage": 1,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 3,
@@ -51,7 +59,11 @@
    "parent_basis": "地デジ期の資料（491mhz）から類推",
    "parent_reason": "491mhz「土湯」：16素子リング、笹森山を放送波受信・全局共用（地デジ期）。https://491mhz.net/soushinjo/fukushima/tsuchiyu_DTV.html",
    "link_km": 5.9,
-   "stage": 1
+   "stage": 1,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 4,
@@ -73,7 +85,11 @@
     "min_clearance_m": 187,
     "at_km": 12.1,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 5,
@@ -95,7 +111,11 @@
     "min_clearance_m": 200,
     "at_km": 18.5,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 6,
@@ -112,7 +132,11 @@
    "parent_basis": "推定",
    "parent_reason": "0.1Wのミニサテ（社史：第3次以降）。1.3km先の川俣（3W）から。",
    "link_km": 1.3,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 7,
@@ -134,7 +158,11 @@
     "min_clearance_m": 231,
     "at_km": 17.3,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 8,
@@ -151,7 +179,11 @@
    "parent_basis": "推定",
    "parent_reason": "川俣（3W）が近い上位局。",
    "link_km": 5.7,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 9,
@@ -173,7 +205,11 @@
     "min_clearance_m": 49,
     "at_km": 5.5,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 10,
@@ -195,7 +231,11 @@
     "min_clearance_m": 63,
     "at_km": 8.3,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 11,
@@ -212,7 +252,11 @@
    "parent_basis": "推定",
    "parent_reason": "0.1Wの小局。6km先の磐梯熱海（3W）から。",
    "link_km": 6.3,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "垂直",
+   "analog_polarization_source": "TUF の局の一覧（ja.wikipedia「テレビユー福島」、出力の欄の「垂直偏波」の注記）",
+   "digital_polarization": "垂直",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 12,
@@ -234,7 +278,11 @@
     "min_clearance_m": 311,
     "at_km": 3.4,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 13,
@@ -256,7 +304,11 @@
     "min_clearance_m": 98,
     "at_km": 21.4,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 14,
@@ -278,7 +330,11 @@
     "min_clearance_m": 303,
     "at_km": 25.2,
     "ok": true
-   }
+   },
+   "analog_polarization": "垂直",
+   "analog_polarization_source": "TUF の局の一覧（ja.wikipedia「テレビユー福島」、出力の欄の「垂直偏波」の注記）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 15,
@@ -300,7 +356,11 @@
     "min_clearance_m": 349,
     "at_km": 36.8,
     "ok": true
-   }
+   },
+   "analog_polarization": "垂直",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "垂直",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 16,
@@ -322,7 +382,11 @@
     "min_clearance_m": 223,
     "at_km": 25.1,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 17,
@@ -339,7 +403,11 @@
    "parent_basis": "推定",
    "parent_reason": "0.1Wミニサテ（社史：大里）。5km先の天栄から。",
    "link_km": 4.6,
-   "stage": 4
+   "stage": 4,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 18,
@@ -361,7 +429,11 @@
     "min_clearance_m": 151,
     "at_km": 0.5,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 19,
@@ -383,7 +455,11 @@
     "min_clearance_m": 106,
     "at_km": 55.1,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 20,
@@ -400,7 +476,11 @@
    "parent_basis": "推定",
    "parent_reason": "極微小局（社史）。5km先の白河から。",
    "link_km": 4.9,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "垂直",
+   "analog_polarization_source": "TUF の局の一覧（ja.wikipedia「テレビユー福島」、出力の欄の「垂直偏波」の注記）",
+   "digital_polarization": "垂直",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 21,
@@ -417,7 +497,11 @@
    "parent_basis": "推定",
    "parent_reason": "極微小局（社史）。県南の上位局の白河から。",
    "link_km": 5.8,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 22,
@@ -439,7 +523,11 @@
     "min_clearance_m": 67,
     "at_km": 70.8,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 23,
@@ -461,7 +549,11 @@
     "min_clearance_m": 64,
     "at_km": 14.1,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 24,
@@ -478,7 +570,11 @@
    "parent_basis": "推定",
    "parent_reason": "極微小局（社史）。6km先の古殿から。",
    "link_km": 6.3,
-   "stage": 3
+   "stage": 3,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 25,
@@ -500,7 +596,11 @@
     "min_clearance_m": -18,
     "at_km": 22.0,
     "ok": false
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 26,
@@ -517,7 +617,11 @@
    "parent_basis": "推定",
    "parent_reason": "4km先の古殿から（どちらも社史の第1次）。",
    "link_km": 3.6,
-   "stage": 3
+   "stage": 3,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 27,
@@ -539,7 +643,11 @@
     "min_clearance_m": 41,
     "at_km": 69.9,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 28,
@@ -561,7 +669,11 @@
     "min_clearance_m": 86,
     "at_km": 64.8,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 29,
@@ -578,7 +690,11 @@
    "parent_basis": "推定",
    "parent_reason": "極微小局（社史）。11km先の白河から。",
    "link_km": 11.2,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 30,
@@ -595,7 +711,11 @@
    "parent_basis": "推定",
    "parent_reason": "極微小局（社史）。白河から。",
    "link_km": 4.1,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 31,
@@ -617,7 +737,11 @@
     "min_clearance_m": 86,
     "at_km": 15.4,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 32,
@@ -639,7 +763,11 @@
     "min_clearance_m": 116,
     "at_km": 3.2,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 33,
@@ -656,7 +784,11 @@
    "parent_basis": "推定",
    "parent_reason": "ミニサテ（社史：福島大波）。4km先の渡利から。",
    "link_km": 4.2,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 34,
@@ -673,7 +805,11 @@
    "parent_basis": "地デジ期の資料（491mhz）から類推",
    "parent_reason": "491mhz「保原富沢」：オフセットグリッドパラボラ、全局共用・笹森山を放送波受信（地デジ期）。https://491mhz.net/soushinjo/fukushima/hobara_tomizawa_DTV.html",
    "link_km": 19.5,
-   "stage": 1
+   "stage": 1,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 35,
@@ -695,7 +831,11 @@
     "min_clearance_m": 334,
     "at_km": 3.8,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 36,
@@ -788,7 +928,11 @@
       "note": "Gin の断面、03:40、会津盆地の上を渡る。Gin「無くは無いってのがまた」。HNS-M4 の計算：地面どうし −46m、両端に30m・10m で −31m、さえぎるのは高山から約19km（俎倉山から48.7km）の磐梯山の南のすその高まり。ぎりぎり届かない。訂正：Gin「東只見の局社を確認してないから」「俎倉山でしかはかってない」「受信点別の可能性」(2026-10-07)。東只見の局舎がまだ確かめられていないので、仮に俎倉山の山頂で測ったもの。東只見は、送信する場所と受信する場所が別の可能性がある（HNS-M4 は昭和の局の山と読み違えていた）"
      }
     ]
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 37,
@@ -810,7 +954,11 @@
     "min_clearance_m": 70,
     "at_km": 26.2,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 38,
@@ -832,7 +980,11 @@
     "min_clearance_m": 92,
     "at_km": 5.6,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 39,
@@ -854,7 +1006,11 @@
     "min_clearance_m": -21,
     "at_km": 16.1,
     "ok": false
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 40,
@@ -880,7 +1036,11 @@
    "wikipedia": "ja.wikipedia「東裏磐梯中継局」(Gin が示した、2026-10-07):所在地 猪苗代町若宮字大島原(地デジのころの記載)。アナログ TUF 62ch 映像1W・ERP 9.5W、1989年11月2日開始(NHK 教育・総合は1972年11月18日、FTV 1977年11月18日、KFB 1991年10月30日)。2012年3月31日廃局。受信元の記載なし",
    "gin_note": "Gin「高玉経由とか？」「高玉は郡山市」「だったはず」(2026-10-07)。福島中央テレビ(FCT)の中継局の地図で、東裏磐梯は裏磐梯と高玉(郡山市熱海町高玉)のあいだ、猪苗代湖の北東に描かれている。ただし TUF のアナログ66局の一覧(ja.wikipedia)には高玉がなく、高玉はデジタルの一覧(20ch)にだけある。FTV の『福島テレビ20年史』では磐梯高玉は第3次計画(昭和54年以降)の局。TUF のアナログに高玉があったかは未確認。Gin「ちなみに、笹森山から直もないです。間に2000m級の山があります」(笹森山からじかには受けられない、粗い見通しの -338m とも合う)。総務省 東北総合通信局「福島県内の地上デジタルテレビ放送局の整備計画」(Gin が示した、https://www.soumu.go.jp/soutsu/tohoku/digital/fukushimaschedule02.html):高玉は2010年整備のデジタル局(NHK総合16・教育13・FTV18・FCT22・KFB37・TUF20)、東裏磐梯は2009年(34・43・39・32・28・24)。同じく Gin が示した報道資料の地図(https://www.soumu.go.jp/soutsu/tohoku/hodo/h2207-09/images/0721d1011.pdf、平成22年7月)で高玉局は郡山市熱海町の雑子内付近、放送区域は石筵川沿い。→ 高玉はデジタルになってからの局で、アナログの TUF に高玉がなかったことと合う。アナログの東裏磐梯(1989年)の受信元は未解決のまま。報道資料の別紙9「高玉中継局（地上デジタルテレビ放送）の概要及び放送エリア図」(Gin の画面の写真で読めた):送信所は高玉金山、出力0.3W、放送区域は郡山市の一部、約400世帯、リモコン TUF 6・20ch。訂正(2026-10-07、Gin「アナログから置局があります」、denpa-data のアナログ表):郡山高玉(＝磐梯高玉、FTV・FCT・KFB の局名)はアナログにもあった。FTV44・FCT42・KFB50・NHK総合46・教育48、TUF の欄は空き、U3W、郡山市熱海町高玉字苗ノ松(高玉金山)。→ アナログの高玉に TUF はなかった。東裏磐梯(denpa-data では猪苗代大倉川)はアナログで FTV56・FCT58・KFB60・TUF62・総合54・教育52、U1W、猪苗代町若宮字吾妻山甲(金堀観音山)。先の「高玉はデジタルになってからの局」は誤り(デジタルの高玉が2010年整備)",
    "parent_alt": "高玉(Gin の見立て、高玉が TUF のアナログにあった場合)",
-   "parent_alt2": "高山（TUF の中継施設）。Gin の実測で高山 → 東裏磐梯の方向は見える（13.25km）。ただし高山はマイクロ回線の反射板とみられ、UHF の放送波を出す設備だったかは未確認"
+   "parent_alt2": "高山（TUF の中継施設）。Gin の実測で高山 → 東裏磐梯の方向は見える（13.25km）。ただし高山はマイクロ回線の反射板とみられ、UHF の放送波を出す設備だったかは未確認",
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 41,
@@ -903,7 +1063,11 @@
     "min_clearance_m": 14,
     "at_km": 19.4,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 42,
@@ -925,7 +1089,11 @@
     "min_clearance_m": 19,
     "at_km": 0.1,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 43,
@@ -948,7 +1116,11 @@
     "min_clearance_m": 63,
     "at_km": 12.7,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 44,
@@ -970,7 +1142,11 @@
     "min_clearance_m": -111,
     "at_km": 0.4,
     "ok": false
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 45,
@@ -992,7 +1168,11 @@
     "min_clearance_m": 79,
     "at_km": 6.7,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 46,
@@ -1014,7 +1194,11 @@
     "min_clearance_m": -14,
     "at_km": 5.5,
     "ok": false
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 47,
@@ -1132,7 +1316,11 @@
      "result": "見えません",
      "note": "Gin の実測（地面どうし）、2026-10-07 04:13〜04:15、ALM 総監督経由。約5.6km の尾根（約820m）の頂をかすめるだけ。HNS-M4 の計算 +46m と合う"
     }
-   ]
+   ],
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 48,
@@ -1154,7 +1342,11 @@
     "min_clearance_m": 167,
     "at_km": 7.9,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 49,
@@ -1177,7 +1369,11 @@
     "min_clearance_m": 64,
     "at_km": 0.2,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 50,
@@ -1199,7 +1395,11 @@
     "min_clearance_m": 233,
     "at_km": 5.9,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 51,
@@ -1221,7 +1421,11 @@
     "min_clearance_m": 167,
     "at_km": 16.6,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 52,
@@ -1243,7 +1447,11 @@
     "min_clearance_m": 105,
     "at_km": 0.4,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 53,
@@ -1265,7 +1473,11 @@
     "min_clearance_m": -14,
     "at_km": 6.0,
     "ok": false
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 54,
@@ -1287,7 +1499,11 @@
     "min_clearance_m": -39,
     "at_km": 12.6,
     "ok": false
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 55,
@@ -1309,7 +1525,11 @@
     "min_clearance_m": 264,
     "at_km": 6.1,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 56,
@@ -1331,7 +1551,11 @@
     "min_clearance_m": 133,
     "at_km": 0.8,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 57,
@@ -1348,7 +1572,11 @@
    "parent_basis": "推定",
    "parent_reason": "ミニサテ（社史：いわき四ツ倉ほか）。水石から10km。",
    "link_km": 10.1,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 58,
@@ -1365,7 +1593,11 @@
    "parent_basis": "推定",
    "parent_reason": "0.1Wの小局。5km先のいわき（湯ノ岳）から。",
    "link_km": 5.3,
-   "stage": 3
+   "stage": 3,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 59,
@@ -1387,7 +1619,11 @@
     "min_clearance_m": -267,
     "at_km": 24.6,
     "ok": false
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 60,
@@ -1409,7 +1645,11 @@
     "min_clearance_m": 117,
     "at_km": 5.5,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 61,
@@ -1431,7 +1671,11 @@
     "min_clearance_m": 105,
     "at_km": 9.7,
     "ok": true
-   }
+   },
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 62,
@@ -1448,7 +1692,11 @@
    "parent_basis": "マイクロ回線（『福島テレビ20年史』）",
    "parent_reason": "『福島テレビ20年史』の自営マイクロ網：福島放送局（笹森山）→いわき平放送局（水石山）。",
    "link_km": 70.9,
-   "stage": 1
+   "stage": 1,
+   "analog_polarization": null,
+   "analog_polarization_source": null,
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 63,
@@ -1470,7 +1718,11 @@
     "min_clearance_m": 173,
     "at_km": 24.1,
     "ok": true
-   }
+   },
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 64,
@@ -1487,7 +1739,11 @@
    "parent_basis": "推定",
    "parent_reason": "ミニサテ（社史：飯舘関沢）。飯舘から8km。",
    "link_km": 7.6,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 65,
@@ -1504,7 +1760,11 @@
    "parent_basis": "推定",
    "parent_reason": "ミニサテ（社史：飯舘向押）。飯舘から8km。",
    "link_km": 7.9,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   },
   {
    "no": 66,
@@ -1521,7 +1781,11 @@
    "parent_basis": "推定",
    "parent_reason": "蕨平（社史：第2次）。飯舘から12km。",
    "link_km": 11.9,
-   "stage": 2
+   "stage": 2,
+   "analog_polarization": "水平",
+   "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
+   "digital_polarization": "水平（表に（V）の注記なし）",
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
   }
  ]
 }
