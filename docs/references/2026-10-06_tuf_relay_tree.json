@@ -946,7 +946,7 @@
    "mountain_address": "黒崎山／耶麻郡西会津町新郷三河字黒崎",
    "parent": "会津若松",
    "parent_no": 36,
-   "parent_basis": "推定",
+   "parent_basis": "推定。確かめ：Gin の写真で背あぶり受けのパラスタック（Gin「背あぶり受けの時はこんなかんじでパラスタックが多かった　これは西会津」「西会津は V/U 受け U だしだったね」2026-10-08、ALM 総監督経由）",
    "parent_reason": "会津若松から31km、見通しあり（柳津三島からは -71m）。",
    "link_km": 32.8,
    "stage": 2,
@@ -1503,7 +1503,8 @@
    "analog_polarization": "水平",
    "analog_polarization_source": "denpa-data のアナログ表（チャンネルの数字が青緑色＝垂直偏波、そのほかは水平）",
    "digital_polarization": "水平（表に（V）の注記なし）",
-   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）"
+   "digital_polarization_source": "総務省 東北総合通信局「福島県」の免許の表（fukushimalicense.html、局名に（V）＝垂直偏波）",
+   "gin_note": "Gin「5,9,11 で V 三局、残り U 三局だね」「おそらく田島アナログの時も同様に V 受け V だしをしていたはず」(2026-10-08)。TUF は U(39ch)なので U 受け U 出しの見込み"
   },
   {
    "no": 55,
