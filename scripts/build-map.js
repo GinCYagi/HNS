@@ -109,6 +109,13 @@ const PLACES = {
   "富田林市": { level: "city", cities: ["27214"] },
   "郡山市": { level: "city", cities: ["07203"] },
   "浪江町": { level: "city", cities: ["07547"] },
+  "札幌市": { level: "city", cities: ["01100"] },
+  "盛岡市": { level: "city", cities: ["03201"] },
+  "水戸市": { level: "city", cities: ["08201"] },
+  "宇都宮市": { level: "city", cities: ["09201"] },
+  "前橋市": { level: "city", cities: ["10201"] },
+  "さいたま市": { level: "city", cities: ["11100"] },
+  "新宿区": { level: "city", cities: ["13104"] },
 };
 
 function field(s, key) {
