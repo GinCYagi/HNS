@@ -108,6 +108,7 @@ const PLACES = {
   "米沢市": { level: "city", cities: ["06202"] },
   "富田林市": { level: "city", cities: ["27214"] },
   "郡山市": { level: "city", cities: ["07203"] },
+  "浪江町": { level: "city", cities: ["07547"] },
 };
 
 function field(s, key) {
