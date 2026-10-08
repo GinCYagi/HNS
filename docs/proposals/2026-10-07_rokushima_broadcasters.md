@@ -15,3 +15,8 @@ Gin の言葉（ALM 総監督経由、原文のまま、2026-10-07）：「こ�
 - 「株式会社」を局名に入れるのは、現実の KFB の正式名（株式会社福島放送）と、Gin の KRB の読み（Kabushikikaisha）に合わせた。ふだんの呼び名は「禄嶋放送」。
 - 次点：RTV の符号を RTVS、RCT を RCTS にする形（4字目を S にそろえる）。
 - 会津へ番組を送る道（免許の一覧、docs/references/2026-10-07_fukushima_passive_repeaters.md）：禄嶋テレビ・テレビユー禄嶋は福島市の反射板（野地・頂山）、禄嶋放送は郷岳市（郡山）の反射板、禄嶋中央テレビは須賀川市の反射板（笠ヶ森山の見込み）。
+
+
+## 追記（2026-10-08）
+- 禄嶋テレビの呼出符号は Gin の決めで **RTVR**（Rokushima TeleVision Rokushima）、相津の局は **RTVA**（…Aitsu）。M4 の案 RKTV は取り下げ。
+- 英字は一字ずつの元の音（Aitsu）、DIFF-038。
