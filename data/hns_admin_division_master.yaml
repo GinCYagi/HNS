@@ -358,6 +358,7 @@ additions_2026_10:
   tuf_relay_stations:  # テレビユー禄嶋(TURS-TVHN/TURS-DTHN、現実の TUF)の中継局。木 docs/references/2026-10-06_tuf_relay_tree.json。2026-10-07〜
     - {real: "伊南", fictional: "稲南", yomi: "いんなみ", ch: 60, rule: "段3。旧伊南村。伊→稲、南は方角で残す(DIFF-026)", verdict: "採用", ruling: "HNS-G5の候補 稲南(いななみ)→HNS-M4査読 条件付き(読みにくい)→Gin「いなみじゃないかな」→(HNS-M4:稲美町・印南町・井波など同じ読みが多い)→Gin「いんなみは？」「na naってめったにないからね」「わななく　とか」→Gin「採用」(2026-10-07)", notes: "現実の伊南は「いな」。いななみ は「な・な」が続き、いななく・わななく に聞こえる(DIFF-025)。記録:印南(いんなみ、兵庫県稲美町の町名・昔の印南郡)と同じ読み", record: "docs/proposals/2026-10-07_tuf_relay_names.md、docs/reviews/2026-10-07_review_tuf_relay_names_1_M4.md"}
     - {real: "南伊南", fictional: "南稲南", yomi: "みなみいんなみ", ch: 47, rule: "伊南に合わせる。南は方角で残す", verdict: "採用", ruling: "HNS-G5の候補 稲南(いななみ)→HNS-M4査読 条件付き(読みにくい)→Gin「いなみじゃないかな」→(HNS-M4:稲美町・印南町・井波など同じ読みが多い)→Gin「いんなみは？」「na naってめったにないからね」「わななく　とか」→Gin「採用」(2026-10-07)"}
+    - {real: "磐城西郷", fictional: "磐汀西邑", yomi: "ばんていさいゆう", ch: null, rule: "磐城(旧国名)＝磐汀＋西郷＝西邑(郷→邑、南郷＝南邑と同じ)。デジタルの局(テレビユー禄嶋、送信所は西郷村)", verdict: "採用", ruling: "HNS-G5の磐郭西邑→磐西邑→Gin「５，いわさいそん？」→(HNS-M4:磐城は磐汀に決まったので磐汀西邑、邑を そん と読むのは字とずれる)→Gin「磐汀西邑でいきましょう」(2026-10-09)", notes: "西郷村＝西邑村(さいゆうむら)の親の名は HNS-G5 の候補のまま(この局名で西邑の字が先に使われた)", record: "docs/proposals/2026-10-07_tuf_relay_names.md §11、docs/references/2026-10-08_tuf_digital_tree.json"}
   regional:
     - {real: "会津", fictional: "相津", yomi: "あいづ", rule: "G-01(古事記の表記)", verdict: "採用", ruling: "Gin「b」(相津を置く)", origin_memo: "四道将軍の大毘古命と建沼河別命の親子がこの地で合流した", record: "docs/proposals/2026-10-01_ryuto_stations_lines.md §9.4"}
   shichido:
