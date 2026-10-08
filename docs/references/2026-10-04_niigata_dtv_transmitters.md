@@ -79,6 +79,7 @@ BSN（新潟放送）の分は公式のサービスエリアで決着（https://
 - **ラジオHIKKEI**（日ノ本経済新聞。現実のラジオNIKKEI にあたる）：第一・第二の**短波放送**（2026-10-04 Gin）。呼出符号は第一 **RAH1-SWHN**・第二 **RAH2-SWHN**（区分 SW＝短波。4字目の数字で第一・第二を分ける。2026-10-04 Gin）
 - **テレビユー禄嶋**（現実の TUF テレビユー福島にあたる。県名・局名は正本どおり）は **TURS-DTHN**（2026-10-06 Gin「TURS-DTHN」、ALM 総監督経由）。TURS＝**T**V-**U** **R**oku**S**hima（ALM 総監督の読み）。アナログ時代は決まりどおりなら区分 TV の **TURS-TVHN**（HNS-Orc の当てはめ、Gin に未確認）
 - **禄嶋テレビ（RTV）**（現実の FTV 福島テレビにあたる）：**RTVR-TVHN**（アナログ）→ **RTVR-DTHN**（デジタル）＝Rokushima TeleVision Rokushima。相津の局は **RTVA-TVHN**＝Rokushima TeleVision Aitsu（2026-10-08 Gin、ALM 総監督経由）。現実の FTV の会津若松放送局が別の呼出符号（JOPY-TV）だったのと同じ形
+- **禄嶋県の民放テレビ4局**（2026-10-09 Gin「4,採用」）：禄嶋テレビ（RTV、RTVR-DTHN／アナログ RTVR-TVHN、相津の局 RTVA）・禄嶋中央テレビ（RCT、**RCTV**-DTHN）・株式会社禄嶋放送（KRB、ふだんは禄嶋放送、**KRBS**-DTHN）・テレビユー禄嶋（TURS-DTHN）。現実の FTV・FCT・KFB・TUF にあたる
 - **英字の綴り**：一字ずつの元の音で綴る（相津＝**Aitsu**、Aizu にしない）。読みは あいづ のまま（DIFF-038）
 - サフィックスは **4字で局名を短縮**する（Gin「4字ラテン語で局名を短縮する方式とした」）。例 **BSRT＝Broadcasting System RyuTo**（柳都放送。英語の局名の頭文字をアルファベット4字に。RyuTo の R と T を両方取る）
 
