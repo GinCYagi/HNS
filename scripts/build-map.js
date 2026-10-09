@@ -116,6 +116,16 @@ const PLACES = {
   "前橋市": { level: "city", cities: ["10201"] },
   "さいたま市": { level: "city", cities: ["11100"] },
   "新宿区": { level: "city", cities: ["13104"] },
+  "金沢市": { level: "city", cities: ["17201"] },
+  "津市": { level: "city", cities: ["24201"] },
+  "大津市": { level: "city", cities: ["25201"] },
+  "松江市": { level: "city", cities: ["32201"] },
+  "高松市": { level: "city", cities: ["37201"] },
+  "松山市": { level: "city", cities: ["38201"] },
+  "浜松市": { level: "city", cities: ["22130"] },
+  "明石市": { level: "city", cities: ["28203"] },
+  "神戸市": { level: "city", cities: ["28100"] },
+  "那覇市": { level: "city", cities: ["47201"] },
 };
 
 function field(s, key) {
