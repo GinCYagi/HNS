@@ -49,7 +49,7 @@ design_principles:
 rules_generative:
   - id: G-01
     name: "古称・雅称採用"
-    examples_adopted: ["東北→陸奥", "名古屋→蓬左"]
+    examples_adopted: ["東北→陸奥", "名古屋→蓬左(2026-10-21に金之鯱市へ替えた。蓬左は今も名古屋市蓬左文庫で使われる)"]
     note: "最優先で適用"
   - id: G-02
     name: "律令区分・旧国名採用"
