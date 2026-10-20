@@ -436,3 +436,99 @@ Gin の線「IATA の符号は一番大事」で見ると、§2.7 の点検で�
   1. 杜砦だけ（すでに直すことになっていたので）IATA の線で作り直し、ほかの45は今の点検（日本で知られたもの・国・通貨・日本の空港）のままにする。
   2. 46全部を IATA の線で作り直す（例の TOT・RKS も替わる）。
   3. 日本の空港の符号だけは必ず避け、海外の空港の符号は気にしない（杜砦では TOY＝富山空港だけを避けることになり、候補が増える）。
+
+---
+
+# 第4部　電話番号の頭は4文字に（2026-10-21、Gin と HNS-M4 のセッションで決めた）
+
+**§2.1〜§2.12 の3文字の決まり・一覧と、直しの段の順番の問い（AMK・TMM）は、もう使わない。経緯として残す。**
+
+## 4.1 決まり（HNS-M4 の連絡）
+- **府県の名のローマ字の綴りから、順番を崩さずに4字を拾う。頭の字は必ず入れる。**
+- 綴り：ヘボン式。ただし し＝shi、ふ＝fu、**ち＝ti**（Gin「T」）、**のばす お＝oh**（Tohto）。
+- Gin が見せた作り方の例：「RokuSHiMa」→ RSHM、千橋 TiHaShi、柳都 RyUTo。
+- 決まったもの：**禄嶋＝RSHM**（Gin「はい」）、**千橋＝THSI**（Gin「はい」。TiHaShI から拾い、頭の3字がビル名 THS 200 とそろう）。
+- 形：英字4文字-0で始まる市内局番4桁-4桁（例：RSHM-0983-1223）。
+
+## 4.2 作り方（G5）
+1. 46府県の名を、上の綴りでローマ字にした（表の「ローマ字」）。G5 の読み取り：ゅう のような長い う はそのまま u 一つ（柳都 Ryuto、Gin の RyUTo から）。おお・おう は oh（大宜都 Ohgetsu、京鹿 Kyohga）。いい はそのまま（飯比古 Iihiko）。つ＝tsu、づ＝zu（湯鎚 Yuzuti）。
+2. 順番を崩さず、頭の字を含む4字の拾い方を全部出し、拍の頭の子音を多く拾う形・多くの拍にまたがる形を上に並べた（G5 の並べ方。機械で出した）。
+3. 次のものを除いた：呼出符号と同じ4字（正本と ALM の文書にある24個：BSRT・HHKE・HHKG・HKRT・KRBS・RCTV・RKTV・RRCA・RRCI・RRCK・RRCR・RRCS・RRKS・RSTV・RTBC・RTHB・RTHS・RTVA・RTVR・TERY・THBC・THBS・TTBS・TURS）、英語の言葉（SIGN・YORK・FUSE・SINK・TASK・TIRE・TIDE・HOUR・TURD ほか）、日本でよく知られた会社の名（TOTO・TOHO・KOGA ほか）。
+4. 府県ごとに上から2〜4つを、Web で照らした（4.3）。被ったものは外し、足りない府県は候補を足して照らし直した。
+5. 日ノ本の中の重なり：一覧の126の候補（RSHM・THSI を含む）は互いに重ならない。呼出符号とも重ならない（どちらも機械で確かめた）。
+
+## 4.3 照らし方
+- G5 が出した調べる係のエージェント3つが、2026-10-21 に一つずつ Web で確かめた。
+  - **ICAO の4文字の空港の符号**（一番大事）：米国（K＋3字）は AirNav の空港のページを一つずつ開いた。ほかは airportguide.com・lfs.aero・learn-atc.com の符号ごとのページと、Wikipedia の国ごとの空港の一覧。どの国にも割り当てのない頭字（TH・TO・TS・TY・MO・RI・RE・RY・RU・HI・HO・FU・OH・AK ほか）は Wikipedia の ICAO の符号のページで確かめた。
+  - 日本でよく知られた略称、英語などで困る言葉：目立ちそうな符号を検索した（全部の符号ではない）。
+- **限り（【要照合】）**：ICAO の公式の一覧（Doc 7910、有料）は見ていない。空港のデータのサイトは、ある空港を見落とすことがあった（learn-atc は SKIR・SAMU を、airportguide は SKAR・HKOK を見落とした）。なので「空き」は「見た資料に載っていない」という意味。南米・ケニア・豪州などの小さな私設の飛行場は、どの資料にも全部は載っていない。チリの頭字 SH は、小さな発着場（ヘリポートなど）に使われる例がある。
+- **記録（データの取得）**：エージェントの一つ（2つめに届いた組）が、照らすのに OurAirports の全空港のデータ（約8.6万行の CSV）を取得して使った。M4 の頼みにあった「一覧のファイルを手に入れるときは先に Gin に聞く」を、G5 がエージェントへの指示に書き落としたため。ファイルとして保存されたものは見つからなかった（G5 が作業の場所と一時フォルダを探した）。Gin には伝えた。ほかの組は、符号ごとのページで確かめた。
+
+## 4.4 46府県の候補
+
+| 府県（現実） | 日ノ本 | ローマ字 | 候補（推しの順） | 記録 |
+|---|---|---|---|---|
+| 東京 | 東都 | Tohto | TOHT（Gin の例）・THTO |  |
+| 北海道 | 海北道 | Kaihoku | KIHK・KAHK・KIHU |  |
+| 青森 | 碧林 | Hekirin | HKRN・HKIN・HIRN | HK はケニアの頭字。2つの資料で該当なし |
+| 岩手 | 誓岩 | Seigan | SGAN・SGNA | SG はパラグアイの頭字。SEGN・SIAN・SIGA・SEIA は被る |
+| 宮城 | 杜砦 | Tosai | TOSI（Gin の例）・TSAI・TOAI | TSAI は中国系の姓（蔡）と同じ綴り |
+| 秋田 | 杉穂 | Sugiho | SUGH・SGIH・SGHO |  |
+| 山形 | 嶺姿 | Reishi | RISH・RISI・RESH |  |
+| 福島 | 禄嶋 | Rokushima | **RSHM**（決まり） | Gin「はい」 |
+| 茨城 | 棘塁 | Kyokurui | KYKR・KYKI・KYRI |  |
+| 栃木 | 百千木 | Momotigi | MOTG・MOMG | MMTG は被る。MOMG は OMG を含む |
+| 群馬 | 駒叢 | Komamura | KMUR・KAMR・KMMR |  |
+| 埼玉 | 岬丸 | Sakimaru | SAKR・SAKM・SMAR | SKMR・SKMU・SKAR ほか SK 始まりは被る（コロンビア）。ほかの空き SMKR・SMRU |
+| 千葉 | 万葛 | Yorozuka | YRZK・YOZK・YRZA |  |
+| 神奈川 | 仏名瀬 | Funase | FNSE（Gin の例）・FNAS・FUNS | FUNS は小さな会社名だけ |
+| 新潟 | 柳都 | Ryuto | RYUT・RYTO・RUTO | RUTO はケニア大統領の姓と同じ |
+| 富山 | 豊峰 | Toyomine | TYMN・TOMN・TYME |  |
+| 石川 | 礫河 | Sazarega | SZRG・SZRA | SARG は被る（アルゼンチン、独語で「棺」） |
+| 福井 | 蟹浦 | Kaniura | KANR・KNUR・KNIR | KNUR はポーランド語で「雄豚」、KNIR は閉鎖した米国の基地の旧符号 |
+| 山梨 | 岳桃 | Takemomo | TKMO・TKOM・TKMM |  |
+| 長野 | 科坂 | Shinasaka | SHNK・SHNS・SHKA | SH はチリの小さな発着場に使われる例あり（注意）。SNSK・SHSK は被る |
+| 岐阜 | 鵜篝 | Ukagari | UKGR・UKAR・UKGI | UK はウクライナの頭字。該当なし |
+| 静岡 | 凪丘 | Nagioka | NGOK・NAGK・NGIK |  |
+| 三重 | 鴴江 | Tidorie | TDRE・TIDR・TDIE | TDIE は T-die と読める |
+| 滋賀 | 鳰海 | Niomi | NIOM・NIMI・NIOI |  |
+| 京都 | 雅 | Miyabi | MYBI（Gin の例）・MIYB | MYAB は被る（バハマ） |
+| 大阪 | 千橋 | Tihashi | **THSI**（決まり） | Gin「はい」。頭の3字がビル名 THS 200 とそろう |
+| 兵庫 | 鉾倉 | Hokokura | HOKU・HOKK・HKRA | HOKR は英語の俗語に見える、HKUR・HKKR・HKOR・HKOK は被る（ケニア）。HOKU はハワイ語で星 |
+| 奈良 | 京鹿 | Kyohga | KYHG・KYOG・KYGA |  |
+| 和歌山 | 梅詠 | Umeyomi | UMYM・UMYI・UMOM |  |
+| 鳥取 | 鵠羽 | Kuguha | KUGH・KGUH・KGHA |  |
+| 島根 | 綱本 | Tsunamoto | TNMT・TSNT・TSMT |  |
+| 岡山 | 雉阜 | Kijioka | KJOK・KIJK・KIOK |  |
+| 広島 | 鯉洲 | Koisu | KOIS・KOIU | KOSU は被る（米国の大学の空港） |
+| 山口 | 鶴門 | Tsurukado | TRKD・TSRD・TSKD |  |
+| 徳島 | 大宜都 | Ohgetsu | OHGT・OGTS・OHGS |  |
+| 香川 | 飯比古 | Iihiko | IHKO・IIHK・IHIK | IHIK は頭3字が会社 IHI と同じ |
+| 愛媛 | 湯鎚 | Yuzuti | YUZT・YZUT・YZTI |  |
+| 高知 | 建依 | Takeyori | TKYR・TKYI・TKOR |  |
+| 福岡 | 白暉 | Shirahi | SHRH・SRAH | SIRH は被る（ブラジル）。SH はチリ（注意） |
+| 佐賀 | 楠栄 | Kususaka | KUSK・KSAK・KSSK |  |
+| 長崎 | 椿先 | Tsubasaki | TBAK・TSBK・TBSK | TBSK は頭3字が放送局 TBS と同じ |
+| 熊本 | 熊磐 | Kumaiwa | KUMA・KUMW・KUIW | KUMA は 熊 のローマ字。KMIW・KMAW は被る（米国） |
+| 大分 | 饒日 | Nigihi | NGIH・NGHI・NIGH | NIGH は英語の古い言葉（近い） |
+| 宮崎 | 朝向 | Asamuki | ASMK・ASMI・ASUK |  |
+| 鹿児島 | 鹿桜 | Kazakura | KZKR・KZKA | KAKR は被る（米国アクロン） |
+| 沖縄 | 阿児奈波 | Akonawa | AKNW・AKNA・AKAW |  |
+| 愛知 | （未定） | — | — | 名が決まってから |
+
+照らして被った（外した）もの：SEGN・SIAN（エクアドル・ブラジル）、MMTG（メキシコ）、SKMR・SKMU・SKAR・SKRU・SKIM・SKIR（コロンビア）、SARG・SAMR・SAMU（アルゼンチン）、SNSK・SIRH・SIMR・SIKR・SIGA（ブラジル）、SHSK（チリ）、MYAB（バハマ）、HKUR・HKKR・HKOR・HKOK（ケニア）、SEIA（エクアドル）、KOSU・KMIW・KMAW・KAKR（米国）。
+
+## 4.5 呼出符号と見分けがつくか（M4 の問い3）
+- 呼出符号と同じ4字は、一つもない（4.2 の3）。
+- 形が違う：電話は「英字4字-数字4桁-数字4桁」、呼出符号は「英字4字-HN」（RTHB-HN、TURS-TVHN など）。後ろが数字か英字かで見分けられる。
+- 気がかり：呼出符号の多くは R で始まる（日本の JO に当たる日ノ本の頭の字）。電話の頭も、禄嶋 RSHM・嶺姿 RISH・柳都 RYUT が R で始まる。字だけを書いた場面（看板・字幕で後ろを略すなど）では、放送局の符号に見えることがある。気になるなら、R で始まらない候補（嶺姿・柳都は R で始まるものしかない。ローマ字の頭が R のため）は作れないので、字幕の書き方（数字まで書く）で見分ける。
+
+## 4.6 千橋 THSI と ビル名 THS 200（M4 の問い4）
+- 決まったもの：千橋＝**THSI**（TiHaShI から。Gin「はい」）。
+- 頭の3字 THS は、ビル名 **THS 200** と同じ。電話の頭（THSI-0…）とビル（THS 200）が並んでも、どちらも千橋の TiHaShi から来た字と分かる。
+- 3文字の特例（THS）は、4文字にしたので使わない（経緯は §2.10）。
+
+## 4.7 気がかり（C5 に見てほしいこと）
+1. 照らしの限り（4.3）。とくに S（南米）・H（ケニア）・Y（豪州）・K（米国）で始まる候補は、小さな飛行場の見落としがありうる。
+2. ゅう の長い う を u 一つにした読み取り（柳都 Ryuto）が、決まりに合うか。
+3. 誓岩（SGAN・SGNA）・白暉（SHRH・SRAH）・鹿桜（KZKR・KZKA）・礫河（SZRG・SZRA）・百千木（MOTG・MOMG）・雅（MYBI・MIYB）・鯉洲（KOIS・KOIU）・東都（TOHT・THTO）は候補が2つ。
