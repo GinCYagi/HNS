@@ -718,9 +718,9 @@ prefecture_symbols:
     - {real: "沖縄県", hns: "阿児奈波県", flower: "デイゴ（県花）", tree: "リュウキュウマツ（県木）", bird: "ノグチゲラ（県鳥）", other: "県魚：グルクン（タカサゴ）／県蝶：オオゴマダラ", place_word: "リュウキュウマツ"}
 
 phone_prefix:
-  note: "電話番号の頭(府県ごと)。形:D＋府県の3文字-0で始まる市内局番4桁-4桁(例 DRKS-0983-1223)。D は電話(Denwa)の D。3文字は府県の名の読み(県・府・都・道を除く)のはじめの3拍の頭の字(訓令式、のばす音はヘボン式の母音の字)、重なるときは直しの4段、どれも重いときは Gin が決める特例。画面・字幕・看板には英字の形だけを出し、数字に読み替えた形は出さない(日ノ本の人は英字を数字に読み替えて回している設定。読み替えの表は画面に出さない、Gin「1,ok」)。短い番号(110・119ほか)は現実のまま。46の英字・数字(Gin 式 1＝ABC…9＝YZ、押しボタン式 2＝ABC…)とも重なり0(機械で確かめた、2026-10-21)。愛知は名が決まってから同じ決まりで"
+  note: "電話番号の頭(府県ごと)。形:D＋府県の3文字-0で始まる市内局番4桁-4桁(例 DRKS-0983-1223)。D は電話(Denwa)の D。3文字は府県の名の読み(県・府・都・道を除く)のはじめの3拍の頭の字(訓令式、のばす音はヘボン式の母音の字)、重なるときは直しの4段、どれも重いときは Gin が決める特例。画面・字幕・看板には英字の形だけを出し、数字に読み替えた形は出さない(日ノ本の人は英字を数字に読み替えて回している設定。読み替えの表は画面に出さない、Gin「1,ok」)。短い番号(110・119ほか)は現実のまま。46の英字は重なり0。数字は Gin 式(1＝ABC…9＝YZ)で科坂 DSYN と豊峰 DTYM(2795)の1組だけが重なり(記録のみ)、押しボタン式(2＝ABC…)は重なり0(機械で確かめた、2026-10-21)。愛知は名が決まってから同じ決まりで"
   ruling: "HNS-G5の案(docs/proposals/2026-10-20_ftv_relays_phone_prefix.md 第5部)→HNS-C5査読(docs/reviews/2026-10-20_review_ftv_relays_phone_prefix_C5.md)→Gin が海北道 DOHK・凪丘 DNAG・椿先 DTBS・科坂 DSSK に直し→HNS-M4「上の5つの形で、46府県の一覧と決まりの全体を、採用として登録してよいですか？」にGin「はい」(2026-10-21、HNS-M4 のセッション)"
-  review_note: "DOHK・DNAG・DTBS・DSSK の4つは Gin がじかに決めたもので、HNS-C5 の査読はこの4つの形ではまだ(G5 の §5.5 の推しは 凪丘 DNIO・椿先 DTUB で、Gin は採らなかった)"
+  review_note: "DOHK・DNAG・DTBS・DSSK の4つは Gin がじかに決めたもので、HNS-C5 が後から査読に追記した(DTBS の TBS・DSSK の SSK は避ける線に当たると C5 は見たが、Gin が見たうえで採った)。のち Gin「DSSKも含め再考」で 凪丘 DNAG→DNIO(Gin「dnio ok」)・科坂 DSSK→DSYN(Gin「DSYNを採用」、2026-10-21)。DNIO・DSYN の形は C5 の査読がまだ"
   entries:
     - {hns: "東都", real: "東京", yomi: "とうと", prefix: "DTOT"}
     - {hns: "海北道", real: "北海道", yomi: "かいほく", prefix: "DOHK", note: "特例。頭の D を道(DO)と読ませ、H＝北(ほく)、K＝海(かい)。かいほくどうを後ろから道・北・海と読む(Gin「DOHK」「逆手にとってプリフィックスで読ませる?」)。前は DKIH(鵠羽 DKGH と Gin 式の数字 2433 で重なった)"}
@@ -741,9 +741,9 @@ phone_prefix:
     - {hns: "礫河", real: "石川", yomi: "さざれが", prefix: "DSZR"}
     - {hns: "蟹浦", real: "福井", yomi: "かにうら", prefix: "DKNU"}
     - {hns: "岳桃", real: "山梨", yomi: "たけもも", prefix: "DTMM"}
-    - {hns: "科坂", real: "長野", yomi: "しなさか", prefix: "DSSK", note: "Gin「DSSK」(し・さ・か＝S・S・K、2拍目 な を飛ばす)。前は特例の DSAK。記録:中に野球用品の会社の SSK が入る(3文字の段では外したもの)。DSSK は電気部品(IXYS のダイオード)の型番の頭"}
+    - {hns: "科坂", real: "長野", yomi: "しなさか", prefix: "DSYN", note: "特例。SY を し の当て字に、N＝な(Gin「DSYN」「syでしの当て字」「DSYNを採用」2026-10-21)。前は DSSK(Gin「DSSKも含め再考」。中に野球用品の会社の SSK が入った)、その前は特例の DSAK。記録:Gin 式の数字 2795 が豊峰 DTYM と重なる(押しボタン式 3796 は重ならない)。数字は画面に出さないので記録のみ。略称は見つからない(近い字に DSNY＝カナダの会社の銘柄の符号、中の SYN は英語の接頭の言葉・通信の用語)"}
     - {hns: "鵜篝", real: "岐阜", yomi: "うかがり", prefix: "DUKG"}
-    - {hns: "凪丘", real: "静岡", yomi: "なぎおか", prefix: "DNAG", note: "Gin「DNAG」(NAGioka の N・A・G)。前は DNGI(饒日 DNGH と Gin 式の数字 2533 で重なった)。記録:頭の3字が DNA に見える。DNAG は米国の地質学会の事業の略・店頭市場の銘柄の符号(DNAPrint Genomics、G5 の検索)"}
+    - {hns: "凪丘", real: "静岡", yomi: "なぎおか", prefix: "DNIO", note: "NagIOka の N・I・O(G5 の推し、Gin「dnio ok」2026-10-21)。前は DNAG(Gin「再考」。米国の店頭市場の銘柄の符号 DNAPrint Genomics と同じ)、その前は DNGI(饒日 DNGH と Gin 式の数字 2533 で重なった)。略称は見つからない。ナイジェリアの空港の符号(DN…)にない(G5 が照らした)"}
     - {hns: "鴴江", real: "三重", yomi: "ちどりえ", prefix: "DTDE"}
     - {hns: "鳰海", real: "滋賀", yomi: "におみ", prefix: "DNOM"}
     - {hns: "雅", real: "京都", yomi: "みやび", prefix: "DMYB"}
