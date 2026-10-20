@@ -561,3 +561,4 @@ Gin の線「IATA の符号は一番大事」で見ると、§2.7 の点検で�
 - 百千木（栃木）：DMMG → **DMTG**（MomoTiGi の M・T・G）。ICAO：DM は割り当てのない頭字。記録：頭の3字 DMT は幻覚剤（ジメチルトリプタミン）の略と同じ（https://www.merriam-webster.com/dictionary/DMT ）。中の MTG は、日本の仕事の場で「ミーティング」の略に使われる（G5 の知識で、出典は確かめていない）。
 - D＋3文字の46は、この2つを替えたあとも、互いに重ならない（機械で確かめた）。
 → Gin の直し（同日）：百千木（栃木）は「**DMMT**」（MoMoTigi の M・M・T）。ICAO：DM は割り当てのない頭字。照合（G5、Web 検索 2026-10-21）：日本で使われる DMMT の略称は見つからなかった。ファイルの拡張子（マインドマップのひな形）にある程度（https://filext.com/pt/extensao-do-arquivo/DMMT ）。記録：頭の3字 DMM は DMM.com と同じ字（前に DMMG で気にした点が残る）。中の MMT は経済の用語（現代貨幣理論）。DMTG は採らない。46 の中で重ならない。
+→ Gin の直し（同日）：杜砦（宮城）は「**DTSY**」（ToSaI の T・S と、い を y と書いた Y）。ICAO：DT はチュニジアの頭字。Wikipedia「List of airports in Tunisia」の13の符号になく、airport-data.com の DTSY のページは 404（G5、2026-10-21）。日本で使われる略称は検索で見つからなかった。46 の中で重ならない（機械で確かめた）。
