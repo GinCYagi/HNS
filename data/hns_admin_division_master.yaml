@@ -721,6 +721,7 @@ phone_prefix:
   note: "電話番号の頭(府県ごと)。形:D＋府県の3文字-0で始まる市内局番4桁-4桁(例 DRKS-0983-1223)。D は電話(Denwa)の D。3文字は府県の名の読み(県・府・都・道を除く)のはじめの3拍の頭の字(訓令式、のばす音はヘボン式の母音の字)、重なるときは直しの4段、どれも重いときは Gin が決める特例。画面・字幕・看板には英字の形だけを出し、数字に読み替えた形は出さない(日ノ本の人は英字を数字に読み替えて回している設定。読み替えの表は画面に出さない、Gin「1,ok」)。短い番号(110・119ほか)は現実のまま。46の英字は重なり0。数字は Gin 式(1＝ABC…9＝YZ)で科坂 DSYN と豊峰 DTYM(2795)の1組だけが重なり(記録のみ)、押しボタン式(2＝ABC…)は重なり0(機械で確かめた、2026-10-21)。愛知は名が決まってから同じ決まりで"
   ruling: "HNS-G5の案(docs/proposals/2026-10-20_ftv_relays_phone_prefix.md 第5部)→HNS-C5査読(docs/reviews/2026-10-20_review_ftv_relays_phone_prefix_C5.md)→Gin が海北道 DOHK・凪丘 DNAG・椿先 DTBS・科坂 DSSK に直し→HNS-M4「上の5つの形で、46府県の一覧と決まりの全体を、採用として登録してよいですか？」にGin「はい」(2026-10-21、HNS-M4 のセッション)"
   pattern_note: "今後の作り方(Gin「shinasaka=synasaka=SYN」「toyomine=TYM」「今後このパターンしか秋がなければ検討」2026-10-21、秋は空きの打ち間違いと読んだ):直しの4段で空きがないとき、読みのローマ字から母音を抜いた頭の3字(豊峰 toyomine→TYM、科坂 synasaka→SYN。SY は し の当て字)の型を検討する。記録:この型どうしは Gin 式の数字で重なりやすい(S・T＝7、N・M＝5、DSYN と DTYM は 2795)"
+  ateji_y: "い段の当て字の表(Gin「KI=KY」「SHI=SY」「Di=dy」「NI=NY」「MI=MY」「hi=hy」「ri=ry」「ZI=ZY」→HNS-M4「この表を、電話番号の頭の当て字として、正本に書いておいてよいですか？使うのは『ほかに空きがないとき』だけ」にGin「1,ok」2026-10-21):き＝KY、し＝SY、ぢ(または でぃ。Gin の Di、どちらかは未確認)＝DY、に＝NY、み＝MY、ひ＝HY、り＝RY、じ＝ZY。ほかに空きがないときだけ使う。科坂 DSYN の SY がこの表の例。記録:RY は柳都 DRYT で りゅ の字として使っている"
   review_note: "DOHK・DNAG・DTBS・DSSK の4つは Gin がじかに決めたもので、HNS-C5 が後から査読に追記した(DTBS の TBS・DSSK の SSK は避ける線に当たると C5 は見たが、Gin が見たうえで採った)。のち Gin「DSSKも含め再考」で 凪丘 DNAG→DNIO(Gin「dnio ok」)・科坂 DSSK→DSYN(Gin「DSYNを採用」、2026-10-21)。DNIO・DSYN の形は C5 の査読がまだ"
   entries:
     - {hns: "東都", real: "東京", yomi: "とうと", prefix: "DTOT"}
