@@ -717,6 +717,58 @@ prefecture_symbols:
     - {real: "鹿児島県", hns: "鹿桜県", flower: "ミヤマキリシマ（県花）", tree: "クスノキ・カイコウズ（県木）", bird: "ルリカケス（県鳥）"}
     - {real: "沖縄県", hns: "阿児奈波県", flower: "デイゴ（県花）", tree: "リュウキュウマツ（県木）", bird: "ノグチゲラ（県鳥）", other: "県魚：グルクン（タカサゴ）／県蝶：オオゴマダラ", place_word: "リュウキュウマツ"}
 
+phone_prefix:
+  note: "電話番号の頭(府県ごと)。形:D＋府県の3文字-0で始まる市内局番4桁-4桁(例 DRKS-0983-1223)。D は電話(Denwa)の D。3文字は府県の名の読み(県・府・都・道を除く)のはじめの3拍の頭の字(訓令式、のばす音はヘボン式の母音の字)、重なるときは直しの4段、どれも重いときは Gin が決める特例。画面・字幕・看板には英字の形だけを出し、数字に読み替えた形は出さない(日ノ本の人は英字を数字に読み替えて回している設定。読み替えの表は画面に出さない、Gin「1,ok」)。短い番号(110・119ほか)は現実のまま。46の英字・数字(Gin 式 1＝ABC…9＝YZ、押しボタン式 2＝ABC…)とも重なり0(機械で確かめた、2026-10-21)。愛知は名が決まってから同じ決まりで"
+  ruling: "HNS-G5の案(docs/proposals/2026-10-20_ftv_relays_phone_prefix.md 第5部)→HNS-C5査読(docs/reviews/2026-10-20_review_ftv_relays_phone_prefix_C5.md)→Gin が海北道 DOHK・凪丘 DNAG・椿先 DTBS・科坂 DSSK に直し→HNS-M4「上の5つの形で、46府県の一覧と決まりの全体を、採用として登録してよいですか？」にGin「はい」(2026-10-21、HNS-M4 のセッション)"
+  review_note: "DOHK・DNAG・DTBS・DSSK の4つは Gin がじかに決めたもので、HNS-C5 の査読はこの4つの形ではまだ(G5 の §5.5 の推しは 凪丘 DNIO・椿先 DTUB で、Gin は採らなかった)"
+  entries:
+    - {hns: "東都", real: "東京", yomi: "とうと", prefix: "DTOT"}
+    - {hns: "海北道", real: "北海道", yomi: "かいほく", prefix: "DOHK", note: "特例。頭の D を道(DO)と読ませ、H＝北(ほく)、K＝海(かい)。かいほくどうを後ろから道・北・海と読む(Gin「DOHK」「逆手にとってプリフィックスで読ませる?」)。前は DKIH(鵠羽 DKGH と Gin 式の数字 2433 で重なった)"}
+    - {hns: "碧林", real: "青森", yomi: "へきりん", prefix: "DHKR"}
+    - {hns: "誓岩", real: "岩手", yomi: "せいがん", prefix: "DSGA", note: "特例(3文字 SGA、Gin「OK」)"}
+    - {hns: "杜砦", real: "宮城", yomi: "とさい", prefix: "DTSY", note: "Gin"}
+    - {hns: "杉穂", real: "秋田", yomi: "すぎほ", prefix: "DSGO"}
+    - {hns: "嶺姿", real: "山形", yomi: "れいし", prefix: "DRIS"}
+    - {hns: "禄嶋", real: "福島", yomi: "ろくしま", prefix: "DRKS", note: "Gin"}
+    - {hns: "棘塁", real: "茨城", yomi: "きょくるい", prefix: "DKKI"}
+    - {hns: "百千木", real: "栃木", yomi: "ももちぎ", prefix: "DMOI", note: "Gin「DMOI」(も・も・ち の M・O・I)"}
+    - {hns: "駒叢", real: "群馬", yomi: "こまむら", prefix: "DKMM"}
+    - {hns: "岬丸", real: "埼玉", yomi: "さきまる", prefix: "DSKM"}
+    - {hns: "万葛", real: "千葉", yomi: "よろずか", prefix: "DYRZ"}
+    - {hns: "仏名瀬", real: "神奈川", yomi: "ふなせ", prefix: "DHNE"}
+    - {hns: "柳都", real: "新潟", yomi: "りゅうと", prefix: "DRYT", note: "Gin(DRUT はポーランド語の卑語なので RYT)"}
+    - {hns: "豊峰", real: "富山", yomi: "とよみね", prefix: "DTYM"}
+    - {hns: "礫河", real: "石川", yomi: "さざれが", prefix: "DSZR"}
+    - {hns: "蟹浦", real: "福井", yomi: "かにうら", prefix: "DKNU"}
+    - {hns: "岳桃", real: "山梨", yomi: "たけもも", prefix: "DTMM"}
+    - {hns: "科坂", real: "長野", yomi: "しなさか", prefix: "DSSK", note: "Gin「DSSK」(し・さ・か＝S・S・K、2拍目 な を飛ばす)。前は特例の DSAK。記録:中に野球用品の会社の SSK が入る(3文字の段では外したもの)。DSSK は電気部品(IXYS のダイオード)の型番の頭"}
+    - {hns: "鵜篝", real: "岐阜", yomi: "うかがり", prefix: "DUKG"}
+    - {hns: "凪丘", real: "静岡", yomi: "なぎおか", prefix: "DNAG", note: "Gin「DNAG」(NAGioka の N・A・G)。前は DNGI(饒日 DNGH と Gin 式の数字 2533 で重なった)。記録:頭の3字が DNA に見える。DNAG は米国の地質学会の事業の略・店頭市場の銘柄の符号(DNAPrint Genomics、G5 の検索)"}
+    - {hns: "鴴江", real: "三重", yomi: "ちどりえ", prefix: "DTDE"}
+    - {hns: "鳰海", real: "滋賀", yomi: "におみ", prefix: "DNOM"}
+    - {hns: "雅", real: "京都", yomi: "みやび", prefix: "DMYB"}
+    - {hns: "千橋", real: "大阪", yomi: "ちはし", prefix: "DTHS", note: "特例(3文字 THS、Gin「千橋は気に入ったのでTHSで」)"}
+    - {hns: "鉾倉", real: "兵庫", yomi: "ほこくら", prefix: "DHKK"}
+    - {hns: "京鹿", real: "奈良", yomi: "きょうが", prefix: "DKOG"}
+    - {hns: "梅詠", real: "和歌山", yomi: "うめよみ", prefix: "DUMY"}
+    - {hns: "鵠羽", real: "鳥取", yomi: "くぐは", prefix: "DKGH"}
+    - {hns: "綱本", real: "島根", yomi: "つなもと", prefix: "DTNA"}
+    - {hns: "雉阜", real: "岡山", yomi: "きじおか", prefix: "DKZO"}
+    - {hns: "鯉洲", real: "広島", yomi: "こいす", prefix: "DKIS"}
+    - {hns: "鶴門", real: "山口", yomi: "つるかど", prefix: "DTRK"}
+    - {hns: "大宜都", real: "徳島", yomi: "おおげつ", prefix: "DOGT", note: "Gin「DOGT」(Ohgetsu の O・G・T)"}
+    - {hns: "飯比古", real: "香川", yomi: "いいひこ", prefix: "DIIH"}
+    - {hns: "湯鎚", real: "愛媛", yomi: "ゆづち", prefix: "DYZT"}
+    - {hns: "建依", real: "高知", yomi: "たけより", prefix: "DTKY"}
+    - {hns: "白暉", real: "福岡", yomi: "しらひ", prefix: "DSRH"}
+    - {hns: "楠栄", real: "佐賀", yomi: "くすさか", prefix: "DKSS"}
+    - {hns: "椿先", real: "長崎", yomi: "つばさき", prefix: "DTBS", note: "Gin「DTBS」。前は DTBK(科坂と Gin 式の数字 2714 で重なった)。記録:中に放送局の TBS がそのまま入る(3文字の段では避けたもの。Gin が D 付きの形で採った)"}
+    - {hns: "熊磐", real: "熊本", yomi: "くまいわ", prefix: "DKMW"}
+    - {hns: "饒日", real: "大分", yomi: "にぎひ", prefix: "DNGH"}
+    - {hns: "朝向", real: "宮崎", yomi: "あさむき", prefix: "DAMK"}
+    - {hns: "鹿桜", real: "鹿児島", yomi: "かざくら", prefix: "DKZK"}
+    - {hns: "阿児奈波", real: "沖縄", yomi: "あこなわ", prefix: "DAKN"}
+
 towns_ryuto_chuo:
   note: "りゅうと市中央区(現実の新潟市中央区)の町名。郵便番号データの町域ごと。仕分け docs/proposals/2026-10-06_ryuto_chuo_towns.md。DIFF-026・027・035・037"
   entries:
