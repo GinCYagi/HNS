@@ -793,6 +793,11 @@ phone_prefix:
     - {hns: "阿児奈波", real: "沖縄", yomi: "あこなわ", prefix: "DAKN"}
     - {hns: "鮎潟", real: "愛知", yomi: "あゆがた", prefix: "DAYG", note: "あ・ゆ・が の頭の字(直しなし)。Gin「はい」(2026-10-21)。略称は見つからない(HNS-M4 の Web 検索。綴りの近い語に英語の大学生の俗語 dayger)。DA はアルジェリアの頭字、空港の一覧に DAYG はない(G5)"}
 
+wards_seirei:
+  note: "政令指定都市の区(行政区)。方角・位置だけの区(北・中央 など)と元号の区はそのまま残す(DIFF-026・DIFF-047)。現実にほかの市にも同じ名がある区は同じ日ノ本名にそろえる(DIFF-048)。全体の表 docs/proposals/2026-10-21_seirei_wards_table.md(20市・171区)"
+  entries:
+    - {real: "秋葉区", city: "新潟市", fictional: "初浦区", yomi: "はつうらく", parent: "りゅうと市", rule: "区の中心の 新津＝初浦(正本)から取る", verdict: "採用", ruling: "HNS-G5の候補(docs/proposals/2026-10-21_wards_ryuto.md、初浦・錦葉)→HNS-M4「秋葉区＝初浦区、西蒲区＝西葦区 でよいか」→Gin「はい」(2026-10-21、HNS-M4 のセッション)"}
+    - {real: "西蒲区", city: "新潟市", fictional: "西葦区", yomi: "にしあしく", parent: "りゅうと市", rule: "西は方角で残す、蒲→葦(水べりの草どうし)", verdict: "採用", ruling: "HNS-G5の候補(docs/proposals/2026-10-21_wards_ryuto.md、西葦・西菰)→HNS-M4「秋葉区＝初浦区、西蒲区＝西葦区 でよいか」→Gin「はい」(2026-10-21、HNS-M4 のセッション)", notes: "西蒲原郡の日ノ本名はまだない。郡を決めるときに区との合わせを見る"}
 towns_ryuto_chuo:
   note: "りゅうと市中央区(現実の新潟市中央区)の町名。郵便番号データの町域ごと。仕分け docs/proposals/2026-10-06_ryuto_chuo_towns.md。DIFF-026・027・035・037"
   entries:
