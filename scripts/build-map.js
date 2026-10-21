@@ -188,6 +188,7 @@ function progress(master) {
   for (const line of master.split("\n")) {
     if (/^  [a-z_]+:/.test(line)) inStreets = /^  bridges_streets_ryuto:/.test(line);
     const real = field(line, "real"), v = field(line, "verdict");
+    if (/, city: "/.test(line)) continue; // 政令指定都市の区（wards_seirei）は市区町村の分母 1741 に入らない
     if (real && v && v.startsWith("採用") && field(line, "fictional")) (inStreets || /, town: "/.test(line) ? townLike : adopted).add(real);
   }
   for (const e of master.split(/\n  - real: /).slice(1)) {
