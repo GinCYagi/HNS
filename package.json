@@ -9,7 +9,8 @@
     "verify-manifest": "node scripts/verify-manifest.js",
     "check-tsunagari": "node scripts/check-tsunagari.js",
     "build-map": "node scripts/build-map.js",
-    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js && node scripts/check-tsunagari.test.js"
+    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js && node scripts/check-tsunagari.test.js && node scripts/check-kyukokumei.test.js",
+    "check-kyukokumei": "node scripts/check-kyukokumei.js"
   },
   "engines": {
     "node": ">=18"

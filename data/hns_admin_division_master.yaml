@@ -914,3 +914,94 @@ char_defaults:
     - {real: "代", fictional: "坪", yomi: "つぼ", verdict: "採用", ruling: "HNS-G5の案(docs/proposals/2026-10-10_char_defaults.md §4.2〜§4.8)→HNS-C5査読(docs/reviews/2026-10-21_review_tada_no_C5.md)→Gin「採決」(HNS-G5 のセッション)→Gin「全採決」(2026-10-21、HNS-M4 のセッション)", notes: "代(人が区切って整えた田の一区画)は理(DIFF-028)ではない(HNS-M4 の見立て、Gin「1」)。区切った土地の 坪。次点 畝"}
     - {real: "単語の表(名前ごとに決める名。字の表より先に、長く一致するものから当てる)", fictional: "門田→関苗・公田→供苗・高野→聳原・高玉→上珠・田村→苗邑", verdict: "採用", ruling: "HNS-G5の案(docs/proposals/2026-10-10_char_defaults.md §4.2〜§4.8)→HNS-C5査読(docs/reviews/2026-10-21_review_tada_no_C5.md)→Gin「採決」(HNS-G5 のセッション)→Gin「全採決」(2026-10-21、HNS-M4 のセッション)"}
     - {real: "浦", fictional: "岸", yomi: "きし", verdict: "採用", ruling: "HNS-G5の案(浦→汀)→HNS-C5の指摘(汀は磐城の側の字 磐汀・永汀 と重なる)→HNS-G5の出し直し→HNS-C5査読 受け入れ可(docs/reviews/2026-10-13_review_char_defaults_ura_C5.md)→Gin「岸でokです」(HNS-G5 のセッション)・Gin「採用」(HNS-C5 のセッション、2026-10-13)", notes: "次点の 泊 は採らず(全国の泊町・泊村と同じ)"}
+
+# -------------------------------------------------------------
+kyukokumei:
+  note: "旧国名の表(DIFF-051)。86 か国(令制国 68・明治に分かれた国 7・北海道の国 11)。hns は日ノ本名(と状態)、real_use は日ノ本名の中に実名が残る名(替え待ち・例外)。国名・読み・範囲は HNS-G5 の知識で、出典は一つずつ付けていない(docs/proposals/2026-10-22_kyukokumei_table.md §5)。scripts/check-kyukokumei.js が、採用の名に実名が入っていないかを確かめる"
+  entries:
+    - {kuni: "山城", group: "畿内", yomi: "やましろ", range: "京都府南部", hns: "谷背（やぜ）要修正", in_name: "相楽郡南山城村"}
+    - {kuni: "大和", group: "畿内", yomi: "やまと", range: "奈良県", hns: "広貴（ひらぎ）条件付き採用", same_kanji: "黒川郡大和町・大和市・大和郡山市・大島郡大和村", same_yomi: "上益城郡山都町(ヤマト)", in_name: "東大和市・大和高田市", note: "大和市（神奈川）・大和町（宮城）ほか国外にも"}
+    - {kuni: "河内", group: "畿内", yomi: "かわち", range: "大阪府東部", hns: "洲外（すげ）要修正〈読み〉", same_kanji: "稲敷郡河内町・河内郡上三川町", in_name: "河内長野市・南河内郡太子町・南河内郡河南町・南河内郡千早赤阪村・名東郡佐那河内村"}
+    - {kuni: "和泉", group: "畿内", yomi: "いずみ", range: "大阪府南西部", hns: "貴川（きかわ）要修正", same_kanji: "和泉市", same_yomi: "仙台市泉区(イズミ)・横浜市泉区(イズミ)・出水市(イズミ)・出水郡長島町(イズミ)", note: "仙台市・横浜市の泉区（いずみ）と読みが同じ→泉区＝清湧区"}
+    - {kuni: "摂津", group: "畿内", yomi: "せっつ", range: "大阪府北部・兵庫県南東部", hns: "未提出", same_kanji: "摂津市"}
+    - {kuni: "伊賀", group: "東海道", yomi: "いが", range: "三重県北西部", hns: null, same_kanji: "伊賀市"}
+    - {kuni: "伊勢", group: "東海道", yomi: "いせ", range: "三重県の大部分", hns: null, same_kanji: "伊勢市", in_name: "伊勢崎市・伊勢原市・度会郡南伊勢町"}
+    - {kuni: "志摩", group: "東海道", yomi: "しま", range: "三重県東部", hns: null, same_kanji: "志摩市"}
+    - {kuni: "尾張", group: "東海道", yomi: "おわり", range: "愛知県西部", hns: "殿伸（とのび）", in_name: "尾張旭市", note: "尾張旭市→殿伸朝暉市"}
+    - {kuni: "三河", group: "東海道", yomi: "みかわ", range: "愛知県東部", hns: "参渓（みつたに）", same_yomi: "東田川郡三川町(ミカワ)", note: "三川町（山形）と読みが同じ→参渓"}
+    - {kuni: "遠江", group: "東海道", yomi: "とおとうみ", range: "静岡県西部", hns: null}
+    - {kuni: "駿河", group: "東海道", yomi: "するが", range: "静岡県中部", hns: null, same_kanji: "静岡市駿河区"}
+    - {kuni: "伊豆", group: "東海道", yomi: "いず", range: "静岡県東部・東京都の島々", hns: null, same_kanji: "伊豆市", in_name: "伊豆の国市・賀茂郡東伊豆町・賀茂郡南伊豆町・賀茂郡西伊豆町"}
+    - {kuni: "甲斐", group: "東海道", yomi: "かい", range: "山梨県", hns: null, same_kanji: "甲斐市"}
+    - {kuni: "相模", group: "東海道", yomi: "さがみ", range: "神奈川県の大部分", hns: null, in_name: "相模原市緑区・相模原市中央区・相模原市南区", note: "相模原市→凧ヶ平市（RUL-023 ③）"}
+    - {kuni: "武蔵", group: "東海道", yomi: "むさし", range: "東京都・埼玉県・神奈川県東部", hns: null, same_kanji: "武蔵村山市", in_name: "武蔵野市", note: "東京は東都。万都快速線の 都＝武蔵"}
+    - {kuni: "安房", group: "東海道", yomi: "あわ", range: "千葉県南部", hns: null, same_kanji: "安房郡鋸南町", same_yomi: "阿波市(アワ)", note: "阿波（徳島）と読みが同じ（国どうし）"}
+    - {kuni: "上総", group: "東海道", yomi: "かずさ", range: "千葉県中部", hns: null}
+    - {kuni: "下総", group: "東海道", yomi: "しもうさ", range: "千葉県北部・茨城県南西部", hns: null}
+    - {kuni: "常陸", group: "東海道", yomi: "ひたち", range: "茨城県の大部分", hns: "永陸（えいりく）", same_yomi: "日立市(ヒタチ)", in_name: "常陸太田市・常陸大宮市", note: "日立市（かな）・常陸太田市・常陸大宮市"}
+    - {kuni: "近江", group: "東山道", yomi: "おうみ", range: "滋賀県", hns: null, in_name: "近江八幡市・東近江市"}
+    - {kuni: "美濃", group: "東山道", yomi: "みの", range: "岐阜県南部", hns: null, same_kanji: "美濃市", in_name: "美濃加茂市"}
+    - {kuni: "飛騨", group: "東山道", yomi: "ひだ", range: "岐阜県北部", hns: "天騨（てんだ）", same_kanji: "飛騨市"}
+    - {kuni: "信濃", group: "東山道", yomi: "しなの", range: "長野県", hns: null, same_kanji: "上水内郡信濃町", note: "長野県＝科坂 は信濃の名の由来から作った県名（国の名ではない）"}
+    - {kuni: "上野", group: "東山道", yomi: "こうずけ", range: "群馬県", hns: null, same_kanji: "多野郡上野村", in_name: "上野原市"}
+    - {kuni: "下野", group: "東山道", yomi: "しもつけ", range: "栃木県", hns: null, same_kanji: "下野市"}
+    - {kuni: "陸奥", group: "東山道", yomi: "むつ", range: "東北地方の東半分（福島・宮城・岩手・青森）", hns: null, same_yomi: "むつ市(ムツ)", real_use: {names: ["陸奥", "陸奥新幹線", "都浜陸奥線"], status: "替え待ち(DIFF-051、Gin「２」2026-10-22。東北の新しい名が決まったら替える)"}, note: "地方の名 陸奥（みちのく）＝東北 に実名のまま使う。律令の国（むつ）と二重。読み むつ はむつ市と同じ"}
+    - {kuni: "出羽", group: "東山道", yomi: "でわ", range: "山形県・秋田県", hns: null}
+    - {kuni: "若狭", group: "北陸道", yomi: "わかさ", range: "福井県南西部", hns: null, same_kanji: "三方上中郡若狭町", same_yomi: "八頭郡若桜町(ワカサ)"}
+    - {kuni: "越前", group: "北陸道", yomi: "えちぜん", range: "福井県北部", hns: null, same_kanji: "越前市・丹生郡越前町", in_name: "南条郡南越前町"}
+    - {kuni: "加賀", group: "北陸道", yomi: "かが", range: "石川県南部", hns: null, same_kanji: "加賀市・加賀郡吉備中央町"}
+    - {kuni: "能登", group: "北陸道", yomi: "のと", range: "石川県北部", hns: null, same_kanji: "鳳珠郡能登町", in_name: "鹿島郡中能登町"}
+    - {kuni: "越中", group: "北陸道", yomi: "えっちゅう", range: "富山県", hns: null}
+    - {kuni: "越後", group: "北陸道", yomi: "えちご", range: "新潟県（佐渡を除く）", hns: null, note: "新潟県＝柳都県（雅称）。国の名は未定"}
+    - {kuni: "佐渡", group: "北陸道", yomi: "さど", range: "新潟県佐渡島", hns: null, same_kanji: "佐渡市", note: "佐渡市＝朱島市（RUL-023 ③）。国の名そのものは未定"}
+    - {kuni: "丹波", group: "山陰道", yomi: "たんば", range: "京都府中部・兵庫県東部", hns: null, same_kanji: "丹波市", in_name: "北都留郡丹波山村・船井郡京丹波町・丹波篠山市"}
+    - {kuni: "丹後", group: "山陰道", yomi: "たんご", range: "京都府北部", hns: null, in_name: "京丹後市"}
+    - {kuni: "但馬", group: "山陰道", yomi: "たじま", range: "兵庫県北部", hns: null}
+    - {kuni: "因幡", group: "山陰道", yomi: "いなば", range: "鳥取県東部", hns: null, real_use: {names: ["因幡野町"], status: "例外(2026-10-11 Gin「いなばのは合ってます」。DIFF-051 で残すか Gin に聞く)"}, note: "りゅうと市の 因幡野町（蒲原町）に実名のまま（例外として採用）"}
+    - {kuni: "伯耆", group: "山陰道", yomi: "ほうき", range: "鳥取県西部", hns: null, same_kanji: "西伯郡伯耆町"}
+    - {kuni: "出雲", group: "山陰道", yomi: "いずも", range: "島根県東部", hns: null, same_kanji: "出雲市", in_name: "三島郡出雲崎町・仁多郡奥出雲町"}
+    - {kuni: "石見", group: "山陰道", yomi: "いわみ", range: "島根県西部", hns: null, same_yomi: "岩美郡岩美町(イワミ)"}
+    - {kuni: "隠岐", group: "山陰道", yomi: "おき", range: "島根県隠岐諸島", hns: null, same_kanji: "隠岐郡海士町・隠岐郡西ノ島町・隠岐郡知夫村・隠岐郡隠岐の島町", in_name: "隠岐郡隠岐の島町"}
+    - {kuni: "播磨", group: "山陽道", yomi: "はりま", range: "兵庫県南西部", hns: null, same_kanji: "加古郡播磨町"}
+    - {kuni: "美作", group: "山陽道", yomi: "みまさか", range: "岡山県北部", hns: null, same_kanji: "美作市"}
+    - {kuni: "備前", group: "山陽道", yomi: "びぜん", range: "岡山県南東部", hns: null, same_kanji: "備前市"}
+    - {kuni: "備中", group: "山陽道", yomi: "びっちゅう", range: "岡山県西部", hns: null}
+    - {kuni: "備後", group: "山陽道", yomi: "びんご", range: "広島県東部", hns: null}
+    - {kuni: "安芸", group: "山陽道", yomi: "あき", range: "広島県西部", hns: null, same_kanji: "広島市安芸区・安芸郡府中町・安芸郡海田町・安芸郡熊野町・安芸郡坂町・安芸市・安芸郡東洋町・安芸郡奈半利町・安芸郡田野町・安芸郡安田町・安芸郡北川村・安芸郡馬路村・安芸郡芸西村", in_name: "安芸高田市・山県郡安芸太田町", note: "安芸郡が広島・高知の2県に"}
+    - {kuni: "周防", group: "山陽道", yomi: "すおう", range: "山口県東部", hns: null, in_name: "大島郡周防大島町"}
+    - {kuni: "長門", group: "山陽道", yomi: "ながと", range: "山口県西部", hns: null, same_kanji: "長門市"}
+    - {kuni: "紀伊", group: "南海道", yomi: "きい", range: "和歌山県・三重県南部", hns: null}
+    - {kuni: "淡路", group: "南海道", yomi: "あわじ", range: "兵庫県淡路島", hns: null, same_kanji: "淡路市"}
+    - {kuni: "阿波", group: "南海道", yomi: "あわ", range: "徳島県", hns: null, same_kanji: "阿波市", same_yomi: "安房郡鋸南町(アワ)", note: "安房（千葉）と読みが同じ（国どうし）"}
+    - {kuni: "讃岐", group: "南海道", yomi: "さぬき", range: "香川県", hns: null, same_yomi: "さぬき市(サヌキ)", note: "さぬき市（かな）"}
+    - {kuni: "伊予", group: "南海道", yomi: "いよ", range: "愛媛県", hns: null, same_kanji: "伊予市・伊予郡松前町・伊予郡砥部町"}
+    - {kuni: "土佐", group: "南海道", yomi: "とさ", range: "高知県", hns: null, same_kanji: "土佐市・土佐郡土佐町・土佐郡大川村", in_name: "土佐清水市・高岡郡中土佐町"}
+    - {kuni: "筑前", group: "西海道", yomi: "ちくぜん", range: "福岡県北西部", hns: null, same_kanji: "朝倉郡筑前町"}
+    - {kuni: "筑後", group: "西海道", yomi: "ちくご", range: "福岡県南部", hns: null, same_kanji: "筑後市"}
+    - {kuni: "豊前", group: "西海道", yomi: "ぶぜん", range: "福岡県東部・大分県北部", hns: null, same_kanji: "豊前市"}
+    - {kuni: "豊後", group: "西海道", yomi: "ぶんご", range: "大分県の大部分", hns: null, in_name: "豊後高田市・豊後大野市"}
+    - {kuni: "肥前", group: "西海道", yomi: "ひぜん", range: "佐賀県・長崎県", hns: null}
+    - {kuni: "肥後", group: "西海道", yomi: "ひご", range: "熊本県", hns: null}
+    - {kuni: "日向", group: "西海道", yomi: "ひゅうが", range: "宮崎県", hns: null, same_kanji: "日向市"}
+    - {kuni: "大隅", group: "西海道", yomi: "おおすみ", range: "鹿児島県東部", hns: null, in_name: "肝属郡南大隅町"}
+    - {kuni: "薩摩", group: "西海道", yomi: "さつま", range: "鹿児島県西部", hns: null, same_kanji: "薩摩郡さつま町", same_yomi: "薩摩郡さつま町(サツマ)", in_name: "薩摩川内市", note: "さつま町"}
+    - {kuni: "壱岐", group: "西海道", yomi: "いき", range: "長崎県壱岐島", hns: null, same_kanji: "壱岐市"}
+    - {kuni: "対馬", group: "西海道", yomi: "つしま", range: "長崎県対馬", hns: null, same_kanji: "対馬市", same_yomi: "津島市(ツシマ)", note: "津島市（愛知）と読みが同じ"}
+    - {kuni: "磐城", group: "明治1868", yomi: "いわき", range: "福島県東部・宮城県南部", hns: "磐汀（ばんてい）", same_yomi: "いわき市(イワキ)", note: "いわき市（かな）と重なる→磐汀"}
+    - {kuni: "岩代", group: "明治1868", yomi: "いわしろ", range: "福島県中部・西部", hns: "見嶺（みれい）"}
+    - {kuni: "陸前", group: "明治1868", yomi: "りくぜん", range: "宮城県の大部分・岩手県南東部", hns: null, in_name: "陸前高田市"}
+    - {kuni: "陸中", group: "明治1868", yomi: "りくちゅう", range: "岩手県の大部分・秋田県北東部", hns: null}
+    - {kuni: "陸奥", group: "明治1868", yomi: "むつ", range: "青森県・岩手県北部", era: "明治", hns: null, same_yomi: "むつ市(ムツ)", real_use: {names: ["陸奥", "陸奥新幹線", "都浜陸奥線"], status: "替え待ち(DIFF-051、Gin「２」2026-10-22。東北の新しい名が決まったら替える)"}, note: "同上"}
+    - {kuni: "羽前", group: "明治1868", yomi: "うぜん", range: "山形県", hns: null}
+    - {kuni: "羽後", group: "明治1868", yomi: "うご", range: "秋田県・山形県北部", hns: null, same_kanji: "雄勝郡羽後町"}
+    - {kuni: "渡島", group: "北海道1869", yomi: "おしま", range: "北海道南西部", hns: null}
+    - {kuni: "後志", group: "北海道1869", yomi: "しりべし", range: "北海道西部", hns: null}
+    - {kuni: "石狩", group: "北海道1869", yomi: "いしかり", range: "北海道中西部", hns: null, same_kanji: "石狩市・石狩郡当別町・石狩郡新篠津村"}
+    - {kuni: "天塩", group: "北海道1869", yomi: "てしお", range: "北海道北西部", hns: null, same_kanji: "天塩郡遠別町・天塩郡天塩町・天塩郡豊富町・天塩郡幌延町"}
+    - {kuni: "北見", group: "北海道1869", yomi: "きたみ", range: "北海道北東部", hns: null, same_kanji: "北見市"}
+    - {kuni: "胆振", group: "北海道1869", yomi: "いぶり", range: "北海道南部", hns: null}
+    - {kuni: "日高", group: "北海道1869", yomi: "ひだか", range: "北海道南部", hns: null, same_kanji: "沙流郡日高町・日高郡新ひだか町・日高市・日高郡美浜町・日高郡日高町・日高郡由良町・日高郡印南町・日高郡みなべ町・日高郡日高川町・高岡郡日高村", in_name: "日高郡日高川町", note: "日高郡（和歌山）・日高市（埼玉）など国外にも"}
+    - {kuni: "十勝", group: "北海道1869", yomi: "とかち", range: "北海道東南部", hns: null, same_kanji: "十勝郡浦幌町"}
+    - {kuni: "釧路", group: "北海道1869", yomi: "くしろ", range: "北海道東部", hns: null, same_kanji: "釧路市・釧路郡釧路町"}
+    - {kuni: "根室", group: "北海道1869", yomi: "ねむろ", range: "北海道東端", hns: null, same_kanji: "根室市"}
+    - {kuni: "千島", group: "北海道1869", yomi: "ちしま", range: "千島列島", hns: null}
