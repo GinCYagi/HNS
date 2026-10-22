@@ -90,3 +90,17 @@
 - KAKI にすると、二つめの K に入れる会社がない（Keitai〈携帯〉で IDO を二度数えることになり、DDI が抜ける）。KANI のほうが3社がそろう。
 - 照らし：「株式会社KANI」「KANI株式会社」で通信の会社は見つからない。「海外電信電話」の会社も見つからない（Web）。にでん は weblio に見出しなし。同じ音：かに（蟹）。
 - 3社の名（海外電信電話・二電・日ノ本移動通信）は、まだ決まっていない（§2 の 第弐電電・日ノ本移動通信 と合わせて Gin に）。
+
+## 9. 足し：KANI の3社（Gin の形、2026-10-22、HNS-G5 のセッション）
+Gin「KAigai(KAigai Telgraph and Telephone,KATT) Niden(Niban Denshin Denwa) and Ido tsushin hinomoto(ITHO)」→ **KANI ＝ KAigai ＋ NIden ＋ Ido**。
+| 現実 | 日ノ本名 | 英字・略 | 照らし（Web、2026-10-22） |
+|---|---|---|---|
+| KDD（国際電信電話株式会社、Kokusai Denshin Denwa） | **海外電信電話** | **KATT**（KAigai Telegraph and Telephone） | KATT の会社は見つからない（近い名：株式会社KAT〈小さな会社〉、韓国の KT）。海外電信電話株式会社 も見つからない |
+| DDI（第二電電） | **二番電信電話**（略 **二電 Niden**） | Niban Denshin Denwa | 二番電信電話 は見つからない |
+| IDO（日本移動通信） | **移動通信日ノ本** | **ITHO**（Ido Tsushin HinOmoto） | **Itho Daalderop**（オランダの暖房・換気の会社。Itho は1919年創業）と字の並びが同じ。業種も国も違う |
+| KDDI | **KANI**（かに） | KAigai＋NIden＋Ido | 通信の KANI は見つからない（§8） |
+- 気づき：
+  - Gin の綴り「Telgraph」は Telegraph の打ち間違いと見る（HOTATE の展開は Telegraph）。
+  - KATT は HOTATE の展開（Telegraph And TElephone）と同じ語の並び。
+  - 二番 の言い方は「二番手」に通じる（G5 の気づき。悪い意味の言葉としては辞書で確かめていない）。
+  - ITHO は、移動通信日ノ本 の頭の並び（I・T・H・O）。Itho（オランダ）は日本で知られた名ではないと見る（確かめていない）。
