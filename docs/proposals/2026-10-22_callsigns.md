@@ -47,3 +47,24 @@
   | HMTN（HinoMoto Television Network） | HMTN-TVHN／HMTN-DTHN | 見つからない |
   | （外した）HTV | — | 広島テレビ（日本テレビ系列）の略称 |
 - 通称：ひのテレ（見つからない）。
+
+## 6. BS の形の作り直し（Gin の形、2026-10-22、HNS-G5 のセッション。§4 の数字の前の部分と HVTVHN・HDTVHN は、これで置き換え）
+Gin：
+```
+HHK1-BS-TVHN
+HHK3-BS-HVHN
+HHK2-BS-DTHN
+HHKP-BS-HDHN (HHK Premium)
+HSB1-BS-TVHN(Hinomoto Satellite Broadcasting)
+```
+- 形：**（放送局の略称＋番号・印）-BS-（種類2文字）HN**。前の部分は現実の数字（JO21 など）をやめ、地上の局と同じく会社の略称から作る。
+- 種類の印は2文字にそろう（地上の TVHN・DTHN と同じ長さ）：
+  | 印 | 意味（G5 の読み） |
+  |---|---|
+  | **TV**HN | アナログのテレビ |
+  | **HV**HN | MUSE（アナログのハイビジョン） |
+  | **DT**HN | デジタル |
+  | **HD**HN | デジタルのハイビジョン |
+- 略称：**HHK**（日ノ本放送協会、NHK にあたる。HHKP＝HHK Premium）、**HSB**（Hinomoto Satellite Broadcasting、日本衛星放送〈JSB、WOWOW〉にあたる）。正本に NHK・WOWOW の日ノ本名はまだない。
+- 照らし（Web）：HHK・HSB という放送局は見つからない。HHK は **Happy Hacking Keyboard**（キーボードの名、英語版 Wikipedia の HHK の曖昧さ回避）と同じ並び。米国のラジオ KHHK がある（字が一つ多い）。HSB は インドネシアの衛星の計画（Hot Backup Satellite）の略として出るだけ。
+- 気づき：TAM1・TDM1（音声・データ）を2文字の印にするなら、例えば **AM**HN・**DM**HN の形がありうる（G5 の案、Gin に）。地上の音声多重（§3 の TAMHN）も2文字にそろえるかは Gin に。
