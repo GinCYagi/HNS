@@ -957,7 +957,7 @@ kyukokumei:
     - {kuni: "丹波", group: "山陰道", yomi: "たんば", range: "京都府中部・兵庫県東部", hns: null, same_kanji: "丹波市", in_name: "北都留郡丹波山村・船井郡京丹波町・丹波篠山市"}
     - {kuni: "丹後", group: "山陰道", yomi: "たんご", range: "京都府北部", hns: null, in_name: "京丹後市"}
     - {kuni: "但馬", group: "山陰道", yomi: "たじま", range: "兵庫県北部", hns: null}
-    - {kuni: "因幡", group: "山陰道", yomi: "いなば", range: "鳥取県東部", hns: null, real_use: {names: ["因幡野町"], status: "例外(2026-10-11 Gin「いなばのは合ってます」。DIFF-051 で残すか Gin に聞く)"}, note: "りゅうと市の 因幡野町（蒲原町）に実名のまま（例外として採用）"}
+    - {kuni: "因幡", group: "山陰道", yomi: "いなば", range: "鳥取県東部", hns: null, real_use: {names: ["因幡野町"], status: "替え待ち(DIFF-051、Gin「変えましょう」2026-10-22。前は 2026-10-11 Gin「いなばのは合ってます」の例外)"}, note: "りゅうと市の 因幡野町（蒲原町）に実名のまま（例外として採用）"}
     - {kuni: "伯耆", group: "山陰道", yomi: "ほうき", range: "鳥取県西部", hns: null, same_kanji: "西伯郡伯耆町"}
     - {kuni: "出雲", group: "山陰道", yomi: "いずも", range: "島根県東部", hns: null, same_kanji: "出雲市", in_name: "三島郡出雲崎町・仁多郡奥出雲町"}
     - {kuni: "石見", group: "山陰道", yomi: "いわみ", range: "島根県西部", hns: null, same_yomi: "岩美郡岩美町(イワミ)"}
