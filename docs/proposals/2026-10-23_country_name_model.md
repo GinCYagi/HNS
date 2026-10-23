@@ -59,3 +59,15 @@
 ## 6. 足し：昔の英語の名は Hapan（Gin「Haponに統一して齟齬が出ないか確認」→ G5 の照らし → Gin「Hapanか」2026-10-23）
 - Hapon に統一すると：筋（ポルトガル語 Hapão → スペイン語 Hapón）は合い、今の名・符号・会社名ともぶつからない。ただ **Hapón は現実のタガログ語で「日本」そのもの**（スペイン語 Japón から、Wiktionary「Hapon」。アクセントなしの hapon は「午後」）で、現実の日本の名を日ノ本の名に使うことになり、例外を作らない考え（DIFF-051）とぶつかる。英語の形も、現実の Japão → Japan の道（ポルトガル語から）からずれる。
 - → 昔の英語の名は **Hapan**（ポルトガル語 Hapão から。現実の Hapón とは一字違い）。スペイン語圏・タガログ語での昔の呼び名は、要る場面で作る（Hapón にはしない）。
+
+## 7. 足し：Hapan を今も使う外国での名に（Türkiye 型の改名は取りやめ）、3文字の符号、航空会社（2026-10-23）
+- Gin「これ決まればHapan Airlinesとか一気に決まるから」→ **Hapan は今も使う外国での名**（現実の Japan の位置）、**Hinomoto は自分たちの名を英語で書く形**（現実の Nippon の位置）。現実の英語の会社名が Japan（Japan Airlines・Japan Post）と Nippon（Nippon Steel・All Nippon Airways・NHK）の二通りあるのと同じ。§1 ⑥ の Türkiye 型の改名は要らなくなる。
+  - 正本の英語の名 12 か所（HR・HHS・HF・HOTATE など）は Nippon 型の名として読める。Japan 型にそろえて書き直しても（HR＝Hapan Railways、HF＝Hapan Fisheries）頭は H のまま。
+- 3文字の符号（JPN にあたる）：Gin「HAP だと？」→ **HAP**（Hapan の頭3文字。FRA・ITA と同じ取り方）。ISO 3166-1 alpha-3 に割り当てなし。重なり：IATA の空港の符号 HAP（オーストラリア・クイーンズランド州の小さな空港。資料で Long Island とも Whitsunday とも）、ICAO の航空会社の符号 HAP（メキシコ Helicopteros Aero Personal）。どちらも別の仕組み。HPN・HNM は採らない見込み（Gin の答え待ち）。
+- 2文字の符号 HI は決まりのまま（JP は Japan から取るが、Hapan から取った HP はヒューレット・パッカードの略として知られるので、ひのもと の Hi を残す）。
+- 航空会社（英語版 Wikipedia「List of airline codes (A)」「(H)」で照らす。FAA・ICAO の公式の一覧は見ていない）：
+  | 現実 | 日ノ本（Gin の案） | ICAO の3文字 | 照らし |
+  |---|---|---|---|
+  | Japan Airlines（JAL） | **Hapan AirWays** | **HAW** | 空き（HAL はハワイアン航空、HAP はメキシコの会社） |
+  | All Nippon Airways（ANA） | **Air HinoMoto** | **AHM** | 空き（AHA は Air Alpha Greenland）。Web 検索でも Air Hinomoto・AHM の航空会社なし |
+  - IATA の2文字（JL・NH にあたる）は未決。HW（Hello ほか）・HP（Hawaiian Pacific、今はない）・AH（アルジェリア航空）は使われている。
