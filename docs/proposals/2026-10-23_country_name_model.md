@@ -78,3 +78,7 @@
 - 照らし（Web 検索・Wikipedia の航空会社の符号の一覧）：HE・HL を使う会社は見つからない（IATA の公式の検索は引けず、空いていると確かめたわけではない）。外した候補：HH（Taban Air）・HT（天津貨運航空）・HI（Papillon Airways）・HO（吉祥航空）・HW（Hello ほか）・HP（Hawaiian Pacific、今はない）ほか。
 - **直し（2026-10-23）**：HE は、ドイツの LGW（Luftfahrtgesellschaft Walter）がもと使っていた符号（HNS-M4 が英語版 Wikipedia の航空会社の符号の一覧で見つけた。G5 の見落とし）。英語版 Wikipedia の LGW の記事では、2020年4月に運航を停止し、いまは German Airways として IATA の ZQ を使っている（記事の中に食い違いあり）。HE は旧符号と重なる、と記録して受ける（M4 の案）。IATA 公式では確かめていない。
 - ICAO の3文字は §7 のとおり（Hapan AirWays＝HAW、Air HinoMoto＝AHM）。
+
+## 登録（HNS-M4、2026-10-23）
+- M4 の問い（国の名の筋・符号・航空会社をまとめて）に Gin「のこりも、ok」。正本の national_codes に 日ノ本／火ノ本・フォパング・Hapan・Hinomoto・HAP、adopted_companies に Hapan AirWays（HL・HAW）・Air HinoMoto（HE・AHM）・日ノ本ヘリコプター輸送 を入れた。HE は LGW の旧符号と重なると記録。
+- まだ：Hapan を使いはじめた時期、火ノ本 の書き方を使う場面、漢字の国での呼び名。
