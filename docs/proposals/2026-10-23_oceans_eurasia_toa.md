@@ -81,3 +81,8 @@ Gin のことば：「決まりをちゃんと決めてしまえば物語は後�
 - HNS-M4 の問い「ア ビラーツク海／イ 替えない」に Gin「アかな」。M4 が照らし（ビラーツク・Biratsk は Web 検索で見つからない、weblio はつながらず）→ Gin「はい」（HNS-M4 のセッション）。
 - 正本の oceans に **ビラーツク海**（Sea of Biratsk）を入れた。Bira が現実の川の名と重なることは記録に。
 - 航空会社（東理航空ほか）はまだ登録していない。
+
+## 登録（HNS-M4、2026-10-23）：東亜国内航空の流れ
+- HNS-M4 の問い「4社の名を G5 の案のとおりにして、英語の名を Hapan Air System にしてよいですか？」に Gin「はい」（HNS-M4 のセッション）。
+- 正本の adopted_companies に 東理航空・日ノ本国内航空・東理国内航空・日ノ本エアシステム（Hapan Air System）を入れた。英語の名は G5 の案 Hinomoto Air System から、日本航空＝Hapan AirWays の型に合わせた（M4 の気づき）。
+- 符号は未定。HSY は airhex.com・sprinkle.com でスペインの Sky Helicopteros が使う（英語版 Wikipedia の一覧には載っていない）。2字（JD の位置）と合わせて符号の見直しに回す。
