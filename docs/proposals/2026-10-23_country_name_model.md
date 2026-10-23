@@ -71,3 +71,9 @@
   | Japan Airlines（JAL） | **Hapan AirWays** | **HAW** | 空き（HAL はハワイアン航空、HAP はメキシコの会社） |
   | All Nippon Airways（ANA） | **Air HinoMoto** | **AHM** | 空き（AHA は Air Alpha Greenland）。Web 検索でも Air Hinomoto・AHM の航空会社なし |
   - IATA の2文字（JL・NH にあたる）は未決。HW（Hello ほか）・HP（Hawaiian Pacific、今はない）・AH（アルジェリア航空）は使われている。
+
+## 8. 決着：航空会社の IATA の2文字（Gin「良いと思います」2026-10-23、HNS-G5 のセッション）
+- **Air HinoMoto（ANA にあたる）＝ HE**。前身 **日ノ本ヘリコプター輸送**（Hinomoto Helicopter、現実の 日本ヘリコプター輸送＝NH にあたる）の **He**licopter の頭2字。現実の NH が前身の名から取られたのと同じ筋（乗りものニュース「日航=JALとJL、全日空=ANAと『NH』って?」）。
+- **Hapan AirWays（JAL にあたる）＝ HL**。現実の JL の J を H に。
+- 照らし（Web 検索・Wikipedia の航空会社の符号の一覧）：HE・HL を使う会社は見つからない（IATA の公式の検索は引けず、空いていると確かめたわけではない）。外した候補：HH（Taban Air）・HT（天津貨運航空）・HI（Papillon Airways）・HO（吉祥航空）・HW（Hello ほか）・HP（Hawaiian Pacific、今はない）ほか。
+- ICAO の3文字は §7 のとおり（Hapan AirWays＝HAW、Air HinoMoto＝AHM）。
