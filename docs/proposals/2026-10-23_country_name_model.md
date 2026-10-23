@@ -76,4 +76,5 @@
 - **Air HinoMoto（ANA にあたる）＝ HE**。前身 **日ノ本ヘリコプター輸送**（Hinomoto Helicopter、現実の 日本ヘリコプター輸送＝NH にあたる）の **He**licopter の頭2字。現実の NH が前身の名から取られたのと同じ筋（乗りものニュース「日航=JALとJL、全日空=ANAと『NH』って?」）。
 - **Hapan AirWays（JAL にあたる）＝ HL**。現実の JL の J を H に。
 - 照らし（Web 検索・Wikipedia の航空会社の符号の一覧）：HE・HL を使う会社は見つからない（IATA の公式の検索は引けず、空いていると確かめたわけではない）。外した候補：HH（Taban Air）・HT（天津貨運航空）・HI（Papillon Airways）・HO（吉祥航空）・HW（Hello ほか）・HP（Hawaiian Pacific、今はない）ほか。
+- **直し（2026-10-23）**：HE は、ドイツの LGW（Luftfahrtgesellschaft Walter）がもと使っていた符号（HNS-M4 が英語版 Wikipedia の航空会社の符号の一覧で見つけた。G5 の見落とし）。英語版 Wikipedia の LGW の記事では、2020年4月に運航を停止し、いまは German Airways として IATA の ZQ を使っている（記事の中に食い違いあり）。HE は旧符号と重なる、と記録して受ける（M4 の案）。IATA 公式では確かめていない。
 - ICAO の3文字は §7 のとおり（Hapan AirWays＝HAW、Air HinoMoto＝AHM）。
