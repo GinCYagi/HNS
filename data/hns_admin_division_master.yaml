@@ -969,6 +969,12 @@ government_offices:
     - {real: "九州総合通信局(福岡・佐賀・長崎・熊本・大分・宮崎・鹿児島)", fictional: "火守総合通信局", yomi: "ひもりそうごうつうしんきょく", abbr: "火守総通", abbr_ruling: "略し方:Gin「実際には関東総通、東北総通、のように使います／だから、柵東総通、柵北総通、海北総通で違和感はないです」「海北道総通(略称、海北総通)／二名島総通(略称、二名総通)／かな」→Gin「はい」(2026-10-22、HNS-G5 のセッション)", parent: ["火守道"], rule: "火守電力と同じ 火守", verdict: "採用", ruling: "HNS-G5 の案(docs/proposals/2026-10-22_soutsu_bureaus.md、受け持ちは総務省の一覧で確かめた)→M4 の問い「10 の局の名・東海は 松並(央嶺は使わない)・略し方 をまとめて採用してよいですか」にGin「はい」(2026-10-22、HNS-M4 のセッション)"}
     - {real: "沖縄総合通信事務所(沖縄)", fictional: "阿児奈波総合通信事務所", yomi: "あこなわそうごうつうしんじむしょ", abbr: null, abbr_note: "事務所なので略し方はまだ確かめていない", parent: ["阿児奈波県"], rule: "阿児奈波電力と同じ 阿児奈波", verdict: "採用", ruling: "HNS-G5 の案(docs/proposals/2026-10-22_soutsu_bureaus.md、受け持ちは総務省の一覧で確かめた)→M4 の問い「10 の局の名・東海は 松並(央嶺は使わない)・略し方 をまとめて採用してよいですか」にGin「はい」(2026-10-22、HNS-M4 のセッション)"}
 
+
+national_codes:
+  note: "日ノ本の国の符号(2026-10-23 から)。3文字の符号(JPN にあたる、G5 の案 HNM)と英語の国名(Japan にあたる、G5 の案 Hinomoto)はまだ決まっていない"
+  entries:
+    - {real: "JP(ISO 3166-1 alpha-2)", fictional: "HI", rule: "ひのもと の頭 Hi(Hi-フォン と同じ取り方)", verdict: "採用", ruling: "HNS-G5 の案(docs/proposals/2026-10-22_country_codes.md、HO か HI)→Gin「日ノ本 ひのもと／HI／HIだね」(2026-10-23、HNS-G5 のセッション)", note: "照らし(M4、Web 2026-10-23):ISO 3166-1 alpha-2 で HI は割り当てなし(Wikipedia の一覧で unassigned)、IANA の TLD 一覧(Version 2026102200)に .hi はない。記録:アメリカのハワイ州の略号と同じ字"}
+    - {real: ".jp(国別のトップレベルドメイン)", fictional: ".hnmt", rule: "HiNoMoTo の子音", verdict: "採用", ruling: "Gin「最後「」……HP\"bsr.jp\"まで。」→bsr.jp は実在の他人のサイトだったので→Gin「hnmtにしましょう」(2026-10-09、ALM のセッション、ALM docs/bonus_stage_dance_storyboard.md に記録)", note: "照らし(M4、2026-10-23):IANA の TLD 一覧(Version 2026102200)に .hnmt はない。使用例:bsr.hnmt(BSR 開局 75 周年の縦長動画の QR)"}
 char_defaults:
   note: "一字の置き換え表(字ごとの既定の行き先)。町名などで名前ごとの事情がないときに使う下書きの道具で、承認済みの名前は動かさない(Gin「両承認」2026-10-11)。表の案 docs/proposals/2026-10-10_char_defaults.md(HNS-G5)、査読 HNS-C5。Gin が採った行から順に入れる。方針:承認済みの名前に表を合わせる、既定の読みの重なりは替える、1拍のずれは許す(2拍以上は避ける)、難しい字は簡単な字に、二つの字を同じ行き先にしない"
   entries:

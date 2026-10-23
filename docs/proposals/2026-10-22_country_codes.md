@@ -24,3 +24,6 @@
 - 気づき（記録）：アメリカの ハワイ州 の略号 HI と同じ字。ITU の呼出符号の頭では ドミニカ共和国（HIA〜HIZ、G5 の知識、確かめていない）。日ノ本の呼出符号は国の頭を使わないので紛れない。
 - HO は採らない。
 - まだ：Japan＝Hinomoto、JPN＝HNM（G5 の案、Gin の答え待ち）。
+
+## 登録（HNS-M4、2026-10-23）
+- 正本の national_codes に HI と .hnmt を入れた。.hnmt の Gin の言葉は ALM の docs/bonus_stage_dance_storyboard.md で確かめた。Japan＝Hinomoto、JPN＝HNM は Gin の答え待ち。
