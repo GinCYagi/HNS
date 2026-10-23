@@ -78,3 +78,6 @@ HSB1-BS-TVHN(Hinomoto Satellite Broadcasting)
 ## 決着（HNS-M4、2026-10-23）：多重放送の印
 - HNS-M4 の問い（ア 現実を写す／イ 頭の2字／ウ T を落とす）に Gin「アが一番問題が起きづらい(おきようがない)気がするからアにしますか」「そもそもそうした拡張性を見込んでこの並びにしたはずなので」（HNS-M4 のセッション）。
 - DIFF-053 として data/hns_pending_items.yaml に入れた：地上 -TAMHN・-TCMHN・-TDMHN、BS -TAM1HN・-TDM1HN。§6 の AMHN・DMHN は採らない。
+
+## 決着（HNS-M4、2026-10-23）：日ノ本テレビ・HHK・HSB
+- 日ノ本テレビ＝HMTN、HHK＝日ノ本放送協会（Gin「8,ok」「3,ok」）。HSB＝日ノ本衛星放送、愛称 HOHOH（Gin「HOHOH かな」「WOWOWの対」「HSBの愛称」）。正本の adopted_companies に入れた。通称 ひのテレ は未決。
