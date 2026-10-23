@@ -29,7 +29,7 @@
 | HI | Papillon Airways | — | 米国 | ヘリ | ？（グランドキャニオンのヘリ遊覧） | — |
 | HJ* | Tasman Cargo | HumoAir（ウズベキスタン）・Hellas Jet（過去） | 豪州 | 貨物 | ？ | — |
 | HK | Skippers Aviation | Four Star（過去） | 豪州（西オーストラリア） | 12〜26機 | — 西オーストラリアの地方路線だけ | 記事 |
-| **HL** | **「Hotels/Motels」（航空会社でない区分）** | **航空会社なし** | 米国 | — | — | 一覧①② |
+| **HL** | **「Hotels/Motels」（航空会社でない区分）** | **今の航空会社なし**（過去：Hellenic Airlines、ギリシャ、1947〜1951。C5 の査読） | 米国 | — | — | 一覧①② |
 | HM | Air Seychelles | 同じ | セーシェル | 7機 | — 東アジアなし（シンガポールは廃止） | 記事 |
 | HN* | Heston Airlines | Heavylift Cargo（豪州） | リトアニア | ACMI（機材と乗員の貸し出し） | ？ | — |
 | HO | Juneyao Airlines | 同じ | 中国 | 大 | ◎（G5 の知識） | — |
@@ -84,3 +84,8 @@
 ## 4. M4 の案「どの符号でも画面に HE を大きく映さない、HL は出してよい」
 - HL は持ち主の航空会社がいないので、出してよいに賛成。
 - Air HinoMoto の符号を替えるなら、この決まりは新しい符号に読み替える。
+
+## 5. C5 の査読（docs/reviews/2026-10-23_review_iata_h_codes_C5.md、87ddb12）
+- 漏れ：HL の過去の持ち主 Hellenic Airlines（1947〜1951）。順位は変わらない。
+- aruljohn の * を controlled duplicate と読んだことは C5 では確かめられない（HD* が AIRDO とイラクの会社の二社なのは、その読みと合う）。
+- Air HinoMoto＝HC に賛成。
