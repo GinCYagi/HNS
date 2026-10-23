@@ -89,3 +89,6 @@
 - 漏れ：HL の過去の持ち主 Hellenic Airlines（1947〜1951）。順位は変わらない。
 - aruljohn の * を controlled duplicate と読んだことは C5 では確かめられない（HD* が AIRDO とイラクの会社の二社なのは、その読みと合う）。
 - Air HinoMoto＝HC に賛成。
+
+## 決着（HNS-M4、2026-10-23）
+- HNS-M4 の問い「HL のまま・HC に替える、でよいですか？」に Gin「1,ok」（HNS-M4 のセッション）。正本の Air HinoMoto を IATA HC に、Hapan AirWays は HL のまま（過去の持ち主 Hellenic Airlines を記録）。日ノ本エアシステムの符号はまだ。
