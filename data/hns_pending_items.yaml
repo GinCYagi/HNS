@@ -39,6 +39,7 @@ unregistered_answers:
   - {id: UA-006, gin: "1はあかんね", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_kotowari_placenames.md §10-10(c012006)", topic: "左京・右京 の 京 を 洛 にする案(エ)", reading: "G5 の読み取り:奈良の 左京・右京 とそろわないので 洛 はだめ", status: "読み確かめ中(G5 が問い中)"}
   - {id: UA-007, gin: "やるだけやるしかないか / 行き止まりじゃないと良いけど", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_reference_system.md §5(4d887fe)", topic: "一度したことを引ける仕組み(関門 1 に入る)", reading: "G5 の読み取り:この仕組みで進めてよい", status: "登録の要なし(正本の名ではない。G5 が S1 に入った、37baff3)"}
   - {id: UA-008, gin: "この場合は潮野が検討、になるのかな / 1(那須塩原市＝〇〇潮野市、市の名) / うすねは採用で", session: "HNS-C5・HNS-M4", recorded_in: "docs/reviews/2026-10-24_review_shore_chars_C5.md 追記5(de8d705)、正本 real: 塩原(那須塩原市…)・塩原温泉郷・那須塩原市 の行(3180fca)", topic: "塩原＝潮野(うしおの)・潮野温泉郷・臼嶺潮野市 の 潮野", reading: "HNS-M4 の読み取り:「うすねは採用で」を束ぜんぶの了承と読んで登録した。潮野 を名指しした採決の言葉はない", status: "読み確かめ中(登録はしてある。違えば直す)"}
+  - {id: UA-009, gin: "2,回帰線、子午線の子午は方角だから変えない、回帰は単語だから変更対象、と確認した気が", session: "HNS-M4(もとの確かめは HNS-G5 のセッションと Gin は言う)", recorded_in: "この行(2026-10-24)。G5 の文書では kotowari_flow §9・§10、sync_M4_questions #2 に Gin の問い「回帰線、子午線は回帰、子午、も対象と言うこと？」まで。答えの言葉は引いて 0(M4 の grep:docs/proposals・docs/reviews の 2026-10-24 分と data)", topic: "子午線 は A(子午＝方角、替えない)、回帰線 の 回帰 は B(ふつうの言葉として替える)", reading: "HNS-M4 の読み取り:Gin の今の考えはこの向き。G5 の会話記録で確かめを頼む", status: "読み確かめ中"}
 
 # -------------------------------------------------------------
 # 未確定事項(F節系)
