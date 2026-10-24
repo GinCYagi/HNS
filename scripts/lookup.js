@@ -188,8 +188,15 @@ function lookup(term, opts = {}) {
   if (total === 0) say("\n（リポジトリの記録には当たりなし。範囲は下の「引いた範囲」）");
   if (hidden) say(`\n（出していない行が合わせて ${hidden}。--all で全部、--max N で種ごとの数を変える）`);
 
+  const uaOpen = uaHits.filter(u => !/登録済み|登録の要なし/.test(u));
+  if (uaOpen.length) {
+    say(`\n！ M4 の「未登録の Gin の答え」の一覧（pending_items の unregistered_answers）に、まだ登録されていない答えがある：${uaOpen.join("、")}`);
+  }
+  if (uaHits.length > uaOpen.length) {
+    say(`\n・ M4 の一覧で登録済み（または登録の要なし）になった答え：${uaHits.filter(u => !uaOpen.includes(u)).join("、")}`);
+  }
   if (uaHits.length) {
-    say(`\n！ M4 の「未登録の Gin の答え」の一覧（pending_items の unregistered_answers）に載っている：${uaHits.join("、")}。正本にはまだ入っていない答えがある`);
+    // 一覧に載っていれば、下の「どこにも登録されていない」の注意は出さない
   } else if (!masterNameHit && ginLines.length && !/^(DIFF|RUL|UA)-\d+$/.test(term)) {
     say(`\n！ 正本の名の欄（real・fictional など）に当たりがなく、M4 の未登録の一覧にもない。提案・査読には Gin の言葉と一緒に ${ginLines.length} 行出る：${ginLines.slice(0, 5).join("、")}${ginLines.length > 5 ? " ほか" : ""}。Gin が答えたが、どこにも登録されていないかもしれない（読み取り。M4 に知らせる）`);
   }
