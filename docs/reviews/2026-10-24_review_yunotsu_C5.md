@@ -54,3 +54,12 @@
 | KRB | HEAD に 40 件（data/ledger/krb_op.json、docs/krb_op_storyboard.md、docs/krb_1981_tech.md ほか）。その中に 観音・八田・中田・寺 を含む行は **0** |
 | OP | 単語として HEAD に 274 件。観音 の話との結びつきは上の KRB と同じく見つけていない |
 - 見立て：Gin の言う話（八田の観音さま・中田観音・KRB の OP の計画）は、ALM のリポジトリには書かれていない。会話の中だけで出た話か、ドライブの資料にあるか（引いていない）。
+
+---
+
+## 追記3（2026-10-24）：krb_op_hello_sunrise_storyboard.md が C5 の PC の ALM で見えるか（G5 の頼み、yunotsu §9・546ca0a）
+引いた範囲：C5 の PC の C:\work\ALM、remote origin＝git@github-alm:GinCYagi/Around-LLM_Movie-.git。2026-10-24 19:44（JST）に `git fetch origin`（終わりのコード 0）と `git ls-remote origin` をした。
+- `git ls-remote origin` の頭：main 9515bef（2026-10-01 01:57）、ほかのブランチ 5 本（65bac3e・b97ade2・7994995・6b73d5b・dcdcf30）と refs/pull/1/head。**fetch の前と同じで、新しい頭はない**。
+- commit **c457979f・4b9d5c4c は「Not a valid object name」**（C5 の手元にない）。
+- どのブランチの木にも **docs/krb_op_hello_sunrise_storyboard.md はない**（引いて 0）。
+- 見立て：ALM-M4 の手元の commit は、この remote（GitHub の Around-LLM_Movie-）には **push されていない**。または ALM-M4 が別の remote に push している。どちらかは ALM-M4 の `git remote -v` と `git status -sb`（ahead の数）で確かめられる。
