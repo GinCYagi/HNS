@@ -37,6 +37,7 @@ unregistered_answers:
   - {id: UA-005, gin: "5検討しない → 5,精査", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_kotowari_placenames.md §8、docs/proposals/2026-10-24_units.md", topic: "度量衡の単位を A に入れるか", reading: "精査の頼み。答えは units.md の ア(数＋単位のときだけ A)を見たあと", status: "読み確かめ中"}
   - {id: UA-006, gin: "1はあかんね", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_kotowari_placenames.md §10-10(c012006)", topic: "左京・右京 の 京 を 洛 にする案(エ)", reading: "G5 の読み取り:奈良の 左京・右京 とそろわないので 洛 はだめ", status: "読み確かめ中(G5 が問い中)"}
   - {id: UA-007, gin: "やるだけやるしかないか / 行き止まりじゃないと良いけど", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_reference_system.md §5(4d887fe)", topic: "一度したことを引ける仕組み(関門 1 に入る)", reading: "G5 の読み取り:この仕組みで進めてよい", status: "登録の要なし(正本の名ではない。G5 が S1 に入った、37baff3)"}
+  - {id: UA-008, gin: "この場合は潮野が検討、になるのかな / 1(那須塩原市＝〇〇潮野市、市の名) / うすねは採用で", session: "HNS-C5・HNS-M4", recorded_in: "docs/reviews/2026-10-24_review_shore_chars_C5.md 追記5(de8d705)、正本 real: 塩原(那須塩原市…)・塩原温泉郷・那須塩原市 の行(3180fca)", topic: "塩原＝潮野(うしおの)・潮野温泉郷・臼嶺潮野市 の 潮野", reading: "HNS-M4 の読み取り:「うすねは採用で」を束ぜんぶの了承と読んで登録した。潮野 を名指しした採決の言葉はない", status: "読み確かめ中(登録はしてある。違えば直す)"}
 
 # -------------------------------------------------------------
 # 未確定事項(F節系)
