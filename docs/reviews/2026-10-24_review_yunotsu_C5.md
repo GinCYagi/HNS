@@ -38,3 +38,19 @@
 - 確かめた（ja.wikipedia「会津三十三観音」）：2016 年に会津地方 17 市町村の連名で「会津の三十三観音めぐり 〜巡礼を通して観た往時の会津の文化〜」として日本遺産に認定。ja.wikipedia「日本遺産」：文化庁が認定する制度で、当初は世界遺産を目指す地域などを対象にする新制度として発表された。
 - 引いて 0：C5 の grep で、HNS（docs・data）と ALM（C:\work\ALM）に「三十三観音」「日本遺産」「世界遺産」の作中の記録は 0（HNS に 奥州三十三観音霊場 が照らしの当たりとして 1 件出るだけ、2026-10-05 の局名の照らし）。
 - 読み取り：Gin の答えは「作中に 相津三十三観音 の日本遺産があるなら、世界遺産もある」という条件つき。今は作中の記録がないので、日本遺産・世界遺産 を作中に置くかを先に決める（日本遺産 は名の中に 日本 が入るので、置くなら 日ノ本遺産 などの名が要る）。決めるのは Gin。
+
+---
+
+## 追記2（2026-10-24）：中田観音・八田・KRB の OP（Gin「1,まだ詳細を詰めてないけどあるんじゃないかという話はした覚えがあります、中田観音の話もしたはず、八田の観音さまがまだ無いときのOP(KRB)を作る計画のときの話」、yunotsu §7・03a8d62）
+頼み：HNS-G5（C5 の PC の ALM を引く）。
+引いた範囲：C5 の PC の C:\work\ALM。git grep で、手元の HEAD（8cd5070、ブランチ claude/opus-external-generation-tools-y08f4a）・origin/main（9515bef）・ほかの origin のブランチ 5 本（claude/claude-md-project-overview-fecduc・drama-voices・epic-cannon-o1ylo7・hs-editor-owner・opus-external-generation-tools-y08f4a〈dcdcf30〉）。git に入っていないファイルも Grep で引いた（作業ツリー 726 ファイル）。Google ドライブ（HANDSHAKE）は引いていない。
+| 引いた語 | 結果 |
+|---|---|
+| 中田観音 | **引いて 0**（どのブランチも、作業ツリーも） |
+| 八田 | **引いて 0** |
+| 日本遺産 | **引いて 0** |
+| 観音 | 当たり 2 件、どちらも話と関わらない：docs/te_city_commuter_competition.md 139 行（車のドアの「観音開き」）、data/tur_station_sites.json 147 行（中継局の場所の説明の「金堀観音山」、dcdcf30） |
+| 中田 | 当たり 1 件、話と関わらない：data/tur_station_links.json 117 行（郡山 FM 補完中継局は「郡山市中田町の黒石山」、dcdcf30） |
+| KRB | HEAD に 40 件（data/ledger/krb_op.json、docs/krb_op_storyboard.md、docs/krb_1981_tech.md ほか）。その中に 観音・八田・中田・寺 を含む行は **0** |
+| OP | 単語として HEAD に 274 件。観音 の話との結びつきは上の KRB と同じく見つけていない |
+- 見立て：Gin の言う話（八田の観音さま・中田観音・KRB の OP の計画）は、ALM のリポジトリには書かれていない。会話の中だけで出た話か、ドライブの資料にあるか（引いていない）。
