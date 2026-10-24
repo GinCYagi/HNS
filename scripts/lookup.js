@@ -181,6 +181,8 @@ function lookup(term, opts = {}) {
     }
     total += hits.length;
     if (!hits.length) continue;
+    // 決まりの番号で引いたときは、その決まりの項目を先に出す（UA などの言及より前に）
+    hits.sort((a, b) => (new RegExp(`- id: ${term}\\s`).test(b.line) ? 1 : 0) - (new RegExp(`- id: ${term}\\s`).test(a.line) ? 1 : 0));
     say(`\n== ${g.label}（${hits.length} 行）`);
     hits.slice(0, max).forEach(h => { say(`- ${h.label}`); say(`  ${h.line}`); });
     if (hits.length > max) { say(`  （この種のほか ${hits.length - max} 行は出していない）`); hidden += hits.length - max; }
