@@ -147,7 +147,11 @@ function lookup(term, opts = {}) {
       const text = fs.readFileSync(path.join(BASE, rel), "utf8").split(/\r?\n/);
       let section = "", currentId = "", heading = "";
       text.forEach((line, i) => {
-        const top = line.match(/^\s{0,4}([a-z_]+):\s*$/) || line.match(/^([a-z_]+):/); if (top) section = top[1];
+        // 節の名：いちばん外の key（行頭）と、その中の key（字下げ 2〜4）を「外/中」で持つ
+        const outer = line.match(/^([a-z_]+):\s*$/);
+        const inner = line.match(/^\s{2,4}([a-z_]+):\s*$/);
+        if (outer) section = outer[1];
+        else if (inner) section = section.split("/")[0] + "/" + inner[1];
         const id = line.match(/- id: ((?:DIFF|RUL|G|C)-\d+)/); if (id) currentId = id[1];
         if (/^[a-z_]+:/.test(line) && !id) currentId = "";
         const h = line.match(/^#{1,4} (.*)/); if (h) heading = h[1];
@@ -182,7 +186,9 @@ function lookup(term, opts = {}) {
     total += hits.length;
     if (!hits.length) continue;
     // 決まりの番号で引いたときは、その決まりの項目を先に出す（UA などの言及より前に）
-    hits.sort((a, b) => (new RegExp(`- id: ${term}\\s`).test(b.line) ? 1 : 0) - (new RegExp(`- id: ${term}\\s`).test(a.line) ? 1 : 0));
+    // 字の表（char_defaults）の行も先に出す（一字で引いたとき、字の行き先がいちばん要る）
+    const rank = h => (new RegExp(`- id: ${term}\\s`).test(h.line) ? 2 : 0) + (/［char_defaults(\/[a-z_]+)?］/.test(h.label) ? 1 : 0) + (h.line.includes(`real: "${term}"`) ? 1 : 0);
+    hits.sort((a, b) => rank(b) - rank(a));
     say(`\n== ${g.label}（${hits.length} 行）`);
     hits.slice(0, max).forEach(h => { say(`- ${h.label}`); say(`  ${h.line}`); });
     if (hits.length > max) { say(`  （この種のほか ${hits.length - max} 行は出していない）`); hidden += hits.length - max; }

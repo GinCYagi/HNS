@@ -66,6 +66,14 @@ t("M4-5", "DIFF-026：--max 1 でも決まりの項目そのものが先に出�
   assert.ok(d.includes("- id: DIFF-026"), "DIFF-026 の項目が先に出ない");
   assert.ok(d.includes("左右"), "DIFF-026 の文に 左右 が出ない（6ddb42e で足した）");
 });
+t("M4-6", "潮：--max 1 でも字の表の 潮→塩（塩⇄潮 の相互、25f0d69）が先に出る", () => {
+  const d = part(lookup("潮", { max: 1 }), "正本");
+  assert.ok(/［char_defaults(\/[a-z_]+)?］/.test(d) && d.includes('real: "潮", fictional: "塩"'), "字の表の 潮→塩 が先に出ない");
+});
+t("M4-7", "五：--max 1 でも字の表の数の大字（一方通行、五→伍）が先に出る", () => {
+  const d = part(lookup("五", { max: 1 }), "正本");
+  assert.ok(d.includes("五→伍") && d.includes("one_way: true"), "数の大字の行が先に出ない");
+});
 t("C5-2", "汐平 しおひら：元 しおばら と同じ拍 3/4 と出る",
   () => assert.ok(part(lookup("汐平", { yomi: "しおひら", orig: "しおばら" }), "拍").includes("元と同じ拍 3/4"), "拍の節に 3/4 が出ない"));
 t("C5-3", "京鹿（G5-1 と同じ）", () => inMaster(lookup("京鹿", { all: true }), "東京→東都の京→都の置き換えとは別"));
