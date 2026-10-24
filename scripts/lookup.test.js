@@ -17,7 +17,8 @@ const t = (id, what, fn, opts = {}) => cases.push({ id, what, fn, ...opts });
 const has = (out, s) => assert.ok(out.includes(s), `出てほしいもの「${s}」が出ない`);
 // 記録の種（== 正本 など）の中だけを取り出す。提案書の引用で通ってしまわないように
 const part = (out, label) => {
-  const i = out.indexOf(`\n== ${label}（`);
+  let i = out.indexOf(`\n== ${label}（`);
+  if (i < 0) i = out.indexOf(`\n== ${label}\n`);
   if (i < 0) return "";
   const j = out.indexOf("\n== ", i + 4);
   return j < 0 ? out.slice(i) : out.slice(i, j);
@@ -61,13 +62,13 @@ t("M4-2", "汐：汐子区（磯 の元を持つ名）が出る", () => inMaster
 t("C5-1", "DIFF-016：決まりの文「対の字・近い意味の字」がそのまま出る",
   () => assert.ok(part(lookup("DIFF-016", { all: true }), "決まり（DIFF・保留）").includes("対の字・近い意味の字"), "決まりの当たりに DIFF-016 の文が出ない"));
 t("C5-2", "汐平 しおひら：元 しおばら と同じ拍 3/4 と出る",
-  () => has(lookup("汐平", { yomi: "しおひら", orig: "しおばら" }), "3/4"));
+  () => assert.ok(part(lookup("汐平", { yomi: "しおひら", orig: "しおばら" }), "拍").includes("元と同じ拍 3/4"), "拍の節に 3/4 が出ない"));
 t("C5-3", "京鹿（G5-1 と同じ）", () => inMaster(lookup("京鹿", { all: true }), "東京→東都の京→都の置き換えとは別"));
 t("C5-4", "野⇄原 で合わない行が索引に出る", null, { todo: "S3（前例の索引）で見る" });
 t("C5-5", "戸⇄口 で 万代口 が索引に出る", null, { todo: "S3（前例の索引）で見る" });
 t("C5-6", "作中の 磯 の元が 礁 以外を含むと索引に出る", null, { todo: "S3（前例の索引）で見る" });
-t("C5-7", "科坂 しなざか：読みを中に含む町域 石名坂（イシナザカ）が出る",
-  () => has(lookup("科坂", { yomi: "しなざか", postal }), "石名坂"), { needPostal: true });
+t("C5-7", "科坂 しなさか（濁らない形で引く。もとの見落としの形）：読みを中に含む町域 石名坂（イシナザカ）が出る",
+  () => assert.ok(part(lookup("科坂", { yomi: "しなさか", postal }), "郵便番号データ").includes("石名坂"), "郵便番号データの節に 石名坂 が出ない"), { needPostal: true });
 t("C5-8", "潮：郵便番号の「組の数」と「名の数」が両方出る", () => {
   const o = lookup("潮", { postal, max: 1 });
   has(o, "組の数");
@@ -75,6 +76,13 @@ t("C5-8", "潮：郵便番号の「組の数」と「名の数」が両方出る
 }, { needPostal: true });
 t("C5-9", "泰原：引いた範囲に、郵便番号データは小字を含まないと出る",
   () => has(lookup("泰原", { postal, max: 1 }), "小字・集落は含まない"), { needPostal: true });
+
+// --- 登録の遅れ（M4 の見通せていない点 ア）
+t("M4-3", "洛：M4 の未登録の一覧の UA-006（Gin「1はあかんね」）が出る", () => {
+  const o = lookup("洛", { all: true });
+  has(o, "［未登録の Gin の答え UA-006］");
+  has(o, "未登録の Gin の答え」の一覧");
+});
 
 // --- 部品
 t("部品-1", "拍の数え（小さい字は前と一つ、ッ・ン は一拍）", () => {

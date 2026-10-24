@@ -11,7 +11,8 @@
 //   1. 正本：当たった行の real・fictional と、どの欄に当たったか（決めた名／前の名・外した案／説明の中）
 //   2. 決まり（pending_items の DIFF、review_dictionary の RUL・外した名）
 //   3. かご・つながりの地図・引き継ぎ・査読・提案書（新しい順）
-//   4. 正本の名の欄に当たりがなく、提案・査読に Gin の言葉と一緒に出るときの注意（未登録かもしれない）
+//   4. M4 の「未登録の Gin の答え」の一覧（pending_items の unregistered_answers）に載っているか。
+//      載っていなくて、正本の名の欄にも当たりがなく、提案・査読に Gin の言葉と一緒に出るときは注意を出す
 //   5. 郵便番号データ：字を含む町域の「組の数」と「名の数」、読みの一致（そのまま・濁りを除いて・含む）
 //   6. --yomi があれば拍の数、--orig があれば元と同じ拍 n/m
 //   7. 引いた範囲（ファイル・commit・郵便番号データの版。郵便番号データは小字・集落を含まない）
@@ -139,6 +140,7 @@ function lookup(term, opts = {}) {
   let hidden = 0, total = 0;
   let masterNameHit = false;
   const ginLines = [];
+  const uaHits = [];
   for (const g of groups) {
     const hits = [];
     for (const rel of g.files) {
@@ -147,6 +149,7 @@ function lookup(term, opts = {}) {
       text.forEach((line, i) => {
         const top = line.match(/^\s{0,4}([a-z_]+):\s*$/) || line.match(/^([a-z_]+):/); if (top) section = top[1];
         const id = line.match(/- id: ((?:DIFF|RUL|G|C)-\d+)/); if (id) currentId = id[1];
+        if (/^[a-z_]+:/.test(line) && !id) currentId = "";
         const h = line.match(/^#{1,4} (.*)/); if (h) heading = h[1];
         if (!terms.some(t => line.includes(t))) return;
         let label = `${rel}:${i + 1}`;
@@ -155,7 +158,12 @@ function lookup(term, opts = {}) {
           if (c.kind === "決めた名") masterNameHit = true;
           label += `［${section}］［${c.kind}］` + (c.who ? ` real=${c.who}` : "") + (c.what ? ` → ${c.what}` : "") + (c.hitKeys.length ? `（当たった欄：${c.hitKeys.join("・")}）` : "");
         } else if (rel.endsWith(".yaml")) {
-          if (currentId) label += `［${currentId}］`;
+          const ua = line.match(/\{id: (UA-\d+)/);
+          if (ua) {
+            const f = fields(line);
+            label += `［未登録の Gin の答え ${ua[1]}］［${f.status || "状態の書きなし"}］`;
+            uaHits.push(`${ua[1]}（${f.status || "状態の書きなし"}）`);
+          } else if (currentId) label += `［${currentId}］`;
           if (/\{name: "/.test(line)) label += "［外した名の辞書］";
         } else if (heading) {
           label += `［${heading}］`;
@@ -180,8 +188,10 @@ function lookup(term, opts = {}) {
   if (total === 0) say("\n（リポジトリの記録には当たりなし。範囲は下の「引いた範囲」）");
   if (hidden) say(`\n（出していない行が合わせて ${hidden}。--all で全部、--max N で種ごとの数を変える）`);
 
-  if (!masterNameHit && ginLines.length && !/^(DIFF|RUL)-\d+$/.test(term)) {
-    say(`\n！ 正本の名の欄（real・fictional など）に当たりがない。提案・査読には Gin の言葉と一緒に ${ginLines.length} 行出る：${ginLines.slice(0, 5).join("、")}${ginLines.length > 5 ? " ほか" : ""}。Gin が答えたが正本に未登録かもしれない（読み取り。登録の有無は M4 の一覧で確かめる）`);
+  if (uaHits.length) {
+    say(`\n！ M4 の「未登録の Gin の答え」の一覧（pending_items の unregistered_answers）に載っている：${uaHits.join("、")}。正本にはまだ入っていない答えがある`);
+  } else if (!masterNameHit && ginLines.length && !/^(DIFF|RUL|UA)-\d+$/.test(term)) {
+    say(`\n！ 正本の名の欄（real・fictional など）に当たりがなく、M4 の未登録の一覧にもない。提案・査読には Gin の言葉と一緒に ${ginLines.length} 行出る：${ginLines.slice(0, 5).join("、")}${ginLines.length > 5 ? " ほか" : ""}。Gin が答えたが、どこにも登録されていないかもしれない（読み取り。M4 に知らせる）`);
   }
 
   // 拍
@@ -219,10 +229,11 @@ function lookup(term, opts = {}) {
       const K = toKata(yomi), S = seion(yomi);
       const exact = [...new Set(rows.filter(r => r.kana === K).map(r => r.pref + r.city + r.town))];
       const soft = [...new Set(rows.filter(r => r.kana !== K && seion(r.kana) === S).map(r => r.pref + r.city + r.town + "（" + r.kana + "）"))];
-      const part = [...new Set(rows.filter(r => r.kana !== K && r.kana.includes(K)).map(r => r.pref + r.city + r.town + "（" + r.kana + "）"))];
+      // 中に含むかも、濁りを除いて比べる（しなさか で 石名坂 イシナザカ を拾う。C5 の査読）
+      const part = [...new Set(rows.filter(r => r.kana !== K && seion(r.kana) !== S && seion(r.kana).includes(S)).map(r => r.pref + r.city + r.town + "（" + r.kana + "）"))];
       say(`- 読み ${K} と同じ町域：${exact.length}${exact.length ? "（" + exact.slice(0, 8).join(" / ") + (exact.length > 8 ? " ほか" : "") + "）" : ""}`);
       say(`- 濁りを除くと同じ読みの町域：${soft.length}${soft.length ? "（" + soft.slice(0, 8).join(" / ") + (soft.length > 8 ? " ほか" : "") + "）" : ""}`);
-      say(`- 読みを中に含む町域：${part.length}${part.length ? "（" + part.slice(0, 8).join(" / ") + (part.length > 8 ? " ほか" : "") + "）" : ""}`);
+      say(`- 読みを中に含む町域（濁りを除いて比べる）：${part.length}${part.length ? "（" + part.slice(0, 8).join(" / ") + (part.length > 8 ? " ほか" : "") + "）" : ""}`);
     }
   } else if (postal) {
     postalNote = `郵便番号データ：${postal} が見つからない。町域は引いていない`;
