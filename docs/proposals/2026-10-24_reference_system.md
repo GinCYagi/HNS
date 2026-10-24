@@ -158,3 +158,4 @@
 - Gin「後でALM,HNSは相互にリポジトリーとdrive共有できるようにします」「不可分なので」。
 - きっかけ：中田観音・日本遺産の話が ALM の絵コンテ（M4 側の ALM、c457979f）にだけあり、HNS のリポジトリ・G5 の会話記録・C5 の PC の ALM の作業ツリーでは引いて 0 だった（yunotsu §9）。
 - lookup への足し（共有ができてから）：引く範囲に ALM のリポジトリ（場所は引数か環境変数）と、ドライブの写しの場所を足し、「引いた範囲」に ALM の commit も出す。いまは HNS だけで、ALM は「引いていない」と出す。
+- Gin「してたつもりだったんだけど抜けがあったみたい」。G5 の確かめ（2026-10-24）：G5 の PC の ALM（C:\work\Around-LLM_Movie-、GitHub GinCYagi の ALM を fetch したあと、main＝origin/main 9515bef、ほかの origin ブランチ 5 本）に、ALM-M4 の言う commit **4b9d5c4c・c457979f が無い**（git cat-file で「Not a valid object name」）。krb_op_hello_sunrise_storyboard.md も origin/main に無い。→ ALM-M4 の絵コンテの commit は、**GitHub に push されていないか、別の remote に上がっている**（G5 の見立て。M4 の PC は見ていない）。ALM-M4 に確かめる。
