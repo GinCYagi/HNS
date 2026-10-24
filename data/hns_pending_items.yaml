@@ -24,6 +24,21 @@ gin_rulings_pending:
   - item: "P-05『制約が世界観を形成する』の仕様書収載(文言案提示済み・収載位置は命名思想の節を推奨)"
 
 # -------------------------------------------------------------
+# 未登録の Gin の答え(Gin が答えたが、正本にまだ入っていないもの)
+# 置き場所と書き方:HNS-M4(2026-10-24、reference_system の ア)。M4 が持ち、正本に登録したら status を「登録済み」にして登録の commit を書く
+# 範囲:M4 が今日の提案書(kotowari_placenames・kotowari_flow・units・reference_system)を見て拾った分。ほかのセッションの全部は見ていない(調べていない)
+# 書き方:gin(元の言葉のまま)/session(どのセッションで出たか)/recorded_in(書かれた文書と commit)/topic/reading(読み取り。Gin に確かめていないときは「読み取り」と書く)/status(読み確かめ中・登録待ち・登録済み・登録の要なし)
+# -------------------------------------------------------------
+unregistered_answers:
+  - {id: UA-001, gin: "1ok", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_kotowari_placenames.md §8(87330d2)", topic: "暦の名(元号・干支の年・月の名)を A(替えない)に入れる", reading: "G5 の読み取り:ok", status: "登録待ち(G5 の段取り:3〜5 の答えのあと DIFF-026 などに書き入れる)"}
+  - {id: UA-002, gin: "2,ok", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_kotowari_placenames.md §8(87330d2)", topic: "古い方角(辰巳・巽・乾・艮・坤・戌亥・丑寅)を、方角の意味のときだけ A に入れる", reading: "G5 の読み取り:ok", status: "登録待ち(UA-001 と同じ)"}
+  - {id: UA-003, gin: "3,右内裏、左内裏は？", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_kotowari_placenames.md §8(87330d2)", topic: "左右 を DIFF-026 に足すか", reading: "問い返し。答えではない", status: "読み確かめ中(G5 が問い中)"}
+  - {id: UA-004, gin: "4,検討の後可 → 4,変換実例を見て決める", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_kotowari_placenames.md §8・§9", topic: "北斗 は ウ、日の出・夕日 は B(陽の出・夕暉)", reading: "実例(§9)を見てから決める。まだ決まっていない", status: "読み確かめ中"}
+  - {id: UA-005, gin: "5検討しない → 5,精査", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_kotowari_placenames.md §8、docs/proposals/2026-10-24_units.md", topic: "度量衡の単位を A に入れるか", reading: "精査の頼み。答えは units.md の ア(数＋単位のときだけ A)を見たあと", status: "読み確かめ中"}
+  - {id: UA-006, gin: "1はあかんね", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_kotowari_placenames.md §10-10(c012006)", topic: "左京・右京 の 京 を 洛 にする案(エ)", reading: "G5 の読み取り:奈良の 左京・右京 とそろわないので 洛 はだめ", status: "読み確かめ中(G5 が問い中)"}
+  - {id: UA-007, gin: "やるだけやるしかないか / 行き止まりじゃないと良いけど", session: "HNS-G5", recorded_in: "docs/proposals/2026-10-24_reference_system.md §5(4d887fe)", topic: "一度したことを引ける仕組み(関門 1 に入る)", reading: "G5 の読み取り:この仕組みで進めてよい", status: "登録の要なし(正本の名ではない。G5 が S1 に入った、37baff3)"}
+
+# -------------------------------------------------------------
 # 未確定事項(F節系)
 # -------------------------------------------------------------
 open_items:
