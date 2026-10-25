@@ -13,7 +13,7 @@
 //   R3 読み：作中の名の読み（yomi）が、現実の名の読み（郵便番号データの町域・市区町村）とまるごと同じ
 //      （読みを残す決まり〈朝日→朝暉 の形・相津・元号〉で同じになる名も入る）
 //   R4 拍：名の後ろ（市・町・村・区・郡）を除いた芯の読みが 5 拍以上で、現実の芯より拍が増えたもの（DIFF-043。現実の読みが郵便番号データにある名だけ）
-//   R5 川の名：現実の名が 川 で終わり、作中の名が 川 で終わらない（川の名の終わりの 川 は替えない、7afc576。地名の 川 も当たる）
+//   R5 川の名：rivers の節で、現実の名が 川 で終わり、作中の名が 川 で終わらない（川の名の終わりの 川 は替えない、7afc576）
 //   --add X=Y：これから足す字の行（案）を当てたとき、新しく R1 に当たる名を出す（新しい決まりを問う前の材料）
 //
 // 当たった名は「決まりに合わないかもしれない名」で、すぐ直す名ではない。決めた名は動かさない前提で、
@@ -41,10 +41,12 @@ const KEEP_AFTER = /[反段畝歩坪町丁間里丈尺寸石斗升貫条]|丁目
 function readMaster() {
   const lines = fs.readFileSync(MASTER, "utf8").split(/\r?\n/);
   const names = [], table = [], words = [];
-  let section = "";
+  let section = "", sub = "";
   lines.forEach((line, i) => {
     const outer = line.match(/^([a-z_]+):\s*$/);
-    if (outer) section = outer[1];
+    const inner = line.match(/^\s{2,4}([a-z_]+):\s*$/);
+    if (outer) { section = outer[1]; sub = ""; }
+    else if (inner) sub = inner[1];
     if (!/real: "/.test(line)) return;
     const f = fields(line);
     if (section === "char_defaults") {
@@ -55,7 +57,7 @@ function readMaster() {
     const fic = f.fictional || f.hns;
     if (!fic || !f.real) return;
     if (f.verdict && f.verdict !== "採用") return;
-    names.push({ line: i + 1, section, real: f.real, base: f.real.replace(/[（(].*$/, ""), fic, yomi: f.yomi || "", exception: /例外/.test(line) });
+    names.push({ line: i + 1, section, sub, real: f.real, base: f.real.replace(/[（(].*$/, ""), fic, yomi: f.yomi || "", exception: /例外/.test(line) });
   });
   return { names, table, words };
 }
@@ -115,8 +117,8 @@ function check(opts = {}) {
       if (fm >= 5 && fm > ry) why.push({ code: "R4", text: `芯の拍 ${fm}（現実 ${ry}）` });
     }
     // R5：川の名の終わりの 川 は替えない（単語の表、7afc576）。現実の名が 川 で終わり、作中の名が 川 で終わらないもの
-    //     （石川・香川 のような地名の 川 も当たる。川の名か地名かは名ごとに見る）
-    if (n.base.endsWith("川") && !n.fic.endsWith("川")) why.push({ code: "R5", text: `川 で終わる名が ${n.fic.slice(-1)} で終わる（川の名なら 川 を残す決まり。地名なら当たらない）` });
+    //     正本の rivers の節の行だけを見る（石川・香川 のような地名の 川 は当てない。C5 の査読 2026-10-25）
+    if (n.sub === "rivers" && n.base.endsWith("川") && !n.fic.endsWith("川")) why.push({ code: "R5", text: `川の名の終わりの 川 が ${n.fic.slice(-1)} になっている` });
     if (why.length) hits.push({ ...n, why });
   }
   return { names, table, hits, postal: !!postal, postalPath };
@@ -128,7 +130,7 @@ function report(opts) {
   const say = s => out.push(s);
   const by = code => hits.filter(h => h.why.some(w => w.code === code));
   say(`■ 決まりの棚卸し（正本の採用の行 ${names.length} 名、字の表 ${table.length} 行${opts.add && opts.add.length ? `、足す案 ${opts.add.join("・")}` : ""}）`);
-  const codes = [["R1", "字の表の字が残る"], ["R2", "数の字が大字にならず残る"], ["R3", "読みが現実とまるごと同じ"], ["R4", "5 拍以上"], ["R5", "川の名の終わりの 川 が替わっている（地名も入る）"], ["ADD", "足す案で新しく当たる"]];
+  const codes = [["R1", "字の表の字が残る"], ["R2", "数の字が大字にならず残る"], ["R3", "読みが現実とまるごと同じ"], ["R4", "5 拍以上"], ["R5", "川の名の終わりの 川 が替わっている（rivers の節）"], ["ADD", "足す案で新しく当たる"]];
   for (const [c, label] of codes) {
     if (c === "ADD" && !(opts.add && opts.add.length)) continue;
     if (c === "R3" && !postal) { say(`- R3 ${label}：郵便番号データが渡されていないので見ていない`); continue; }

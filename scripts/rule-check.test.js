@@ -32,4 +32,8 @@ t("R5：直したあと（Gin「直します」2026-10-25）、央淵川・織�
   assert.ok(!r5.includes("央淵川") && !r5.includes("織瀞川") && !r5.includes("央淵河市"));
   assert.ok(!r5.includes("伍百川"));
 });
+t("R5 は rivers の節だけを見る（石川＝湧湯・香川＝飯比古 のような地名は当たらない、C5 の査読）", () => {
+  const r5 = base.hits.filter(h => h.why.some(w => w.code === "R5")).map(h => h.fic);
+  assert.ok(!r5.includes("湧湯") && !r5.includes("飯比古") && !r5.includes("仏名瀬"));
+});
 console.log(`\n通った ${pass}`);
