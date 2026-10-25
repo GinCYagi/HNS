@@ -1,0 +1,30 @@
+"use strict";
+// 決まりの棚卸し（scripts/rule-check.js）の試験
+//   node scripts/rule-check.test.js
+const assert = require("assert");
+const { check } = require("./rule-check");
+
+let pass = 0;
+const t = (what, fn) => { try { fn(); console.log(`○ ${what}`); pass++; } catch (e) { console.log(`× ${what}\n    ${e.message}`); process.exitCode = 1; } };
+
+const base = check({ postal: null });
+t("字の表の一字の行を読む（田⇄苗・塩⇄潮 ほか）", () => {
+  assert.ok(base.table.some(r => r.from === "潮" && r.to === "塩"));
+  assert.ok(base.table.some(r => r.from === "田" && r.to === "苗"));
+});
+t("R1：高田中継局＝鷹田 の 田 が残る名として出る（Gin の名ごとの裁定、字の表より前）", () => {
+  assert.ok(base.hits.some(h => h.fic === "鷹田" && h.why.some(w => w.code === "R1")));
+});
+t("単語の表の言葉（高原・平野）は字として数えない", () => {
+  assert.ok(!base.hits.some(h => h.fic === "渡後平野" && h.why.some(w => w.code === "R1")));
+});
+t("--add 川=河：川 が残る決めた名（翡翠川・閼伽川 ほか）が新しく当たる", () => {
+  const r = check({ postal: null, add: ["川=河"] });
+  const add = r.hits.filter(h => h.why.some(w => w.code === "ADD"));
+  assert.ok(add.length > 0);
+  assert.ok(add.some(h => h.fic === "閼伽川"));
+});
+t("R2：数＋単位 の数は数えない（数の字が単位の前にある名は当たらない）", () => {
+  assert.ok(!base.hits.some(h => /五反/.test(h.fic) && h.why.some(w => w.code === "R2")));
+});
+console.log(`\n通った ${pass}`);
