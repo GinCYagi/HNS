@@ -5,6 +5,7 @@
 // 字・名・読みを、リポジトリの記録の全部から引き、当たった行を切らずに出す。
 //   node scripts/lookup.js <字・名・DIFF の番号> [--yomi よみ] [--orig 元のよみ] [--postal <csv>] [--max N] [--all]
 //   --max は記録の種ごとに出す行の数（既定 40）。出さなかった行の数は必ず書く。
+//   常用漢字表（--joyo か HNS_JOYO、2,136 字を並べたテキスト）を渡すと、常用外の字を数える。リポジトリに入れない。
 //   郵便番号データ（utf_ken_all.csv）はリポジトリに入れない。--postal か環境変数 HNS_POSTAL で場所を渡す。
 //
 // 出すもの
@@ -209,6 +210,16 @@ function lookup(term, opts = {}) {
     say(`\n！ 正本の名の欄（real・fictional など）に当たりがなく、M4 の未登録の一覧にもない。提案・査読には Gin の言葉と一緒に ${ginLines.length} 行出る：${ginLines.slice(0, 5).join("、")}${ginLines.length > 5 ? " ほか" : ""}。Gin が答えたが、どこにも登録されていないかもしれない（読み取り。M4 に知らせる）`);
   }
 
+  // 常用漢字表（2,136 字を一行に並べたテキスト）が渡されたら、常用外の字を数える（DIFF-018 ④）。
+  // 当て読み（湖＝うみ など）は字からは分からないので、ここでは数えない（読みを見る人が足す）
+  const joyoPath = opts.joyo || process.env.HNS_JOYO;
+  if (joyoPath && fs.existsSync(joyoPath) && /[一-鿿]/.test(term)) {
+    const J = new Set(fs.readFileSync(joyoPath, "utf8").replace(/\s/g, ""));
+    const out = [...new Set(term.match(/[一-鿿㐀-䶿豈-﫿]/g) || [])].filter(c => !J.has(c));
+    say(`\n== 常用漢字表\n- 常用外の字：${out.length ? out.join("・") : "なし"}（${out.length} 字）${out.length >= 2 ? "　★二つ以上（DIFF-018 ④ に当たる）" : ""}`);
+    say("- 当て読み（字の決まった読みにない読み）は数えていない。ルビの要る読みがあれば一つとして足す");
+  }
+
   // 拍
   if (opts.yomi) {
     const c = morae(opts.yomi);
@@ -272,6 +283,7 @@ if (require.main === module) {
   opt.yomi = take("--yomi");
   opt.orig = take("--orig");
   opt.postal = take("--postal");
+  opt.joyo = take("--joyo");
   const mx = take("--max"); if (mx) opt.max = Number(mx);
   const ai = args.indexOf("--all"); if (ai >= 0) { opt.all = true; args.splice(ai, 1); }
   const term = args[0];

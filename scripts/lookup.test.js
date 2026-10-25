@@ -104,6 +104,11 @@ t("M4-4", "湯湊：UA-013 が登録済みなら「まだ登録されていな�
   assert.ok(!o.includes("まだ登録されていない答えがある：UA-013"), "登録済みの UA-013 を未登録と言っている");
 });
 
+t("C5-10", "鉤洲：常用漢字表を渡すと、常用外が 鉤・洲 の二つで ★ が出る（束2 の見落とし）", () => {
+  const o = lookup("鉤洲", { joyo: process.env.HNS_JOYO });
+  has(o, "★二つ以上");
+}, { needJoyo: true });
+
 // --- 部品
 t("部品-1", "拍の数え（小さい字は前と一つ、ッ・ン は一拍）", () => {
   assert.strictEqual(morae("きょうがけん").length, 5);
@@ -115,6 +120,7 @@ t("部品-2", "当たりのない言葉は「ない」と言わず、範囲つ�
 
 for (const c of cases) {
   if (c.todo) { console.log(`… ${c.id} まだ（${c.todo}）：${c.what}`); todo++; continue; }
+  if (c.needJoyo && !(process.env.HNS_JOYO && fs.existsSync(process.env.HNS_JOYO))) { console.log(`－ ${c.id} 飛ばした（HNS_JOYO がない）：${c.what}`); skip++; continue; }
   if (c.needPostal && !postal) { console.log(`－ ${c.id} 飛ばした（HNS_POSTAL がない）：${c.what}`); skip++; continue; }
   try { c.fn(); console.log(`○ ${c.id} ${c.what}`); pass++; }
   catch (e) { console.log(`× ${c.id} ${c.what}\n    ${e.message}`); process.exitCode = 1; }
