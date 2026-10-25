@@ -56,7 +56,7 @@ function readMaster() {
     }
     const fic = f.fictional || f.hns;
     if (!fic || !f.real) return;
-    if (f.verdict && f.verdict !== "採用") return;
+    if (f.verdict && !f.verdict.startsWith("採用")) return;
     names.push({ line: i + 1, section, sub, real: f.real, base: f.real.replace(/[（(].*$/, ""), fic, yomi: f.yomi || "", exception: /例外/.test(line) });
   });
   return { names, table, words };
