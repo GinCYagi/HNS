@@ -14,6 +14,7 @@
 //      （読みを残す決まり〈朝日→朝暉 の形・相津・元号〉で同じになる名も入る）
 //   R4 拍：名の後ろ（市・町・村・区・郡）を除いた芯の読みが 5 拍以上で、現実の芯より拍が増えたもの（DIFF-043。現実の読みが郵便番号データにある名だけ）
 //   R5 川の名：rivers の節で、現実の名が 川 で終わり、作中の名が 川 で終わらない（川の名の終わりの 川 は替えない、7afc576）
+//   R6 そのまま：verdict に そのまま があるか、現実と作中が同じ名の行で、理由の欄 keep がない（DIFF-060、1f6c794）。keep の値ごとの数も出す
 //   --add X=Y：これから足す字の行（案）を当てたとき、新しく R1 に当たる名を出す（新しい決まりを問う前の材料）
 //
 // 当たった名は「決まりに合わないかもしれない名」で、すぐ直す名ではない。決めた名は動かさない前提で、
@@ -57,7 +58,7 @@ function readMaster() {
     const fic = f.fictional || f.hns;
     if (!fic || !f.real) return;
     if (f.verdict && !f.verdict.startsWith("採用")) return;
-    names.push({ line: i + 1, section, sub, real: f.real, base: f.real.replace(/[（(].*$/, ""), fic, yomi: f.yomi || "", exception: /例外/.test(line) });
+    names.push({ line: i + 1, section, sub, real: f.real, base: f.real.replace(/[（(].*$/, ""), fic, yomi: f.yomi || "", exception: /例外/.test(line), verdict: f.verdict || "", keep: f.keep || "" });
   });
   return { names, table, words };
 }
@@ -119,6 +120,9 @@ function check(opts = {}) {
     // R5：川の名の終わりの 川 は替えない（単語の表、7afc576）。現実の名が 川 で終わり、作中の名が 川 で終わらないもの
     //     正本の rivers の節の行だけを見る（石川・香川 のような地名の 川 は当てない。C5 の査読 2026-10-25）
     if (n.sub === "rivers" && n.base.endsWith("川") && !n.fic.endsWith("川")) why.push({ code: "R5", text: `川の名の終わりの 川 が ${n.fic.slice(-1)} になっている` });
+    // R6：そのままの行（verdict に そのまま、または現実と作中が同じ名）で、理由の欄 keep がないもの（DIFF-060、1f6c794）
+    const same = /そのまま/.test(n.verdict) || n.base === n.fic.replace(/[（(].*$/, "");
+    if (same && !n.keep) why.push({ code: "R6", text: "そのままの名なのに 理由の欄 keep がない" });
     if (why.length) hits.push({ ...n, why });
   }
   return { names, table, hits, postal: !!postal, postalPath };
@@ -130,13 +134,16 @@ function report(opts) {
   const say = s => out.push(s);
   const by = code => hits.filter(h => h.why.some(w => w.code === code));
   say(`■ 決まりの棚卸し（正本の採用の行 ${names.length} 名、字の表 ${table.length} 行${opts.add && opts.add.length ? `、足す案 ${opts.add.join("・")}` : ""}）`);
-  const codes = [["R1", "字の表の字が残る"], ["R2", "数の字が大字にならず残る"], ["R3", "読みが現実とまるごと同じ"], ["R4", "5 拍以上"], ["R5", "川の名の終わりの 川 が替わっている（rivers の節）"], ["ADD", "足す案で新しく当たる"]];
+  const codes = [["R1", "字の表の字が残る"], ["R2", "数の字が大字にならず残る"], ["R3", "読みが現実とまるごと同じ"], ["R4", "5 拍以上"], ["R5", "川の名の終わりの 川 が替わっている（rivers の節）"], ["R6", "そのままの名に理由の欄 keep がない"], ["ADD", "足す案で新しく当たる"]];
   for (const [c, label] of codes) {
     if (c === "ADD" && !(opts.add && opts.add.length)) continue;
     if (c === "R3" && !postal) { say(`- R3 ${label}：郵便番号データが渡されていないので見ていない`); continue; }
     const h = by(c);
     say(`- ${c} ${label}：${h.length} 名（うち notes などに「例外」とある名 ${h.filter(x => x.exception).length}）`);
   }
+  const keeps = {};
+  for (const n of names) if (n.keep) keeps[n.keep] = (keeps[n.keep] || 0) + 1;
+  if (Object.keys(keeps).length) say(`- 理由の欄 keep の数：${Object.entries(keeps).map(([k, v]) => `${k} ${v}`).join("・")}`);
   const show = opts.reason ? by(opts.reason) : (opts.add && opts.add.length ? by("ADD") : hits);
   if (opts.list || opts.reason || (opts.add && opts.add.length)) {
     say("");

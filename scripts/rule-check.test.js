@@ -36,4 +36,13 @@ t("R5 は rivers の節だけを見る（石川＝湧湯・香川＝飯比古 �
   const r5 = base.hits.filter(h => h.why.some(w => w.code === "R5")).map(h => h.fic);
   assert.ok(!r5.includes("湧湯") && !r5.includes("飯比古") && !r5.includes("仏名瀬"));
 });
+t("R6：そのままの名（verdict に そのまま、または現実と作中が同じ名）は、どれも理由の欄 keep を持つ（DIFF-060、1f6c794）", () => {
+  const r6 = base.hits.filter(h => h.why.some(w => w.code === "R6"));
+  assert.strictEqual(r6.length, 0, `keep のない そのまま の行：${r6.map(h => `正本:${h.line} ${h.real}`).join("、")}`);
+});
+t("keep の値は決まった形のどれか（DIFF-026／DIFF-047(元号)／DIFF-060①・②／名ごとの理由）で、そのままの 77 行以上にある", () => {
+  const kept = base.names.filter(n => n.keep);
+  assert.ok(kept.length >= 77, `keep のある行が ${kept.length}`);
+  for (const n of kept) assert.ok(/^(DIFF-026|DIFF-047|DIFF-060[①②])|許容|この行/.test(n.keep), `正本:${n.line} の keep「${n.keep}」が決まった形でない`);
+});
 console.log(`\n通った ${pass}`);
