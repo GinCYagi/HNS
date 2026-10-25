@@ -27,4 +27,9 @@ t("--add 川=河：川 が残る決めた名（翡翠川・閼伽川 ほか）�
 t("R2：数＋単位 の数は数えない（数の字が単位の前にある名は当たらない）", () => {
   assert.ok(!base.hits.some(h => /五反/.test(h.fic) && h.why.some(w => w.code === "R2")));
 });
+t("R5：中津川＝央淵河・綾瀬川＝織瀞河 が、川の名の 川 が替わった名として出る（7afc576 のあと Gin に問う材料）", () => {
+  const r5 = base.hits.filter(h => h.why.some(w => w.code === "R5")).map(h => h.fic);
+  assert.ok(r5.includes("央淵河") && r5.includes("織瀞河"));
+  assert.ok(!r5.includes("伍百川"));
+});
 console.log(`\n通った ${pass}`);
