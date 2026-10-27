@@ -1,3 +1,4 @@
 ﻿*.bak
 inbox/
 _local/
+.cache/
