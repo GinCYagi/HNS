@@ -7,7 +7,12 @@
     "start": "node server.js",
     "generate": "node scripts/generate-registry.js",
     "verify-manifest": "node scripts/verify-manifest.js",
-    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js && ruby ops/test/role-runner.test.rb"
+    "check-tsunagari": "node scripts/check-tsunagari.js",
+    "build-map": "node scripts/build-map.js",
+    "test": "node scripts/verify-manifest.test.js && node src/layer1/canonical-loader.test.js && node scripts/check-tsunagari.test.js && node scripts/check-kyukokumei.test.js && node scripts/lookup.test.js && node scripts/rule-check.test.js && ruby ops/test/role-runner.test.rb",
+    "check-kyukokumei": "node scripts/check-kyukokumei.js",
+    "lookup": "node scripts/lookup.js",
+    "rule-check": "node scripts/rule-check.js"
   },
   "engines": {
     "node": ">=18"

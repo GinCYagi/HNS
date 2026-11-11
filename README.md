@@ -21,4 +21,4 @@
 npm test
 ```
 
-Manifest検証、Canonical Loader、Role Runnerのテストが順に実行されます。
+`package.json` の `test` に並べたテスト（Manifest検証、Canonical Loader、つながり・旧国名・lookup・rule-check の点検、Role Runner）が順に実行されます。Role Runnerのテストには Ruby が要ります。
