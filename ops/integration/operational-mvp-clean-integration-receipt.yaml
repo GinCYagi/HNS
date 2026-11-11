@@ -1,0 +1,193 @@
+document_type: IntegrationReceipt
+receipt_id: HNS-OPERATIONAL-MVP-CLEAN-INTEGRATION-20260715
+created_at: "2026-07-15T20:15:15+09:00"
+status: completed
+approval_authority: Gin
+branch:
+  name: codex/role-runner-mvp-clean-integration
+  pushed: false
+  merged: false
+base:
+  ref: origin/main
+  commit: b60213eb3612ba2eb3db2d4838f5fe65d31d8b60
+  tree: 68ce908fa60aeab10a3421108be474142d50a779
+source:
+  tag: role-runner-mvp-v1.0
+  commit: c30545daa83aba8f5122e8e942397f73c9809156
+  review: ops/integration/operational-mvp-integration-independent-review-20260715.yaml
+
+migrated_files:
+  from_operational_mvp:
+    - README.md
+    - package.json
+    - ops/README.md
+    - ops/lib/role-runner.rb
+    - ops/policy.yaml
+    - ops/run-cycle.sh
+    - ops/runtime-map.yaml
+    - ops/tasks/README.md
+    - ops/test/role-runner.test.rb
+  clean_integration_specific:
+    - .gitignore
+    - ops/integration/operational-mvp-clean-integration-receipt.yaml
+  notes:
+    - Role Runner実装、実行入口、Runtime Map、policy、利用文書、回帰テストだけを移植
+    - READMEとpackage.jsonは最新mainへ最小差分を適用
+
+excluded_files:
+  source_commit_file_count: 103
+  runtime_generated:
+    count: 90
+    patterns:
+      - ops/work/**
+      - ops/reviews/**
+      - ops/state/**
+      - ops/results/**
+      - ops/decisions/**
+    tracked_in_clean_branch: 0
+    reason: ローカル環境情報とRuntime生出力を含み得る実行生成物のため
+  sample_and_dogfood_tasks:
+    count: 3
+    files:
+      - ops/tasks/decision-escalation-smoke.yaml
+      - ops/tasks/operational-mvp-001-readme-test-guide.yaml
+      - ops/tasks/role-runner-real-cli-smoke.yaml
+    reason: 実装に不要な実行用Taskと監査履歴をクリーン統合へ持ち込まないため
+  structural_placeholders:
+    count: 1
+    files:
+      - ops/tasks/.gitkeep
+    reason: ops/tasks/README.mdがディレクトリを保持するため不要
+  canonical_distribution_change:
+    imported_from_source_commit: false
+    reason: 最新mainの内容を維持しOperational MVP差分を加えないため
+  regression_fixtures:
+    created: false
+    reason: 回帰テストは一時ディレクトリ内で最小データを合成でき、固定Runtime出力fixtureを必要としないため
+
+protections:
+  runtime_self_report_required: true
+  independent_content_check_required: true
+  method: pre_execution_sha256_snapshot
+  check_stages:
+    - after_implementation
+    - after_tests
+    - after_review
+  protected_categories:
+    canonical:
+      - data/hns_manifest.yaml
+      - data/hns_specification_v0.1.yaml
+      - data/hns_admin_division_master.yaml
+      - data/hns_review_dictionary.yaml
+      - data/hns_pending_items.yaml
+      - docs/standards/**/*
+    acceptance:
+      - package.json
+      - ops/policy.yaml
+      - ops/tasks/**/*.yaml
+      - ops/test/**/*
+      - test/**/*
+      - tests/**/*
+      - spec/**/*
+      - "**/*.test.js"
+      - "**/*.test.rb"
+  regression_proofs:
+    - Runtimeがfalseを返しても正典ファイル変更をprotected_canonical_changeで停止
+    - Runtimeがfalseを返しても受入テスト変更をprotected_acceptance_changeで停止
+
+canonical_non_change_proof:
+  comparison: origin/main vs working tree
+  diff_command: "git diff --quiet origin/main -- docs/standards data/hns_manifest.yaml data/hns_specification_v0.1.yaml data/hns_admin_division_master.yaml data/hns_review_dictionary.yaml data/hns_pending_items.yaml"
+  diff_exit_code: 0
+  unchanged: true
+  header_standard:
+    path: docs/standards/header-standard-current.md
+    origin_main_sha256: 9e84d6703e7c442b01ef567076817a284cd14638ef8636688da38690c7f6e4df
+    working_tree_sha256: 9e84d6703e7c442b01ef567076817a284cd14638ef8636688da38690c7f6e4df
+    note: 最新origin/mainは既にHeader Standard v1.6を含むため、そのmain版を無変更で保持
+
+consistency_fixes:
+  - Runtime例外時も終了コード2を返す
+  - auto_continue_severitiesを非エスカレーションseverity判定に使用
+  - Runtime出力booleanの型を検証
+  - Taskの必須header、objective、scope、acceptanceを検証
+  - README、ops/README、policy、runtime-map、package.json test scriptを整合
+  - Runtime生成5ディレクトリを.gitignoreへ追加
+
+review_tracking_fix:
+  task_id: operational-mvp-clean-integration-review-tracking-fix
+  finding:
+    id: CLEAN-REV-001
+    severity: moderate
+    title: Receiptが参照する前回正式Reviewがignoreされtarget commitに存在しない
+    status: addressed_pending_confirmation
+  policy:
+    runtime_reviews:
+      path: ops/reviews/
+      tracked: false
+    formal_integration_reviews:
+      path: ops/integration/
+      tracked: true
+  moved_review:
+    path: ops/integration/operational-mvp-integration-independent-review-20260715.yaml
+    before_sha256: 369ae17c9cf4ee624bfa754679f62e0002dedc075cbe36793e4177b6626c3e21
+    after_sha256: 369ae17c9cf4ee624bfa754679f62e0002dedc075cbe36793e4177b6626c3e21
+    content_unchanged: true
+    contains_local_absolute_path_as_historical_finding_evidence: true
+    runtime_logs_embedded: false
+    secrets_detected: false
+  tracked_reviews:
+    - ops/integration/operational-mvp-integration-independent-review-20260715.yaml
+    - ops/integration/operational-mvp-clean-integration-independent-review.yaml
+  actions:
+    - 前回正式Reviewを内容不変で追跡対象pathへ移動
+    - 今回のrequest_changes Reviewを追跡対象へ追加
+    - Receiptの前回Review参照を存在する追跡対象pathへ更新
+    - Runtime Reviewと正式統合Reviewの保存方針をops/README.mdへ明記
+
+verification:
+  npm_test:
+    command: npm test
+    exit_code: 0
+    passed: true
+    suites:
+      - name: Manifest verification
+        checks: 19
+      - name: Canonical Loader
+        checks: 11
+      - name: Role Runner
+        checks: 11
+  diff_check:
+    command: git diff --check
+    exit_code: 0
+    passed: true
+  generated_artifact_ignore:
+    passed: true
+    checked_directories:
+      - ops/work
+      - ops/reviews
+      - ops/state
+      - ops/results
+      - ops/decisions
+  formal_review_tracking:
+    passed: true
+    runtime_review_path_ignored: true
+    formal_review_path_ignored: false
+    referenced_reviews_exist: true
+    moved_review_sha256_matches: true
+  credential_scan:
+    passed: true
+    scope: clean_integration_migrated_files_before_review_tracking_fix
+    credentials_found: false
+    local_absolute_paths_in_migrated_files: false
+
+unresolved_items: []
+finding_status:
+  previous_findings: resolved
+  review_tracking_finding: addressed_pending_confirmation
+pr:
+  readiness: pending_final_independent_review
+  may_create: false
+  created: false
+  condition: 最終独立再査読でreview tracking fixの解消確認を得ること
+  current_action: await_final_independent_review

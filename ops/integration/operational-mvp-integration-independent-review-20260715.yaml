@@ -1,0 +1,228 @@
+document_type: Review
+review_id: HNS-REV-OPERATIONAL-MVP-INTEGRATION-20260715
+header:
+  canonical: "【HNS】Review｜HNS-Rev-local より Gin への文（Operational MVP統合ブランチ独立査読）"
+  project:
+    identifier: HNS
+    prefix: HNS-
+  type: Review
+reviewed_at: "2026-07-15T19:54:50+09:00"
+reviewer: HNS-Rev-local
+independence: independent_read_only_review
+target:
+  branch: codex/header-standard-v1-6
+  head: c30545daa83aba8f5122e8e942397f73c9809156
+  tag: role-runner-mvp-v1.0
+  tag_target: c30545daa83aba8f5122e8e942397f73c9809156
+  baseline: main
+  baseline_commit: bde12e7
+  comparison: main...HEAD
+decision:
+  approved: false
+  status: escalated
+  escalated_to: Gin
+  maximum_severity: major
+  reasons:
+    - moderate_or_higher_findings_present
+    - canonical_change_mixed_into_integration_branch
+    - enforcement_gap_can_miss_canonical_or_acceptance_changes
+  decision_conflict_detected: false
+summary: >-
+  npm testはManifest、Canonical Loader、Role Runnerを含めて成功し、main由来の
+  Loader・Manifest実装も同一である。一方、統合差分にはRole Runnerと無関係な
+  Header Standard正典コピーの変更が混入している。また、正典変更・受入テスト変更の
+  停止判定がRuntimeの自己申告だけに依存し、実ファイル差分を検証しない。
+  一時成果物の追跡とローカル絶対パスの収録、異常終了コードの文書不整合もあるため、
+  承認せずGinへエスカレーションする。
+
+scope_results:
+  role_runner_required_functions:
+    status: fail
+    notes:
+      - YAML Task読込、実装・テスト・査読、minor差戻し、3 round上限、Receipt・state保存は実装済み
+      - moderate以上、scope変更、Decision、正典変更、受入テスト変更、推奨競合の申告時停止は実装済み
+      - 実際のGit差分に基づく正典・受入条件変更検出が欠落
+  canonical_loader_and_manifest_from_main:
+    status: pass
+    notes:
+      - src/layer1/canonical-loader.jsはmainとSHA-256一致
+      - scripts/verify-manifest.jsはmainとSHA-256一致
+      - Loader、Manifest、関連テスト、data/hns_manifest.yamlにmainとの差分なし
+  npm_test_coverage:
+    status: pass
+    command: npm test
+    exit_code: 0
+    suites:
+      - name: Manifest verification
+        checks: 19
+        passed: true
+      - name: Canonical Loader
+        checks: 11
+        passed: true
+      - name: Role Runner
+        checks: 7
+        passed: true
+  artifact_classification:
+    status: fail
+    notes:
+      - reviews、results、state、decisionsは監査証跡として妥当
+      - work配下の生stdout・stderr・runner logは一時成果物かつ環境情報を含むため通常追跡は不適切
+      - work/reviews/results/state/decisionsに90ファイル、136469 bytesの生成物を追跡
+  canonical_or_acceptance_changes:
+    status: fail
+    canonical_change_present: true
+    acceptance_change_present: false
+    notes:
+      - docs/standards/header-standard-current.mdがmainから202行追加・344行削除
+      - 既存の受入条件文書を変更した差分は確認されず、package.jsonのtest script拡張は依頼対象と整合
+      - 将来の実装roundにおける受入条件変更を実差分で防止する機構はない
+  documentation_consistency:
+    status: fail
+    notes:
+      - READMEのnpm test説明とpackage.jsonは整合
+      - ops/README、runtime-map、policyのrole名、3 round、既定test command、severity集合は概ね整合
+      - ops/README記載の失敗終了コード2と実装の例外時return 1が不整合
+      - policyのauto_continue_severitiesはRunnerから参照されず、挙動が設定値と連動しない
+  sensitive_information:
+    status: fail
+    credentials_found: false
+    secrets_found: false
+    local_absolute_paths_found: true
+    notes:
+      - 追跡済みstderr logに /Users/gin/Projects/HNS を複数収録
+      - 秘密鍵、Bearer token、主要API key形式、GitHub token形式、AWS access key形式の実値は検出せず
+
+findings:
+  - id: HNS-REV-001
+    severity: major
+    category: canonical_change
+    title: Role Runner統合差分にHeader Standard正典コピー変更が混入
+    evidence:
+      - file: docs/standards/header-standard-current.md
+        line: 1
+        detail: "mainのv1.4文書をv1.6生成文書へ置換し、202行追加・344行削除している"
+      - commit: 75f76500da6f8e6170321c57569511b94bcb5a2a
+        detail: "Role Runner commitの親としてDistribute Header Standard v1.6を含む"
+    impact: >-
+      Operational MVPだけをmainへ統合する前提を破り、Role Runnerの承認が正典配布の
+      追認として扱われる危険がある。
+    required_action: >-
+      GinがHeader Standard v1.6配布を別Decisionとして承認するか、Operational MVPを
+      mainから作成した専用ブランチへ移し、正典差分を除外する。
+
+  - id: HNS-REV-002
+    severity: major
+    category: control_enforcement
+    title: 正典変更・受入テスト変更の検出がRuntime自己申告に依存
+    evidence:
+      - file: ops/lib/role-runner.rb
+        line: 39
+        detail: "実装前後のGit tree、diff、保護対象pathのsnapshotを取得していない"
+      - file: ops/lib/role-runner.rb
+        line: 209
+        detail: "implementation_escalation_reasonは応答booleanだけを検査する"
+      - file: ops/lib/role-runner.rb
+        line: 203
+        detail: "review側もReview YAMLの自己申告だけを検査する"
+      - file: ops/test/role-runner.test.rb
+        line: 91
+        detail: "テストはcanon_change_requested=trueの申告を模擬するだけで実ファイル変更を検証しない"
+    impact: >-
+      実装Runtimeが正典、Task acceptance、test、package.jsonを変更してfalseと返すと、
+      Reviewerも見落とした場合にRunnerはcompletedへ進める。必須停止条件を保証できない。
+    required_action: >-
+      round開始時のGit状態を記録し、終了時diffで正典path、acceptance定義、test harness、
+      package.json test scriptを機械判定する。検出時は申告値に関係なくGinへ停止する。
+      実変更を伴うnegative testを追加する。
+
+  - id: HNS-REV-003
+    severity: moderate
+    category: artifact_hygiene
+    title: 一時work/logを監査証跡と同じ扱いで追跡しローカル絶対パスを収録
+    evidence:
+      - file: .gitignore
+        line: 1
+        detail: "*.bakのみでops/work等の生成物を除外しない"
+      - file: ops/work/role-runner-real-cli-smoke-20260715T065545Z-37170/round-01.stderr.log
+        line: 4
+        detail: "workdir: /Users/gin/Projects/HNS を収録"
+      - file: ops/README.md
+        line: 24
+        detail: "保存先は列挙するが一時物、監査証跡、追跡可否、保持期間、redactionを区分しない"
+    impact: >-
+      リポジトリを環境依存にし、将来Runtime出力に認証情報が現れた際の恒久収録リスクを高める。
+      生ログと承認用の最小監査証跡の境界も不明確になる。
+    required_action: >-
+      ops/workと生logを一時・非追跡に分類し.gitignoreへ追加する。監査証跡はredaction済みの
+      request/review/receipt/DecisionRequestへ限定し、意図的fixtureはops/test/fixturesへ分離する。
+      既存追跡logからローカル絶対パスを除去する。
+
+  - id: HNS-REV-004
+    severity: moderate
+    category: behavior_documentation_mismatch
+    title: Runtime例外時の終了コードがops/READMEの契約と不一致
+    evidence:
+      - file: ops/lib/role-runner.rb
+        line: 66
+        detail: "StandardError rescueはfinish(failed)後に1を返す"
+      - file: ops/lib/role-runner.rb
+        line: 230
+        detail: "通常のfailed/escalated/max_roundsは2を返す設計"
+      - file: ops/README.md
+        line: 37
+        detail: "失敗の終了コードを2と記載"
+    impact: >-
+      呼出側が文書どおりexit 2を待つと、Runtime異常や不正YAMLだけ別種の未定義エラーとして扱われる。
+    required_action: "例外時もfinishの戻り値2を返すか、終了コード契約を明示的に改訂しテストを追加する。"
+
+  - id: HNS-REV-005
+    severity: minor
+    category: policy_consistency
+    title: auto_continue_severities設定が実装で未使用
+    evidence:
+      - file: ops/policy.yaml
+        line: 4
+        detail: "noteとminorをauto_continue_severitiesとして定義"
+      - file: ops/lib/role-runner.rb
+        line: 57
+        detail: "完了・差戻し判定はnoteを直接比較し、設定値を参照しない"
+    impact: "policyを変更してもRunner挙動が変わらず、policyを正本と誤認させる。"
+    required_action: "設定値を実判定に使用するか、固定仕様ならpolicyから削除して文書化する。"
+
+  - id: HNS-REV-006
+    severity: minor
+    category: repository_quality
+    title: 統合差分がgit diff --checkを通過しない
+    evidence:
+      - file: ops/results/decision-escalation-smoke-20260715T070834Z-40630.yaml
+        line: 18
+        detail: "生成YAMLのnull表現など複数ファイルにtrailing whitespace"
+      - file: ops/policy.yaml
+        line: 7
+        detail: "new blank line at EOF"
+    impact: "生成成果物を含む統合差分の品質ゲートを満たせない。"
+    required_action: "生成物の追跡方針を整理した後、残すファイルを正規化してgit diff --checkを通す。"
+
+verification:
+  commands:
+    - command: npm test
+      exit_code: 0
+      result: pass
+    - command: "git diff --quiet main...HEAD -- src/layer1/canonical-loader.js src/layer1/canonical-loader.test.js scripts/verify-manifest.js scripts/verify-manifest.test.js data/hns_manifest.yaml"
+      exit_code: 0
+      result: pass
+    - command: "git diff --numstat main...HEAD -- docs/standards/header-standard-current.md"
+      exit_code: 0
+      result: "202 insertions, 344 deletions"
+    - command: "git diff --check main...HEAD"
+      exit_code: 2
+      result: fail
+    - command: "tracked-file secret and absolute-path pattern scan"
+      exit_code: 0
+      result: "credentials not detected; local absolute paths detected"
+
+approval_conditions:
+  - Ginが正典差分の扱いを裁定し、Operational MVPの統合境界を確定する
+  - 正典・受入条件・test harness変更を実diffで検出して強制停止する
+  - moderate findings HNS-REV-003とHNS-REV-004を解消する
+  - npm testとgit diff --checkを再実行して成功させる

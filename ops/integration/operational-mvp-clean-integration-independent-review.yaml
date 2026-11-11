@@ -1,0 +1,171 @@
+document_type: Review
+review_id: HNS-REV-OPERATIONAL-MVP-CLEAN-INTEGRATION-20260715
+reviewed_at: "2026-07-15T20:27:08+09:00"
+reviewer: HNS-Rev-local
+independence: independent_read_only_review
+target:
+  comparison: origin/main...477be3b
+  base_commit: b60213eb3612ba2eb3db2d4838f5fe65d31d8b60
+  target_commit: 477be3bbaa2d27abd27e54f3753639129c13875f
+  target_tree: fb14865173ca65f3d9cf32a3b424683f1bdfc8dc
+references:
+  previous_review: ops/reviews/operational-mvp-integration-independent-review-20260715.yaml
+  integration_receipt: ops/integration/operational-mvp-clean-integration-receipt.yaml
+
+decision:
+  result: request_changes
+  approved: false
+  maximum_severity: moderate
+  escalated: false
+  reasons:
+    - tracked Receiptが参照する前回正式Reviewがtarget commitに存在せず.gitignoreで隠される
+    - Receiptのunresolved_items空およびPR作成可判定が上記監査参照不整合を反映していない
+summary: >-
+  Header Standardを含む正典差分はゼロで、保護対象の事前SHA-256検査、Runtime例外時exit 2、
+  auto_continue_severities、全npm test、生成物除外は確認できた。前回finding HNS-REV-001〜006は
+  個別には解消している。一方、ops/reviews全体のignoreによりReceiptが参照する前回正式Reviewが
+  commit 477be3bに含まれず、監査参照が再現不能である。moderateの新規findingがあるため承認しない。
+
+previous_findings_interpretation:
+  requested: 前回major 5件
+  actual_previous_severity_counts:
+    major: 2
+    moderate: 2
+    minor: 2
+  applied_interpretation: 前回Reviewの先頭5件HNS-REV-001〜005を個別判定し、HNS-REV-006も補足判定
+
+previous_finding_resolutions:
+  - id: HNS-REV-001
+    previous_severity: major
+    status: resolved
+    evidence:
+      - origin/main...477be3bのdocs/standardsおよび正典5 YAML差分はゼロ
+      - docs/standards/header-standard-current.mdの双方SHA-256は9e84d6703e7c442b01ef567076817a284cd14638ef8636688da38690c7f6e4df
+  - id: HNS-REV-002
+    previous_severity: major
+    status: resolved
+    evidence:
+      - ops/lib/role-runner.rb:36で実行前snapshotを取得
+      - ops/lib/role-runner.rb:43-64で実装、テスト、査読後に保護検査
+      - ops/lib/role-runner.rb:239-278で追加・変更・削除をSHA-256比較し強制停止
+      - false自己申告下の正典変更・受入テスト変更を回帰テストで検出
+  - id: HNS-REV-003
+    previous_severity: moderate
+    status: resolved
+    evidence:
+      - target commit内のops/work、reviews、state、results、decisions追跡ファイルは0件
+      - 対象11差分からローカル絶対パス、秘密鍵、主要token・credential形式を検出せず
+      - 旧source commitのRuntime生成物90件は移植されていない
+    note: 正式Reviewまでops/reviewsでignoreされる問題は新規finding CLEAN-REV-001として分離
+  - id: HNS-REV-004
+    previous_severity: moderate
+    status: resolved
+    evidence:
+      - ops/lib/role-runner.rb:79-87の例外経路はfinishの2またはfallback 2を返す
+      - ops/README.md:36は失敗exit code 2を記載
+      - Runtime例外の回帰テストはexit 2を確認
+  - id: HNS-REV-005
+    previous_severity: minor
+    status: resolved
+    evidence:
+      - ops/policy.yaml:4に設定を保持
+      - ops/lib/role-runner.rb:283がauto_continue_severitiesを実判定に使用
+      - 設定からminorを外した回帰テストがunhandled_review_severity停止を確認
+  - id: HNS-REV-006
+    previous_severity: minor
+    status: resolved
+    evidence:
+      - git diff --check origin/main...477be3bはexit 0
+
+focus_checks:
+  - id: FOCUS-01
+    subject: Header Standard正典差分
+    status: pass
+    result: 差分ゼロ
+  - id: FOCUS-02
+    subject: 正典・受入テスト変更検出の独立性
+    status: pass
+    result: Runtime自己申告に加えて事前SHA-256 snapshotを3段階で比較
+  - id: FOCUS-03
+    subject: Runtime生成物・絶対パス・秘密情報
+    status: pass
+    result: 生成ディレクトリ追跡0件、ローカル絶対パス・秘密情報検出なし
+  - id: FOCUS-04
+    subject: Runtime例外時exit codeとREADME
+    status: pass
+    result: 実装、文書、回帰テストがexit 2で一致
+  - id: FOCUS-05
+    subject: auto_continue_severities
+    status: pass
+    result: 設定値を非エスカレーションseverityの許可判定に使用
+  - id: FOCUS-06
+    subject: .gitignoreと正式監査物
+    status: fail
+    result: >-
+      ops/integration配下のReceiptと今回Reviewはignoreされないが、ops/reviews全体がignoreされるため
+      Receipt参照先の前回正式Reviewはtarget commitに存在せずローカルでもignored
+  - id: FOCUS-07
+    subject: npm test suite構成
+    status: pass
+    result: Manifest 19、Canonical Loader 11、Role Runner 11を順に実行し全件成功
+  - id: FOCUS-08
+    subject: Receipt整合性
+    status: fail
+    result: >-
+      base、source、11差分、旧103ファイル内訳、正典hash、テスト件数、生成物0件、push・merge未実施は一致。
+      一方、references.previous_reviewはcommit内に存在せず、unresolved_items空とpr.may_create trueは監査参照不整合を反映しない。
+
+findings:
+  - id: CLEAN-REV-001
+    severity: moderate
+    category: audit_traceability
+    title: Receiptが参照する前回正式Reviewがignoreされtarget commitに存在しない
+    evidence:
+      - file: .gitignore
+        line: 5
+        detail: ops/reviews/をディレクトリ全体でignore
+      - file: ops/integration/operational-mvp-clean-integration-receipt.yaml
+        line: 17
+        detail: ops/reviews/operational-mvp-integration-independent-review-20260715.yamlをsource Reviewとして参照
+      - command: git cat-file -e 477be3b:ops/reviews/operational-mvp-integration-independent-review-20260715.yaml
+        exit_code: 128
+        detail: target commitに参照先が存在しない
+      - command: git check-ignore -v ops/reviews/operational-mvp-integration-independent-review-20260715.yaml
+        exit_code: 0
+        detail: ローカルの参照先も.gitignore対象
+    impact: >-
+      commit単体またはclone後に、統合判断の根拠としてReceiptが指す前回Reviewを再現・監査できない。
+      Receiptのunresolved_items空およびPR作成可判定とも矛盾する。
+    required_action: >-
+      Runtime生成reviewsは引き続きignoreし、正式Reviewをops/integration等の追跡対象へ移してReceipt参照を更新する。
+      その後、unresolved_itemsとPR可否を再評価する。
+
+verification:
+  - command: npm test
+    exit_code: 0
+    result: pass
+    details:
+      manifest_checks: 19
+      canonical_loader_checks: 11
+      role_runner_checks: 11
+  - command: git diff --check origin/main...477be3b
+    exit_code: 0
+    result: pass
+  - command: canonical protected-path diff
+    exit_code: 0
+    result: unchanged
+  - command: tracked Runtime artifact count
+    exit_code: 0
+    result: 0
+  - command: secret and local absolute-path scan
+    exit_code: 1
+    result: no_matches
+  - command: prior Review commit-object check
+    exit_code: 128
+    result: missing
+
+acceptance_or_canonical_change_detected: false
+decision_conflict_detected: false
+required_before_approval:
+  - 正式な前回Reviewを追跡対象pathへ収録しReceipt参照を有効化する
+  - Receiptのunresolved_itemsとpr.may_createを実状態に合わせる

@@ -1,0 +1,24 @@
+version: 1
+max_rounds: 3
+default_test_command: ["npm", "test"]
+auto_continue_severities: ["note", "minor"]
+escalate_severities: ["moderate", "major", "blocker"]
+repeated_failure_threshold: 2
+protected_paths:
+  canonical:
+    - data/hns_manifest.yaml
+    - data/hns_specification_v0.1.yaml
+    - data/hns_admin_division_master.yaml
+    - data/hns_review_dictionary.yaml
+    - data/hns_pending_items.yaml
+    - docs/standards/**/*
+  acceptance:
+    - package.json
+    - ops/policy.yaml
+    - ops/tasks/**/*.yaml
+    - ops/test/**/*
+    - test/**/*
+    - tests/**/*
+    - spec/**/*
+    - "**/*.test.js"
+    - "**/*.test.rb"
